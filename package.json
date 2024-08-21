@@ -1,0 +1,25 @@
+{
+  "name": "vue",
+  "version": "1.0.0",
+  "description": "this is a blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev docs --temp .temp",
+    "docs:build": "vuepress build  docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/alexbibihere/vuepress.git"
+  },
+  "author": "yandg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexbibihere/vuepress/issues"
+  },
+  "homepage": "https://github.com/alexbibihere/vuepress#readme",
+  "devDependencies": {
+    "vuepress": "^1.9.10",
+    "vuepress-theme-reco": "^1.6.17"
+  }
+}
