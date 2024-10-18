@@ -4,35 +4,36 @@
 export const siteData = {
   "title": "Yan-sir",
   "description": "个人网站",
-  "base": "/",
+  "base": "/javadoc/",
   "headTags": [
     [
       "link",
       {
         "rel": "icon",
-        "href": "/favicon.ico"
+        "href": "/javadoc/favicon.ico"
       }
     ]
   ],
   "pages": [
     {
-      "title": "JVM的组成",
+      "title": "拆箱与装箱",
       "frontmatter": {
         "icon": "pen-to-square",
-        "date": "2022-01-09T00:00:00.000Z",
+        "date": "2022-01-03T00:00:00.000Z",
         "category": [
-          "Cherry"
+          "Java基础",
+          "Fruit"
         ],
         "tag": [
           "red",
-          "small",
+          "big",
           "round"
         ]
       },
-      "regularPath": "/book/JVM/JVM%E7%9A%84%E7%BB%84%E6%88%90.html",
-      "relativePath": "book/JVM/JVM的组成.md",
-      "key": "v-82b5c472",
-      "path": "/book/JVM/JVM%E7%9A%84%E7%BB%84%E6%88%90.html",
+      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/%E6%8B%86%E7%AE%B1%E4%B8%8E%E8%A3%85%E7%AE%B1.html",
+      "relativePath": "book/Java基础/拆箱与装箱.md",
+      "key": "v-1aab4efe",
+      "path": "/book/Java%E5%9F%BA%E7%A1%80/%E6%8B%86%E7%AE%B1%E4%B8%8E%E8%A3%85%E7%AE%B1.html",
       "headers": [
         {
           "level": 2,
@@ -45,77 +46,6 @@ export const siteData = {
           "slug": "heading-3"
         }
       ]
-    },
-    {
-      "frontmatter": {},
-      "regularPath": "/",
-      "relativePath": "README.md",
-      "key": "v-11a1be79",
-      "path": "/"
-    },
-    {
-      "title": "String",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2022-01-01T00:00:00.000Z",
-        "category": [
-          "Java基础"
-        ],
-        "tag": [
-          "red",
-          "big",
-          "round"
-        ]
-      },
-      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/String.html",
-      "relativePath": "book/Java基础/String.md",
-      "key": "v-024b5f3c",
-      "path": "/book/Java%E5%9F%BA%E7%A1%80/String.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
-        },
-        {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
-        }
-      ]
-    },
-    {
-      "title": "StringUtils",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2022-01-02T00:00:00.000Z",
-        "category": [
-          "Java基础"
-        ],
-        "tag": [
-          "red",
-          "big",
-          "round"
-        ],
-        "star": true
-      },
-      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html",
-      "relativePath": "book/Java基础/StringUtils.md",
-      "key": "v-43f16930",
-      "path": "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
-        },
-        {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
-        }
-      ],
-      "excerpt": "<h1 id=\"stringutils\"><a class=\"header-anchor\" href=\"#stringutils\">#</a> StringUtils</h1>\n<p>A apple article being stared.</p>\n"
     },
     {
       "title": "字节码",
@@ -134,40 +64,8 @@ export const siteData = {
       },
       "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/%E5%AD%97%E8%8A%82%E7%A0%81.html",
       "relativePath": "book/Java基础/字节码.md",
-      "key": "v-513a3884",
+      "key": "v-b4280ae2",
       "path": "/book/Java%E5%9F%BA%E7%A1%80/%E5%AD%97%E8%8A%82%E7%A0%81.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
-        },
-        {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
-        }
-      ]
-    },
-    {
-      "title": "拆箱与装箱",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2022-01-03T00:00:00.000Z",
-        "category": [
-          "Java基础",
-          "Fruit"
-        ],
-        "tag": [
-          "red",
-          "big",
-          "round"
-        ]
-      },
-      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/%E6%8B%86%E7%AE%B1%E4%B8%8E%E8%A3%85%E7%AE%B1.html",
-      "relativePath": "book/Java基础/拆箱与装箱.md",
-      "key": "v-7ca8caad",
-      "path": "/book/Java%E5%9F%BA%E7%A1%80/%E6%8B%86%E7%AE%B1%E4%B8%8E%E8%A3%85%E7%AE%B1.html",
       "headers": [
         {
           "level": 2,
@@ -196,10 +94,10 @@ export const siteData = {
           "long"
         ]
       },
-      "regularPath": "/book/MQ/1.html",
-      "relativePath": "book/MQ/1.md",
-      "key": "v-667d0662",
-      "path": "/book/MQ/1.html",
+      "regularPath": "/book/MQ/MQ.html",
+      "relativePath": "book/MQ/MQ.md",
+      "key": "v-8c251266",
+      "path": "/book/MQ/MQ.html",
       "headers": [
         {
           "level": 2,
@@ -214,7 +112,7 @@ export const siteData = {
       ]
     },
     {
-      "title": "分布式系统构建",
+      "title": "列出几个常用的linux命令",
       "frontmatter": {
         "icon": "pen-to-square",
         "date": "2022-01-09T00:00:00.000Z",
@@ -227,10 +125,230 @@ export const siteData = {
           "round"
         ]
       },
-      "regularPath": "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html",
-      "relativePath": "book/分布式/distributeSystem.md",
-      "key": "v-0ed8eec5",
-      "path": "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html",
+      "regularPath": "/book/linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html",
+      "relativePath": "book/linux/linux常用命令.md",
+      "key": "v-e10741d4",
+      "path": "/book/linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "列出几个常用的linux命令",
+          "slug": "列出几个常用的linux命令"
+        },
+        {
+          "level": 2,
+          "title": "检查java进程是否存在；",
+          "slug": "检查java进程是否存在"
+        },
+        {
+          "level": 2,
+          "title": "查看端口占用",
+          "slug": "查看端口占用"
+        },
+        {
+          "level": 2,
+          "title": "博客命令",
+          "slug": "博客命令"
+        },
+        {
+          "level": 2,
+          "title": "df -h  检查磁盘内存",
+          "slug": "df-h-检查磁盘内存"
+        },
+        {
+          "level": 2,
+          "title": "du -sh /* |sort -nr",
+          "slug": "du-sh-sort-nr"
+        },
+        {
+          "level": 2,
+          "title": "du -sh /usr/* |sort -nr",
+          "slug": "du-sh-usr-sort-nr"
+        },
+        {
+          "level": 2,
+          "title": "cat /dev/null >nohup.out 清除",
+          "slug": "cat-dev-null-nohup-out-清除"
+        }
+      ]
+    },
+    {
+      "title": "StringUtils",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-02T00:00:00.000Z",
+        "category": [
+          "Java基础"
+        ],
+        "tag": [
+          "red",
+          "big",
+          "round"
+        ],
+        "star": true
+      },
+      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html",
+      "relativePath": "book/Java基础/StringUtils.md",
+      "key": "v-4ffa3dfe",
+      "path": "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Heading 2",
+          "slug": "heading-2"
+        },
+        {
+          "level": 3,
+          "title": "Heading 3",
+          "slug": "heading-3"
+        }
+      ],
+      "excerpt": "<h1 id=\"stringutils\"><a class=\"header-anchor\" href=\"#stringutils\">#</a> StringUtils</h1>\n<p>A apple article being stared.</p>\n"
+    },
+    {
+      "title": "JVM的组成",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-09T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/JVM/JVM%E7%9A%84%E7%BB%84%E6%88%90.html",
+      "relativePath": "book/JVM/JVM的组成.md",
+      "key": "v-99a012d0",
+      "path": "/book/JVM/JVM%E7%9A%84%E7%BB%84%E6%88%90.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Heading 2",
+          "slug": "heading-2"
+        },
+        {
+          "level": 3,
+          "title": "Heading 3",
+          "slug": "heading-3"
+        }
+      ]
+    },
+    {
+      "title": "博客",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2024-8-23",
+        "category": [
+          "note"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/note/blog.html",
+      "relativePath": "book/note/blog.md",
+      "key": "v-9b5770a6",
+      "path": "/book/note/blog.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "refusing to merge unrelated histories",
+          "slug": "refusing-to-merge-unrelated-histories"
+        }
+      ]
+    },
+    {
+      "title": "todolist",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2024-8-23",
+        "category": [
+          "note"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/note/study.html",
+      "relativePath": "book/note/study.md",
+      "key": "v-120ad9b3",
+      "path": "/book/note/study.html"
+    },
+    {
+      "title": "定位环境问题",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2024-8-23",
+        "category": [
+          "note"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/note/SecZone.html",
+      "relativePath": "book/note/SecZone.md",
+      "key": "v-6a9f2a33",
+      "path": "/book/note/SecZone.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Heading 2",
+          "slug": "heading-2"
+        },
+        {
+          "level": 3,
+          "title": "Heading 3",
+          "slug": "heading-3"
+        }
+      ]
+    },
+    {
+      "title": "String",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-01T00:00:00.000Z",
+        "category": [
+          "Java基础"
+        ],
+        "tag": [
+          "red",
+          "big",
+          "round"
+        ]
+      },
+      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/String.html",
+      "relativePath": "book/Java基础/String.md",
+      "key": "v-caaf8f66",
+      "path": "/book/Java%E5%9F%BA%E7%A1%80/String.html"
+    },
+    {
+      "title": "linux常用命令",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-09T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html",
+      "relativePath": "book/小技巧/Java8 Stream.md",
+      "key": "v-0a731cfa",
+      "path": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html",
       "headers": [
         {
           "level": 2,
@@ -260,7 +378,7 @@ export const siteData = {
       },
       "regularPath": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/javabasic.html",
       "relativePath": "book/小技巧/javabasic.md",
-      "key": "v-8f031744",
+      "key": "v-0f7dac6f",
       "path": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/javabasic.html",
       "headers": [
         {
@@ -276,7 +394,22 @@ export const siteData = {
       ]
     },
     {
-      "title": "linux常用命令",
+      "title": "首页",
+      "frontmatter": {
+        "home": true,
+        "layout": "BlogHome",
+        "icon": "home",
+        "title": "首页",
+        "heroText": "一点一滴,共筑江河",
+        "heroFullScreen": true
+      },
+      "regularPath": "/",
+      "relativePath": "README.md",
+      "key": "v-2283e108",
+      "path": "/"
+    },
+    {
+      "title": "Git开发小技巧",
       "frontmatter": {
         "icon": "pen-to-square",
         "date": "2022-01-09T00:00:00.000Z",
@@ -289,10 +422,60 @@ export const siteData = {
           "round"
         ]
       },
-      "regularPath": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html",
-      "relativePath": "book/小技巧/Java8 Stream.md",
-      "key": "v-51a085e9",
-      "path": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html",
+      "regularPath": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/git.html",
+      "relativePath": "book/小技巧/git.md",
+      "key": "v-2b7d0523",
+      "path": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/git.html"
+    },
+    {
+      "title": "分布式系统构建",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-09T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html",
+      "relativePath": "book/分布式/distributeSystem.md",
+      "key": "v-9b2f95d4",
+      "path": "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Heading 2",
+          "slug": "heading-2"
+        },
+        {
+          "level": 3,
+          "title": "Heading 3",
+          "slug": "heading-3"
+        }
+      ]
+    },
+    {
+      "title": "Springcloud",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-09T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA.html",
+      "relativePath": "book/微服务/SpringCloud项目搭建.md",
+      "key": "v-11ba7331",
+      "path": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA.html",
       "headers": [
         {
           "level": 2,
@@ -322,7 +505,7 @@ export const siteData = {
       },
       "regularPath": "/book/%E5%B9%B6%E5%8F%91/countdownlatch.html",
       "relativePath": "book/并发/countdownlatch.md",
-      "key": "v-df128ec4",
+      "key": "v-31141ea2",
       "path": "/book/%E5%B9%B6%E5%8F%91/countdownlatch.html",
       "headers": [
         {
@@ -353,39 +536,8 @@ export const siteData = {
       },
       "regularPath": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud.html",
       "relativePath": "book/微服务/SpringCloud.md",
-      "key": "v-406b31a6",
+      "key": "v-15fdf937",
       "path": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
-        },
-        {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
-        }
-      ]
-    },
-    {
-      "title": "Springcloud",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2022-01-09T00:00:00.000Z",
-        "category": [
-          "Cherry"
-        ],
-        "tag": [
-          "red",
-          "small",
-          "round"
-        ]
-      },
-      "regularPath": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA.html",
-      "relativePath": "book/微服务/SpringCloud项目搭建.md",
-      "key": "v-e3fb5ec0",
-      "path": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA.html",
       "headers": [
         {
           "level": 2,
@@ -413,10 +565,10 @@ export const siteData = {
           "round"
         ]
       },
-      "regularPath": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql.html",
-      "relativePath": "book/数据库/mysql.md",
-      "key": "v-3c94f6ef",
-      "path": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql.html",
+      "regularPath": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html",
+      "relativePath": "book/数据库/索引.md",
+      "key": "v-0c976d0a",
+      "path": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html",
       "headers": [
         {
           "level": 2,
@@ -446,7 +598,7 @@ export const siteData = {
       },
       "regularPath": "/book/%E6%A1%86%E6%9E%B6/Mybatis-plus.html",
       "relativePath": "book/框架/Mybatis-plus.md",
-      "key": "v-99471b44",
+      "key": "v-9ed74a22",
       "path": "/book/%E6%A1%86%E6%9E%B6/Mybatis-plus.html",
       "headers": [
         {
@@ -477,39 +629,8 @@ export const siteData = {
       },
       "regularPath": "/book/%E6%A1%86%E6%9E%B6/Spring.html",
       "relativePath": "book/框架/Spring.md",
-      "key": "v-34535ca8",
+      "key": "v-23c1cbbd",
       "path": "/book/%E6%A1%86%E6%9E%B6/Spring.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
-        },
-        {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
-        }
-      ]
-    },
-    {
-      "title": "Mysql",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2022-01-09T00:00:00.000Z",
-        "category": [
-          "Cherry"
-        ],
-        "tag": [
-          "red",
-          "small",
-          "round"
-        ]
-      },
-      "regularPath": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html",
-      "relativePath": "book/数据库/索引.md",
-      "key": "v-65a2d1aa",
-      "path": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html",
       "headers": [
         {
           "level": 2,
@@ -539,8 +660,39 @@ export const siteData = {
       },
       "regularPath": "/book/%E6%A1%86%E6%9E%B6/SpringCloud.html",
       "relativePath": "book/框架/SpringCloud.md",
-      "key": "v-161b3d18",
+      "key": "v-0aa615e9",
       "path": "/book/%E6%A1%86%E6%9E%B6/SpringCloud.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Heading 2",
+          "slug": "heading-2"
+        },
+        {
+          "level": 3,
+          "title": "Heading 3",
+          "slug": "heading-3"
+        }
+      ]
+    },
+    {
+      "title": "Mysql",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-09T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql.html",
+      "relativePath": "book/数据库/mysql.md",
+      "key": "v-561c6000",
+      "path": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql.html",
       "headers": [
         {
           "level": 2,
@@ -570,7 +722,7 @@ export const siteData = {
       },
       "regularPath": "/book/%E9%9B%86%E5%90%88/List.html",
       "relativePath": "book/集合/List.md",
-      "key": "v-0de0e3dc",
+      "key": "v-31a4b8a3",
       "path": "/book/%E9%9B%86%E5%90%88/List.html",
       "headers": [
         {
@@ -601,7 +753,7 @@ export const siteData = {
       },
       "regularPath": "/book/%E9%9B%86%E5%90%88/Map.html",
       "relativePath": "book/集合/Map.md",
-      "key": "v-1c084634",
+      "key": "v-b34e3df6",
       "path": "/book/%E9%9B%86%E5%90%88/Map.html",
       "headers": [
         {
@@ -688,6 +840,10 @@ export const siteData = {
           },
           {
             "text": "MQ",
+            "link": "/"
+          },
+          {
+            "text": "note",
             "link": "/"
           }
         ]
@@ -777,12 +933,12 @@ export const siteData = {
         "collapsable": false,
         "children": [
           {
-            "title": "List",
-            "path": "/book/数据库/List"
+            "title": "索引",
+            "path": "/book/数据库/索引"
           },
           {
-            "title": "Map",
-            "path": "/book/数据库/Map"
+            "title": "mysql",
+            "path": "/book/数据库/mysql"
           }
         ]
       },
@@ -791,12 +947,8 @@ export const siteData = {
         "collapsable": false,
         "children": [
           {
-            "title": "mysql",
-            "path": "/book/分布式/mysql"
-          },
-          {
-            "title": "索引",
-            "path": "/book/分布式/索引"
+            "title": "distributeSystem",
+            "path": "/book/分布式/distributeSystem"
           }
         ]
       },
@@ -819,12 +971,26 @@ export const siteData = {
         "collapsable": false,
         "children": [
           {
-            "title": "List",
-            "path": "/book/linux/List"
+            "title": "linux常用命令",
+            "path": "/book/linux/linux常用命令"
+          }
+        ]
+      },
+      {
+        "title": "note",
+        "collapsable": false,
+        "children": [
+          {
+            "title": "study",
+            "path": "/book/note/study"
           },
           {
-            "title": "Map",
-            "path": "/book/linux/Map"
+            "title": "SecZone",
+            "path": "/book/note/SecZone"
+          },
+          {
+            "title": "blog",
+            "path": "/book/note/blog"
           }
         ]
       },
@@ -833,15 +999,17 @@ export const siteData = {
         "collapsable": false,
         "children": [
           {
-            "title": "List",
-            "path": "/book/MQ/List"
-          },
-          {
-            "title": "Map",
-            "path": "/book/MQ/Map"
+            "title": "MQ",
+            "path": "/book/MQ/MQ"
           }
         ]
       }
     ]
+  },
+  "locales": {
+    "/": {
+      "lang": "zh-CN",
+      "path": "/"
+    }
   }
 }
