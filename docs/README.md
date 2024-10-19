@@ -40,3 +40,6 @@ heroFullScreen: true
 #
 #footer: customize your footer text
 ---
+# 此分支用于保存md文档
+## 发布流程: 本地book分支更新完后推送到远端 book分支
+## ->接着切换到master分支上 合并book分支  然后deploy 部署
