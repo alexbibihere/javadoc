@@ -113,3 +113,7 @@ Map<String, List<CallRecords>> listWW = list.stream().collect(Collectors.groupin
 Map<String, List<CallRecords>> listWW = list.stream().collect(Collectors.groupingBy(item -> new SimpleDateFormat("yyyy").format(item.getTelTime())));
 
 
+# Optional
+
+## 用法
+- Optional.ofNullable(xx).orElse();

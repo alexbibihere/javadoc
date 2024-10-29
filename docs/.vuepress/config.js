@@ -65,10 +65,10 @@ module.exports = {
       },
       {
         title: "并发",
-        // path: '/book/并发',
+         path: '/book/并发/',
         collapsable: false, // 不折叠
         children: [
-          { title: "countdownlatch", path: "/book/并发/countdownlatch" }
+          { title: "countdownlatch" ,path:"/countdownlatch"}
           //   { title: "Map", path: "/book/并发/Map" }
         ],
       },
@@ -103,6 +103,7 @@ module.exports = {
         // path: '/book/微服务',
         collapsable: false, // 不折叠
         children: [
+          { title: "Docker", path: "/book/微服务/Docker" },
           { title: "SpringCloud", path: "/book/微服务/SpringCloud" },
           { title: "SpringCloud项目搭建", path: "/book/微服务/SpringCloud项目搭建" }
         ],
@@ -130,7 +131,9 @@ module.exports = {
         // path: '/book/MQ',
         collapsable: false, // 不折叠
         children: [
-          { title: "MQ", path: "/book/MQ/MQ" }
+          { title: "kafka", path: "/book/MQ/kafka" },
+          {title:"RabbitMQ",path:"/book/MQ/RabbitMQ"},
+          {title:"RocketMQ",path:"/book/MQ/RocketMQ"}
         ],
       }
     ]
