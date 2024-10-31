@@ -103,8 +103,7 @@ module.exports = {
         // path: '/book/微服务',
         collapsable: false, // 不折叠
         children: [
-          { title: "Docker", path: "/book/微服务/Docker" },
-          { title: "SpringCloud", path: "/book/微服务/SpringCloud" },
+          { title: "Docker", path: "/book/微服务/Docker" },          { title: "SpringCloud", path: "/book/微服务/SpringCloud" },
           { title: "SpringCloud项目搭建", path: "/book/微服务/SpringCloud项目搭建" }
         ],
       },
