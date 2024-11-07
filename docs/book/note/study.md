@@ -12,8 +12,19 @@ tag:
 # todolist
 
 - [ ] 学习vuepress
-- [ ] 学习markdown
+- [x] 学习markdown
 - [ ] 学习git
-- [ ] 学习github        
+- [x] 学习github    
+- [ ] 学习CICD
+- [x] 学习Mybatis-plus
+- [x] 学习list stream用法
+- [x] 学习Map高级用法
+- [ ] 学习Optional
+- [ ] 学习RabbitMQ
+- [ ] 学习XXL-JOB
+- [x] 学习MongoDB
+- [ ] 学习linux
+- [ ] 学习jenkis
+- [x] 学习nacos
 
 

@@ -22,6 +22,7 @@ module.exports = {
           { text: '并发', link: '/' },
           { text: '框架', link: '/' },
           { text: '数据库', link: '/' },
+          { text: '小技巧', link: '/' },
           { text: 'linux', link: '/' },
           { text: 'JVM', link: '/' },
           { text: '分布式', link: '/' },
@@ -50,7 +51,8 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "List", path: "/book/集合/List" },
-          { title: "Map", path: "/book/集合/Map" }
+          { title: "Map", path: "/book/集合/Map" },
+          { title: "ObjectMapper", path: "/book/集合/ObjectMapper"}
         ],
       },
       {
@@ -103,8 +105,19 @@ module.exports = {
         // path: '/book/微服务',
         collapsable: false, // 不折叠
         children: [
-          { title: "Docker", path: "/book/微服务/Docker" },          { title: "SpringCloud", path: "/book/微服务/SpringCloud" },
+          { title: "Docker", path: "/book/微服务/Docker" },          
+          { title: "SpringCloud", path: "/book/微服务/SpringCloud" },
           { title: "SpringCloud项目搭建", path: "/book/微服务/SpringCloud项目搭建" }
+        ],
+      },
+      {
+        title: "小技巧",
+        // path: '/book/linux',
+        collapsable: false, // 不折叠
+        children: [
+          { title: "git", path: "/book/小技巧/git" },
+          { title: "Java 8 Stream", path: "/book/小技巧/Java 8 Stream" },
+          { title: "markdown", path: "/book/小技巧/markdown" }
         ],
       },
       {
