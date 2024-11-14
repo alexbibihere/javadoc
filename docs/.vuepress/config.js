@@ -135,7 +135,8 @@ module.exports = {
         children: [
           { title: "study", path: "/book/note/study" },
           { title: "SecZone", path: "/book/note/SecZone" },
-          { title: "blog", path: "/book/note/blog" }
+          { title: "blog", path: "/book/note/blog" },
+          {title:"work", path: "/book/note/work"}
         ],
       },
       {
