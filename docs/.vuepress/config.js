@@ -116,7 +116,7 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "git", path: "/book/小技巧/git" },
-          { title: "Java 8 Stream", path: "/book/小技巧/Java 8 Stream" },
+          { title: "Java8 Stream", path: "/book/小技巧/Java8 Stream" },
           { title: "markdown", path: "/book/小技巧/markdown" }
         ],
       },
