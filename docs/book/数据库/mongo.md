@@ -52,8 +52,17 @@ db.myCollection.insertOne({
 
 - db.colletion.insertMany({})
 
-- db.colletion.save()  // 如果_id已存在则会更新  ,不存在则插入
+- db.colletion.save()  // 如果_id已存在则会更新  ,不存在则插入`
 
 ## 删除语句
 
  db.iast_loophole_detail.deleteOne\  deleteMany({taskId:1837007127184977920})
+
+
+## update语句
+````
+db.iast_loophole_detail.updateMany(
+{funId:{$eq:11} }, // 更新条件
+{$set: { funId:13 }} // 更新操作
+)
+````
