@@ -9,8 +9,6 @@ tag:
   - round
 ---
 
-# Spring
-
 ## Heading 2
 
 Here is the content.
