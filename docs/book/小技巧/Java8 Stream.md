@@ -61,6 +61,9 @@ List<Dictionaries> dictionaries = list.stream().sorted(Comparator.reverseOrder()
 // 定制升序排序
 List<Dictionaries> dictionaries = list.stream().sorted(Comparator.comparing(Student::getAge)).collect(Collectors.toList());
 
+// 比对排序
+List<Dictionaries> dictionaries = list.stream().sorted(Comparator.comparing(Student::getAge).thenComparing(Student::getName)).collect(Collectors.toList());
+
 // 定制降序排序
 List<Dictionaries> dictionaries = list.stream().sorted(Comparator.comparing(Student::getAge).reverseOrder()).collect(Collectors.toList());
 

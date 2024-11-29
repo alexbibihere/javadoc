@@ -28,6 +28,7 @@ tag:
 - git pull origin master --allow-unrelated-histories
 
 # blog note
+- 页面左侧标题去 config.js 里面修改
 - 本地启动: npm run dev
 - 本地生成 npm run docs:build
 
