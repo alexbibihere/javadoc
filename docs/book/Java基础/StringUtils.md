@@ -10,8 +10,6 @@ tag:
 star: true
 ---
 
-# StringUtils
-
 ## StringUtils 常用方法
 
 - `StringUtils.isEmpty(String str)` 判断字符串是否为空
