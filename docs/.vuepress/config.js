@@ -22,6 +22,7 @@ module.exports = {
           { text: '并发', link: '/' },
           { text: '框架', link: '/' },
           { text: '数据库', link: '/' },
+          { text: '小技巧', link: '/' },
           { text: 'linux', link: '/' },
           { text: 'JVM', link: '/' },
           { text: '分布式', link: '/' },
@@ -50,7 +51,8 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "List", path: "/book/集合/List" },
-          { title: "Map", path: "/book/集合/Map" }
+          { title: "Map", path: "/book/集合/Map" },
+          { title: "ObjectMapper", path: "/book/集合/ObjectMapper"}
         ],
       },
       {
@@ -65,10 +67,10 @@ module.exports = {
       },
       {
         title: "并发",
-        // path: '/book/并发',
+         path: '/book/并发/',
         collapsable: false, // 不折叠
         children: [
-          { title: "countdownlatch", path: "/book/并发/countdownlatch" }
+          { title: "countdownlatch" ,path:"/countdownlatch"}
           //   { title: "Map", path: "/book/并发/Map" }
         ],
       },
@@ -87,6 +89,7 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "索引", path: "/book/数据库/索引" },
+          { title: "mongo", path: "/book/数据库/mongo" }
           { title: "mysql", path: "/book/数据库/mysql" }
         ],
       },
@@ -103,8 +106,19 @@ module.exports = {
         // path: '/book/微服务',
         collapsable: false, // 不折叠
         children: [
+          { title: "Docker", path: "/book/微服务/Docker" },
           { title: "SpringCloud", path: "/book/微服务/SpringCloud" },
           { title: "SpringCloud项目搭建", path: "/book/微服务/SpringCloud项目搭建" }
+        ],
+      },
+      {
+        title: "小技巧",
+        // path: '/book/linux',
+        collapsable: false, // 不折叠
+        children: [
+          { title: "git", path: "/book/小技巧/git" },
+          { title: "Java8 Stream", path: "/book/小技巧/Java8 Stream" },
+          { title: "markdown", path: "/book/小技巧/markdown" }
         ],
       },
       {
@@ -122,7 +136,8 @@ module.exports = {
         children: [
           { title: "study", path: "/book/note/study" },
           { title: "SecZone", path: "/book/note/SecZone" },
-          { title: "blog", path: "/book/note/blog" }
+          { title: "blog", path: "/book/note/blog" },
+          { title:"work", path: "/book/note/work"}
         ],
       },
       {
@@ -130,7 +145,9 @@ module.exports = {
         // path: '/book/MQ',
         collapsable: false, // 不折叠
         children: [
-          { title: "MQ", path: "/book/MQ/MQ" }
+          { title: "kafka", path: "/book/MQ/kafka" },
+          {title:"RabbitMQ",path:"/book/MQ/RabbitMQ"},
+          {title:"RocketMQ",path:"/book/MQ/RocketMQ"}
         ],
       }
     ]

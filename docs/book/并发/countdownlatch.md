@@ -11,10 +11,30 @@ tag:
 
 # Countdownlatch的使用
 
-## Heading 2
+## 代码
+```java
+import java.util.concurrent.CountDownLatch;
 
-Here is the content.
+public class CountDownLatchDemo {
+    public static void main(String[] args) throws InterruptedException {
+        int count = 5;
+        CountDownLatch latch = new CountDownLatch(count);
 
-### Heading 3
+        for (int i = 1; i <= count; i++) {
+            new Thread(() -> {
+                System.out.println(Thread.currentThread().getName() + " is running");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                latch.countDown();
+            }, "Thread-" + i).start();
+        }
 
-Here is the content.
+        latch.await();
+        System.out.println("All threads have finished");
+    }
+}
+```
+
