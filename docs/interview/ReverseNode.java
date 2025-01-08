@@ -1,0 +1,36 @@
+// 反转链表
+//给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
+
+//示例 1：
+//输入：head = [1,2,3,4,5]
+//输出：[5,4,3,2,1]
+
+//示例 2：
+//输入：head = [1,2]
+//输出：[2,1]
+
+    //提示：
+    //链表中节点的数目在范围 [0, 5000] 内
+    //-5000 <= Node.val <= 5000
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr!= null) {
+            ListNode next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+}
