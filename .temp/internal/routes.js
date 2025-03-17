@@ -21,20 +21,20 @@ export const routes = [
     redirect: "/"
   },
   {
-    name: "v-c3f48d38",
-    path: "/book/Java%E5%9F%BA%E7%A1%80/String.html",
+    name: "v-ac819d50",
+    path: "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-c3f48d38").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-ac819d50").then(next)
     },
   },
   {
-    path: "/book/Java基础/String.html",
-    redirect: "/book/Java%E5%9F%BA%E7%A1%80/String.html"
+    path: "/book/Java基础/StringUtils.html",
+    redirect: "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html"
   },
   {
-    path: "/book/Java基础/String.html",
-    redirect: "/book/Java%E5%9F%BA%E7%A1%80/String.html"
+    path: "/book/Java基础/StringUtils.html",
+    redirect: "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html"
   },
   {
     name: "v-55318def",
@@ -53,20 +53,36 @@ export const routes = [
     redirect: "/book/JVM/JVM%E7%9A%84%E7%BB%84%E6%88%90.html"
   },
   {
-    name: "v-ac819d50",
-    path: "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html",
+    name: "v-7ccbf834",
+    path: "/book/Java%E5%9F%BA%E7%A1%80/%E5%AD%97%E8%8A%82%E7%A0%81.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-ac819d50").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-7ccbf834").then(next)
     },
   },
   {
-    path: "/book/Java基础/StringUtils.html",
-    redirect: "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html"
+    path: "/book/Java基础/字节码.html",
+    redirect: "/book/Java%E5%9F%BA%E7%A1%80/%E5%AD%97%E8%8A%82%E7%A0%81.html"
   },
   {
-    path: "/book/Java基础/StringUtils.html",
-    redirect: "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html"
+    path: "/book/Java基础/字节码.html",
+    redirect: "/book/Java%E5%9F%BA%E7%A1%80/%E5%AD%97%E8%8A%82%E7%A0%81.html"
+  },
+  {
+    name: "v-c3f48d38",
+    path: "/book/Java%E5%9F%BA%E7%A1%80/String.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-c3f48d38").then(next)
+    },
+  },
+  {
+    path: "/book/Java基础/String.html",
+    redirect: "/book/Java%E5%9F%BA%E7%A1%80/String.html"
+  },
+  {
+    path: "/book/Java基础/String.html",
+    redirect: "/book/Java%E5%9F%BA%E7%A1%80/String.html"
   },
   {
     name: "v-3bf646d5",
@@ -85,6 +101,14 @@ export const routes = [
     redirect: "/book/Java%E5%9F%BA%E7%A1%80/%E6%8B%86%E7%AE%B1%E4%B8%8E%E8%A3%85%E7%AE%B1.html"
   },
   {
+    name: "v-0697fa3c",
+    path: "/book/MQ/RocketMQ.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-0697fa3c").then(next)
+    },
+  },
+  {
     name: "v-5be238f6",
     path: "/book/Java%E5%9F%BA%E7%A1%80/sourceCode.html",
     component: GlobalLayout,
@@ -101,19 +125,27 @@ export const routes = [
     redirect: "/book/Java%E5%9F%BA%E7%A1%80/sourceCode.html"
   },
   {
+    name: "v-77cd6ead",
+    path: "/book/linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-77cd6ead").then(next)
+    },
+  },
+  {
+    path: "/book/linux/linux常用命令.html",
+    redirect: "/book/linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html"
+  },
+  {
+    path: "/book/linux/linux常用命令.html",
+    redirect: "/book/linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html"
+  },
+  {
     name: "v-4fcb7da0",
     path: "/book/MQ/RabbitMQ.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
       ensureAsyncComponentsLoaded("Layout", "v-4fcb7da0").then(next)
-    },
-  },
-  {
-    name: "v-0697fa3c",
-    path: "/book/MQ/RocketMQ.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0697fa3c").then(next)
     },
   },
   {
@@ -125,27 +157,11 @@ export const routes = [
     },
   },
   {
-    name: "v-7ccbf834",
-    path: "/book/Java%E5%9F%BA%E7%A1%80/%E5%AD%97%E8%8A%82%E7%A0%81.html",
+    name: "v-0665e134",
+    path: "/book/note/work.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-7ccbf834").then(next)
-    },
-  },
-  {
-    path: "/book/Java基础/字节码.html",
-    redirect: "/book/Java%E5%9F%BA%E7%A1%80/%E5%AD%97%E8%8A%82%E7%A0%81.html"
-  },
-  {
-    path: "/book/Java基础/字节码.html",
-    redirect: "/book/Java%E5%9F%BA%E7%A1%80/%E5%AD%97%E8%8A%82%E7%A0%81.html"
-  },
-  {
-    name: "v-11ee930a",
-    path: "/book/note/SecZone.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-11ee930a").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-0665e134").then(next)
     },
   },
   {
@@ -173,44 +189,28 @@ export const routes = [
     },
   },
   {
-    name: "v-0665e134",
-    path: "/book/note/work.html",
+    name: "v-6a988a26",
+    path: "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-0665e134").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-6a988a26").then(next)
     },
   },
   {
-    name: "v-77cd6ead",
-    path: "/book/linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html",
+    path: "/book/分布式/distributeSystem.html",
+    redirect: "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html"
+  },
+  {
+    path: "/book/分布式/distributeSystem.html",
+    redirect: "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html"
+  },
+  {
+    name: "v-11ee930a",
+    path: "/book/note/SecZone.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-77cd6ead").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-11ee930a").then(next)
     },
-  },
-  {
-    path: "/book/linux/linux常用命令.html",
-    redirect: "/book/linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html"
-  },
-  {
-    path: "/book/linux/linux常用命令.html",
-    redirect: "/book/linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html"
-  },
-  {
-    name: "v-e81cdfde",
-    path: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-e81cdfde").then(next)
-    },
-  },
-  {
-    path: "/book/小技巧/Java8 Stream.html",
-    redirect: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html"
-  },
-  {
-    path: "/book/小技巧/Java8 Stream.html",
-    redirect: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html"
   },
   {
     name: "v-2c24b954",
@@ -245,20 +245,20 @@ export const routes = [
     redirect: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/git.html"
   },
   {
-    name: "v-6feb4214",
-    path: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/markdown.html",
+    name: "v-e81cdfde",
+    path: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6feb4214").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-e81cdfde").then(next)
     },
   },
   {
-    path: "/book/小技巧/markdown.html",
-    redirect: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/markdown.html"
+    path: "/book/小技巧/Java8 Stream.html",
+    redirect: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html"
   },
   {
-    path: "/book/小技巧/markdown.html",
-    redirect: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/markdown.html"
+    path: "/book/小技巧/Java8 Stream.html",
+    redirect: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html"
   },
   {
     name: "v-0be86ac6",
@@ -275,22 +275,6 @@ export const routes = [
   {
     path: "/book/并发/countdownlatch.html",
     redirect: "/book/%E5%B9%B6%E5%8F%91/countdownlatch.html"
-  },
-  {
-    name: "v-6a988a26",
-    path: "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6a988a26").then(next)
-    },
-  },
-  {
-    path: "/book/分布式/distributeSystem.html",
-    redirect: "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html"
-  },
-  {
-    path: "/book/分布式/distributeSystem.html",
-    redirect: "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html"
   },
   {
     name: "v-8bb20748",
@@ -341,20 +325,20 @@ export const routes = [
     redirect: "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA.html"
   },
   {
-    name: "v-509dcd73",
-    path: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mongo.html",
+    name: "v-6feb4214",
+    path: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/markdown.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-509dcd73").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-6feb4214").then(next)
     },
   },
   {
-    path: "/book/数据库/mongo.html",
-    redirect: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mongo.html"
+    path: "/book/小技巧/markdown.html",
+    redirect: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/markdown.html"
   },
   {
-    path: "/book/数据库/mongo.html",
-    redirect: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mongo.html"
+    path: "/book/小技巧/markdown.html",
+    redirect: "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/markdown.html"
   },
   {
     name: "v-4f615dd2",
@@ -373,20 +357,20 @@ export const routes = [
     redirect: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql.html"
   },
   {
-    name: "v-691ecc5c",
-    path: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html",
+    name: "v-509dcd73",
+    path: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mongo.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-691ecc5c").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-509dcd73").then(next)
     },
   },
   {
-    path: "/book/数据库/索引.html",
-    redirect: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html"
+    path: "/book/数据库/mongo.html",
+    redirect: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mongo.html"
   },
   {
-    path: "/book/数据库/索引.html",
-    redirect: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html"
+    path: "/book/数据库/mongo.html",
+    redirect: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mongo.html"
   },
   {
     name: "v-4ee50ef4",
@@ -421,20 +405,20 @@ export const routes = [
     redirect: "/book/%E6%A1%86%E6%9E%B6/Spring.html"
   },
   {
-    name: "v-a6b0a580",
-    path: "/book/%E6%A1%86%E6%9E%B6/SpringCloud.html",
+    name: "v-51bc378c",
+    path: "/book/%E9%9B%86%E5%90%88/List.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-a6b0a580").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-51bc378c").then(next)
     },
   },
   {
-    path: "/book/框架/SpringCloud.html",
-    redirect: "/book/%E6%A1%86%E6%9E%B6/SpringCloud.html"
+    path: "/book/集合/List.html",
+    redirect: "/book/%E9%9B%86%E5%90%88/List.html"
   },
   {
-    path: "/book/框架/SpringCloud.html",
-    redirect: "/book/%E6%A1%86%E6%9E%B6/SpringCloud.html"
+    path: "/book/集合/List.html",
+    redirect: "/book/%E9%9B%86%E5%90%88/List.html"
   },
   {
     name: "v-58ebf348",
@@ -453,6 +437,38 @@ export const routes = [
     redirect: "/book/%E9%9B%86%E5%90%88/Map.html"
   },
   {
+    name: "v-a6b0a580",
+    path: "/book/%E6%A1%86%E6%9E%B6/SpringCloud.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-a6b0a580").then(next)
+    },
+  },
+  {
+    path: "/book/框架/SpringCloud.html",
+    redirect: "/book/%E6%A1%86%E6%9E%B6/SpringCloud.html"
+  },
+  {
+    path: "/book/框架/SpringCloud.html",
+    redirect: "/book/%E6%A1%86%E6%9E%B6/SpringCloud.html"
+  },
+  {
+    name: "v-691ecc5c",
+    path: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html",
+    component: GlobalLayout,
+    beforeEnter: (to, from, next) => {
+      ensureAsyncComponentsLoaded("Layout", "v-691ecc5c").then(next)
+    },
+  },
+  {
+    path: "/book/数据库/索引.html",
+    redirect: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html"
+  },
+  {
+    path: "/book/数据库/索引.html",
+    redirect: "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html"
+  },
+  {
     name: "v-2034a394",
     path: "/book/%E9%9B%86%E5%90%88/ObjectMapper.html",
     component: GlobalLayout,
@@ -467,22 +483,6 @@ export const routes = [
   {
     path: "/book/集合/ObjectMapper.html",
     redirect: "/book/%E9%9B%86%E5%90%88/ObjectMapper.html"
-  },
-  {
-    name: "v-51bc378c",
-    path: "/book/%E9%9B%86%E5%90%88/List.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-51bc378c").then(next)
-    },
-  },
-  {
-    path: "/book/集合/List.html",
-    redirect: "/book/%E9%9B%86%E5%90%88/List.html"
-  },
-  {
-    path: "/book/集合/List.html",
-    redirect: "/book/%E9%9B%86%E5%90%88/List.html"
   },
   {
     name: "v-b1564aac",
