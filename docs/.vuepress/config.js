@@ -89,7 +89,7 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "索引", path: "/book/数据库/索引" },
-          { title: "mongo", path: "/book/数据库/mongo" }
+          { title: "mongo", path: "/book/数据库/mongo" },
           { title: "mysql", path: "/book/数据库/mysql" }
         ],
       },

@@ -1,1 +1,1 @@
-export { default } from "C:\\Apps\\vue\\node_modules\\@vuepress-reco\\vuepress-plugin-comments\\bin\\enhanceAppFile.js"
+export { default } from "C:\\project\\vue\\node_modules\\@vuepress-reco\\vuepress-plugin-comments\\bin\\enhanceAppFile.js"
