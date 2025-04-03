@@ -70,8 +70,8 @@ module.exports = {
          path: '/book/并发/',
         collapsable: false, // 不折叠
         children: [
-          { title: "countdownlatch" ,path:"/book/并发/countdownlatch"}
-          //   { title: "Map", path: "/book/并发/Map" }
+          { title: "countdownlatch" ,path:"/book/并发/countdownlatch"},
+          { title: "thread", path: "/book/并发/thread" }
         ],
       },
       {
