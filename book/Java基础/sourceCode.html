@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>java 基础必读源码 | Yan-sir</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/javadoc/favicon.ico">
+    <meta name="description" content="个人网站">
+    
+    <link rel="preload" href="/javadoc/assets/css/0.styles.e8c6d048.css" as="style"><link rel="preload" href="/javadoc/assets/js/app.91c6f563.js" as="script"><link rel="preload" href="/javadoc/assets/js/7.7a792a4f.js" as="script"><link rel="preload" href="/javadoc/assets/js/2.01b6400f.js" as="script"><link rel="preload" href="/javadoc/assets/js/1.c986f9e4.js" as="script"><link rel="preload" href="/javadoc/assets/js/42.27dd5d08.js" as="script"><link rel="prefetch" href="/javadoc/assets/js/10.323e1776.js"><link rel="prefetch" href="/javadoc/assets/js/11.2e249cd3.js"><link rel="prefetch" href="/javadoc/assets/js/14.41af69a3.js"><link rel="prefetch" href="/javadoc/assets/js/15.87379256.js"><link rel="prefetch" href="/javadoc/assets/js/16.a242df6d.js"><link rel="prefetch" href="/javadoc/assets/js/17.6d0bec35.js"><link rel="prefetch" href="/javadoc/assets/js/18.e16583a1.js"><link rel="prefetch" href="/javadoc/assets/js/19.f8de5acc.js"><link rel="prefetch" href="/javadoc/assets/js/20.c9c6df20.js"><link rel="prefetch" href="/javadoc/assets/js/21.861beba8.js"><link rel="prefetch" href="/javadoc/assets/js/22.5f58b3a5.js"><link rel="prefetch" href="/javadoc/assets/js/23.8aad9460.js"><link rel="prefetch" href="/javadoc/assets/js/24.933939d3.js"><link rel="prefetch" href="/javadoc/assets/js/25.9600799a.js"><link rel="prefetch" href="/javadoc/assets/js/26.593ef647.js"><link rel="prefetch" href="/javadoc/assets/js/27.9d5db4f3.js"><link rel="prefetch" href="/javadoc/assets/js/28.17d88792.js"><link rel="prefetch" href="/javadoc/assets/js/29.d4ada88d.js"><link rel="prefetch" href="/javadoc/assets/js/3.fc994582.js"><link rel="prefetch" href="/javadoc/assets/js/30.a69b8fef.js"><link rel="prefetch" href="/javadoc/assets/js/31.430eac79.js"><link rel="prefetch" href="/javadoc/assets/js/32.5f5ff60a.js"><link rel="prefetch" href="/javadoc/assets/js/33.df15770d.js"><link rel="prefetch" href="/javadoc/assets/js/34.2a7572c8.js"><link rel="prefetch" href="/javadoc/assets/js/35.a53ffaf7.js"><link rel="prefetch" href="/javadoc/assets/js/36.6f990377.js"><link rel="prefetch" href="/javadoc/assets/js/37.d1889e3b.js"><link rel="prefetch" href="/javadoc/assets/js/38.1484274c.js"><link rel="prefetch" href="/javadoc/assets/js/39.1788fb59.js"><link rel="prefetch" href="/javadoc/assets/js/4.8ace6b48.js"><link rel="prefetch" href="/javadoc/assets/js/40.ab0a161f.js"><link rel="prefetch" href="/javadoc/assets/js/41.b3a1f667.js"><link rel="prefetch" href="/javadoc/assets/js/43.b60b03be.js"><link rel="prefetch" href="/javadoc/assets/js/44.64880f39.js"><link rel="prefetch" href="/javadoc/assets/js/45.0411c586.js"><link rel="prefetch" href="/javadoc/assets/js/46.eb439b49.js"><link rel="prefetch" href="/javadoc/assets/js/47.a0177dc9.js"><link rel="prefetch" href="/javadoc/assets/js/48.95aafe04.js"><link rel="prefetch" href="/javadoc/assets/js/49.0611c094.js"><link rel="prefetch" href="/javadoc/assets/js/5.f6ae86c1.js"><link rel="prefetch" href="/javadoc/assets/js/50.f1aff0bb.js"><link rel="prefetch" href="/javadoc/assets/js/51.99ce5094.js"><link rel="prefetch" href="/javadoc/assets/js/52.590fcb5a.js"><link rel="prefetch" href="/javadoc/assets/js/53.65dac27f.js"><link rel="prefetch" href="/javadoc/assets/js/54.768693e9.js"><link rel="prefetch" href="/javadoc/assets/js/55.1ce46008.js"><link rel="prefetch" href="/javadoc/assets/js/56.141a2ddc.js"><link rel="prefetch" href="/javadoc/assets/js/57.ad1c75d5.js"><link rel="prefetch" href="/javadoc/assets/js/58.79fa2eb4.js"><link rel="prefetch" href="/javadoc/assets/js/59.386dc92a.js"><link rel="prefetch" href="/javadoc/assets/js/6.934dda82.js"><link rel="prefetch" href="/javadoc/assets/js/60.fab0aff2.js"><link rel="prefetch" href="/javadoc/assets/js/61.429d883c.js"><link rel="prefetch" href="/javadoc/assets/js/62.79d7314a.js"><link rel="prefetch" href="/javadoc/assets/js/63.c4d29cf5.js"><link rel="prefetch" href="/javadoc/assets/js/64.794301a9.js"><link rel="prefetch" href="/javadoc/assets/js/65.92c755f0.js"><link rel="prefetch" href="/javadoc/assets/js/66.9eb20a65.js"><link rel="prefetch" href="/javadoc/assets/js/67.2595ef52.js"><link rel="prefetch" href="/javadoc/assets/js/68.87510d5d.js"><link rel="prefetch" href="/javadoc/assets/js/69.f834bbaf.js"><link rel="prefetch" href="/javadoc/assets/js/70.bcb60de3.js"><link rel="prefetch" href="/javadoc/assets/js/71.54f5e666.js"><link rel="prefetch" href="/javadoc/assets/js/72.d16b9a6e.js"><link rel="prefetch" href="/javadoc/assets/js/73.8af520ff.js"><link rel="prefetch" href="/javadoc/assets/js/8.c40fe45c.js"><link rel="prefetch" href="/javadoc/assets/js/9.2e2433d3.js"><link rel="prefetch" href="/javadoc/assets/js/vendors~docsearch.ad969224.js">
+    <link rel="stylesheet" href="/javadoc/assets/css/0.styles.e8c6d048.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>Yan-sir</h3> <p class="description" data-v-59e6cb88>个人网站</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2025
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/javadoc/" class="home-link router-link-active"><!----> <span class="site-name">Yan-sir</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      JAVADOC
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  Java基础
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  集合
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  并发
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  框架
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  小技巧
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  分布式
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  微服务
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  MQ
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  note
+</a></li></ul></div></div><div class="nav-item"><a href="/javadoc/books/" class="nav-link"><i class="undefined"></i>
+  书籍
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><!----> <!----> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>33</h3> <h6 data-v-1fad0c41>文章</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>0</h3> <h6 data-v-1fad0c41>标签</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      JAVADOC
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  Java基础
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  集合
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  并发
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  框架
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  数据库
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  小技巧
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  linux
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  JVM
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  分布式
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  微服务
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  MQ
+</a></li><li class="dropdown-item"><!----> <a href="/javadoc/" class="nav-link"><i class="undefined"></i>
+  note
+</a></li></ul></div></div><div class="nav-item"><a href="/javadoc/books/" class="nav-link"><i class="undefined"></i>
+  书籍
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Java基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/Java基础/拆箱与装箱.html" class="sidebar-link">拆箱与装箱</a></li><li><a href="/javadoc/book/Java基础/字节码.html" class="sidebar-link">字节码</a></li><li><a href="/javadoc/book/Java基础/String.html" class="sidebar-link">String</a></li><li><a href="/javadoc/book/Java基础/StringUtils.html" class="sidebar-link">StringUtils</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>集合</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/集合/List.html" class="sidebar-link">List</a></li><li><a href="/javadoc/book/集合/Map.html" class="sidebar-link">Map</a></li><li><a href="/javadoc/book/集合/ObjectMapper.html" class="sidebar-link">ObjectMapper</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>框架</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/框架/Mybatis-plus.html" class="sidebar-link">Mybatis-plus</a></li><li><a href="/javadoc/book/框架/Spring.html" class="sidebar-link">Spring</a></li><li><a href="/javadoc/book/框架/SpringCloud.html" class="sidebar-link">SpringCloud</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/javadoc/book/并发/" class="sidebar-heading clickable"><span>并发</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/并发/countdownlatch.html" class="sidebar-link">countdownlatch</a></li><li><a href="/javadoc/book/并发/thread.html" class="sidebar-link">thread</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>JVM</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/JVM/JVM的组成.html" class="sidebar-link">JVM的组成</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>数据库</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/数据库/索引.html" class="sidebar-link">索引</a></li><li><a href="/javadoc/book/数据库/mongo.html" class="sidebar-link">mongo</a></li><li><a href="/javadoc/book/数据库/mysql.html" class="sidebar-link">mysql</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>分布式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/分布式/distributeSystem.html" class="sidebar-link">distributeSystem</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>微服务</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/微服务/Docker.html" class="sidebar-link">Docker</a></li><li><a href="/javadoc/book/微服务/SpringCloud.html" class="sidebar-link">SpringCloud</a></li><li><a href="/javadoc/book/微服务/SpringCloud项目搭建.html" class="sidebar-link">SpringCloud项目搭建</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>小技巧</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/小技巧/git.html" class="sidebar-link">git</a></li><li><a href="/javadoc/book/小技巧/Java8 Stream.html" class="sidebar-link">Java8 Stream</a></li><li><a href="/javadoc/book/小技巧/markdown.html" class="sidebar-link">markdown</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>linux</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/linux/linux常用命令.html" class="sidebar-link">linux常用命令</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>note</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/note/study.html" class="sidebar-link">study</a></li><li><a href="/javadoc/book/note/SecZone.html" class="sidebar-link">SecZone</a></li><li><a href="/javadoc/book/note/blog.html" class="sidebar-link">blog</a></li><li><a href="/javadoc/book/note/work.html" class="sidebar-link">work</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>MQ</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javadoc/book/MQ/kafka.html" class="sidebar-link">kafka</a></li><li><a href="/javadoc/book/MQ/RabbitMQ.html" class="sidebar-link">RabbitMQ</a></li><li><a href="/javadoc/book/MQ/RocketMQ.html" class="sidebar-link">RocketMQ</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88></h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><!---->
+          
+        <!---->
+        2025
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">java 基础必读源码</h1> <div data-v-8a445198><!----> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>2022/1/1</span></i> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="java-基础必读源码"><a href="#java-基础必读源码" class="header-anchor">#</a> java 基础必读源码</h1> <h2 id="object"><a href="#object" class="header-anchor">#</a> Object</h2> <p>getClass()返回对象的运行时类的 Class 对象,可以用于反射操作。
+//<code>native</code>修饰的方法，调用系统方法，通常由C++或C语言实现
+public final native Class&lt;?&gt; getClass();
+hashCode()返回对象的哈希码，用于在哈希表中定位对象
+@HotSpotIntrinsicCandidate
+public native int hashCode();
+equals()比较两个对象的相等性。默认实现比较两个对象的内存地址
+public boolean equals(Object obj) {
+return (this == obj);
+}
+clone()创建并返回当前对象的一个副本,必须实现 Cloneable 接口.
+protected native Object clone() throws CloneNotSupportedException;
+toString()返回对象的字符串表示，默认实现为类名加哈希码
+public String toString() {
+return getClass().getName() + &quot;@&quot; + Integer.toHexString(hashCode());
+}
+notify()唤醒在此对象监视器上等待的单个线程,用于多线程编程。
+@HotSpotIntrinsicCandidate
+public final native void notify();
+notifyAll()唤醒在此对象监视器上等待的所有线程，用于多线程编程。
+wait()使当前线程在此对象监视器上等待，直到其他线程调用 notify() 或 notifyAll()。有多个重载版本，可以指定等待的时间。
+@HotSpotIntrinsicCandidate
+public final native void notifyAll();
+finalize()当对象的引用不再被使用且被垃圾回收器标记为可回收时，finalize() 方法会被调用,从 JDK 9 开始，finalize() 方法不推荐使用。
+protected void finalize() throws Throwable { }</p> <h2 id="integer"><a href="#integer" class="header-anchor">#</a> Integer</h2> <p>内部类IntegerCache，缓存范围 -128 到127 ，最大值可配置
+private static class IntegerCache {
+static final int low = -128;
+static final int high;
+static final Integer cache[];</p> <div class="language- extra-class"><pre><code>static {
+    // high value may be configured by property
+    int h = 127;
+    String integerCacheHighPropValue =
+        VM.getSavedProperty(&quot;java.lang.Integer.IntegerCache.high&quot;);
+    if (integerCacheHighPropValue != null) {
+        try {
+            int i = parseInt(integerCacheHighPropValue);
+            i = Math.max(i, 127);
+            // Maximum array size is Integer.MAX_VALUE
+            h = Math.min(i, Integer.MAX_VALUE - (-low) -1);
+        } catch( NumberFormatException nfe) {
+            // If the property cannot be parsed into an int, ignore it.
+        }
+    }
+    high = h;
+
+    cache = new Integer[(high - low) + 1];
+    int j = low;
+    for(int k = 0; k &lt; cache.length; k++)
+        cache[k] = new Integer(j++);
+
+    // range [-128, 127] must be interned (JLS7 5.1.7)
+    assert IntegerCache.high &gt;= 127;
+}
+
+private IntegerCache() {}
+</code></pre></div><p>}
+valueOf 方法,整数在缓存范围中直接返回缓存的Integer
+@HotSpotIntrinsicCandidate
+public static Integer valueOf(int i) {
+if (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)
+return IntegerCache.cache[i + (-IntegerCache.low)];
+return new Integer(i);
+}</p> <h2 id="string"><a href="#string" class="header-anchor">#</a> String</h2> <p>类用final修饰、value值是1.8版本及以前是char[]数组，1.9之后是byte[]也是用final进行修饰
+public final class String
+implements java.io.Serializable, Comparable<String>, CharSequence {</String></p> <div class="language- extra-class"><pre><code>/**
+ * 存储字符的字节
+ */
+@Stable
+private final byte[] value;
+//字符编码
+private final byte coder;
+
+/** Cache the hash code for the string */
+private int hash; // Default to 0
+</code></pre></div><h2 id="hashmap"><a href="#hashmap" class="header-anchor">#</a> HashMap</h2> <ol><li>HashMap 的基本结构
+HashMap 的主要数据结构是数组和链表（或红黑树）：</li></ol> <p>Node[] table: 存储哈希表的数组，每个元素是一个链表或红黑树的头节点。
+int size: 当前映射中键值对的数量。
+int threshold: 用于控制扩容的阈值。当 size 超过 threshold = (capacity * load factor)时，HashMap 会进行扩容，通常是原来的两倍。
+float loadFactor: 负载因子，表示哈希表的满载程度，默认值为 0.75。</p> <p>transient Node&lt;K,V&gt;[] table;</p> <p>transient Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet;</p> <p>transient int size;</p> <p>transient int modCount;</p> <p>/**</p> <ul><li>The next size value at which to resize (capacity * load factor).</li> <li></li> <li>@serial
+*/
+int threshold;</li></ul> <p>final float loadFactor;
+//节点链表
+static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; {
+final int hash;
+final K key;
+V value;
+Node&lt;K,V&gt; next;</p> <div class="language- extra-class"><pre><code>Node(int hash, K key, V value, Node&lt;K,V&gt; next) {
+    this.hash = hash;
+    this.key = key;
+    this.value = value;
+    this.next = next;
+}
+..............
+</code></pre></div><p>}</p> <p>//树结果
+static final class TreeNode&lt;K,V&gt; extends LinkedHashMap.Entry&lt;K,V&gt; {
+TreeNode&lt;K,V&gt; parent;  // red-black tree links
+TreeNode&lt;K,V&gt; left;
+TreeNode&lt;K,V&gt; right;
+TreeNode&lt;K,V&gt; prev;    // needed to unlink next upon deletion
+boolean red;
+TreeNode(int hash, K key, V val, Node&lt;K,V&gt; next) {
+super(hash, key, val, next);
+}</p> <div class="language- extra-class"><pre><code>/**
+ * Returns root of tree containing this node.
+ */
+final TreeNode&lt;K,V&gt; root() {
+    for (TreeNode&lt;K,V&gt; r = this, p;;) {
+        if ((p = r.parent) == null)
+            return r;
+        r = p;
+    }
+}
+</code></pre></div><p>.........
+2. 构造函数
+HashMap 提供了多个构造函数，可以自定义初始容量和负载因子：</p> <p>public HashMap(int initialCapacity, float loadFactor) {
+if (initialCapacity &lt; 0)
+throw new IllegalArgumentException(&quot;Illegal initial capacity: &quot; + initialCapacity);
+if (loadFactor &lt;= 0 || Float.isNaN(loadFactor))
+throw new IllegalArgumentException(&quot;Illegal load factor: &quot; + loadFactor);
+this.loadFactor = loadFactor;
+this.threshold = tableSizeFor(initialCapacity);
+}
+3 tableSizeFor 方法
+该方法用于计算最接近 initialCapacity 的 2 的幂次方，以保证 HashMap 的性能。这样做的目的是为了减少哈希冲突。</p> <p>static final int tableSizeFor(int cap) {
+int n = -1 &gt;&gt;&gt; Integer.numberOfLeadingZeros(cap - 1);
+return (n &lt; 0) ? 1 : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+}
+4. 哈希函数
+HashMap 使用哈希函数来计算键的哈希值，并将其映射到数组的索引。以下是哈希函数的实现：</p> <p>static final int hash(int h) {
+return h ^ (h &gt;&gt;&gt; 16);
+}
+这个哈希函数通过位运算来混合高位和低位的哈希值，从而降低哈希碰撞的概率。</p> <ol start="5"><li>添加元素
+HashMap 的核心操作之一是添加元素，主要通过 put 方法实现：</li></ol> <p>public V put(K key, V value) {
+return putVal(hash(key), key, value, false, true);
+}</p> <p>final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
+Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; int n, i;</p> <div class="language- extra-class"><pre><code>// 如果数组为空，则进行初始化
+if ((tab = table) == null || (n = tab.length) == 0)
+    n = (tab = resize()).length;
+
+// 计算索引
+if ((p = tab[i = (n - 1) &amp; hash]) == null)
+    tab[i] = newNode(hash, key, value, null);
+else {
+    Node&lt;K,V&gt; e; K k;
+    if (p.hash == hash &amp;&amp; ((k = p.key) == key || (key != null &amp;&amp; key.equals(k))))
+        e = p; // 找到键值对
+    else if (p instanceof TreeNode)
+        e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(this, tab, hash, key, value); // 红黑树处理
+    else {
+        for (int binCount = 0; ; ++binCount) {
+            if ((e = p.next) == null) {
+                p.next = newNode(hash, key, value, null);
+                if (binCount &gt;= TREEIFY_THRESHOLD - 1) // 检查是否需要转化为红黑树
+                    treeifyBin(tab, hash);
+                break;
+            }
+            if (e.hash == hash &amp;&amp; ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+                break;
+            p = e;
+        }
+    }
+    if (e != null) { // 更新值
+        V oldValue = e.value;
+        if (!onlyIfAbsent || oldValue == null)
+            e.value = value;
+        return oldValue;
+    }
+}
+
+// 增加大小并检查是否需要扩容
+if (++size &gt; threshold)
+    resize();
+return null;
+</code></pre></div><p>}
+6. 扩容
+当 size 超过 threshold 时，HashMap 会自动进行扩容，通常是将数组长度翻倍，将旧数组中的所有元素重新计算哈希值，并将它们放入新的数组中。这是因为哈希表的索引是基于数组的长度计算的，当数组长度改变时，哈希值的索引也会改变。扩容过程通过 resize() 方法实现：</p> <p>//伪代码
+final Node&lt;K,V&gt;[] resize() {
+Node&lt;K,V&gt;[] oldTab = table;
+int oldCapacity = (oldTab == null) ? 0 : oldTab.length;
+int newCapacity = oldCapacity &lt;&lt; 1; // 新容量是旧容量的两倍
+Node&lt;K,V&gt;[] newTab = new Node[newCapacity];</p> <div class="language- extra-class"><pre><code>// 将旧数组中的元素重新哈希并放入新数组
+for (int j = 0; j &lt; oldCapacity; j++) {
+    Node&lt;K,V&gt; e = oldTab[j];
+    if (e != null) {
+        oldTab[j] = null; // 释放旧数组的引用
+        do {
+            Node&lt;K,V&gt; next = e.next;
+            int i = (newCapacity - 1) &amp; e.hash; // 计算新索引
+            e.next = newTab[i]; // 将元素放入新数组
+            newTab[i] = e;
+            e = next;
+        } while (e != null);
+    }
+}
+table = newTab; // 更新 table 引用
+threshold = (int)(newCapacity * loadFactor); // 更新阈值
+</code></pre></div><p>}
+7. 查找元素
+查找元素主要通过 get 方法实现：</p> <p>public V get(Object key) {
+Node&lt;K,V&gt; e;
+return (e = getNode(hash(key), key)) == null ? null : e.value;
+}</p> <p>final Node&lt;K,V&gt; getNode(int hash, Object key) {
+Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; e; int n; K k;</p> <div class="language- extra-class"><pre><code>if ((tab = table) != null &amp;&amp; (n = tab.length) &gt; 0) {
+    if ((e = tab[(n - 1) &amp; hash]) != null) {
+        if (e.hash == hash &amp;&amp; ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+            return e; // 找到
+        if (e instanceof TreeNode)
+            return ((TreeNode&lt;K,V&gt;)e).getTreeNode(hash, key); // 红黑树查找
+        while (e != null) {
+            if (e.hash == hash &amp;&amp; ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+                return e;
+            e = e.next; // 遍历链表
+        }
+    }
+}
+return null;
+</code></pre></div><p>}
+8. 删除元素
+删除元素通过 remove 方法实现，过程与查找类似：</p> <p>public V remove(Object key) {
+Node&lt;K,V&gt; e;
+return (e = removeNode(hash(key), key)) == null ? null : e.value;
+}</p> <p>final Node&lt;K,V&gt; removeNode(int hash, Object key) {
+// 查找并删除节点的逻辑
+}</p> <h2 id="arraylist"><a href="#arraylist" class="header-anchor">#</a> ArrayList</h2> <p>底层维护一个动态数组，初始默认容量10，通常每次扩容后的大小为原来的1.5倍
+public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, Serializable {
+private transient Object[] elementData; // 存储元素的数组
+private int size; // 当前元素数量</E></E></E></p> <div class="language- extra-class"><pre><code>// 默认初始化容量
+private static final int DEFAULT_CAPACITY = 10;
+</code></pre></div><p>}</p> <p>//扩容
+private void grow(int minCapacity) {
+// overflow-conscious code
+int oldCapacity = elementData.length;
+//1.5倍
+int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);
+if (newCapacity - minCapacity &lt; 0)
+newCapacity = minCapacity;
+if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+newCapacity = hugeCapacity(minCapacity);
+// minCapacity is usually close to size, so this is a win:
+elementData = Arrays.copyOf(elementData, newCapacity);
+}</p> <h2 id="hashset"><a href="#hashset" class="header-anchor">#</a> HashSet</h2> <p>底层维护的HashMap，元素维护在HashMap的key中</p> <p>private transient HashMap&lt;E,Object&gt; map; // 底层使用 HashMap 存储元素
+private static final Object PRESENT = new Object(); // 存储的值</p> <p>//构造器
+public HashSet() {
+map = new HashMap&lt;&gt;();
+}</p> <p>// t添加的元素作为Map的key，值为 new Object
+public boolean add(E e) {
+return map.put(e, PRESENT)==null;
+}</p> <h2 id="collections"><a href="#collections" class="header-anchor">#</a> Collections</h2> <p>常用API</p> <p>sort(List<T> list)对指定的列表进行升序排序。
+binarySearch(List&lt;? extends Comparable&lt;? super T&gt;&gt; list, T key)使用二分查找法在已排序的列表中查找指定元素，返回其索引。
+synchronizedList(List<T> list)将List转为线程安全的list,map等集合结构都有对应的API。 核心原理对集合进行二次封装，将集合的修改查询加synchronized修饰
+static class SynchronizedList<E>
+extends SynchronizedCollection<E>
+implements List<E> {
+private static final long serialVersionUID = -7754090372962971524L;</E></E></E></T></T></p> <p>final List<E> list;</E></p> <p>SynchronizedList(List<E> list) {
+super(list);
+this.list = list;
+}
+.............</E></p> <p>public E get(int index) {
+synchronized (mutex) {return list.get(index);}
+}
+public E set(int index, E element) {
+synchronized (mutex) {return list.set(index, element);}
+}
+public void add(int index, E element) {
+synchronized (mutex) {list.add(index, element);}
+}
+public E remove(int index) {
+synchronized (mutex) {return list.remove(index);}
+}
+................
+}
+unmodifiableList(List&lt;? extends T&gt; list)修改成不可变得集合，核心原理二次封装集合，实现集合接口，在修改接口直接抛出异常。
+static class UnmodifiableList<E> extends UnmodifiableCollection<E>
+implements List<E> {
+private static final long serialVersionUID = -283967356065247728L;</E></E></E></p> <div class="language- extra-class"><pre><code>final List&lt;? extends E&gt; list;
+
+UnmodifiableList(List&lt;? extends E&gt; list) {
+    super(list);
+    this.list = list;
+}
+
+public boolean equals(Object o) {return o == this || list.equals(o);}
+public int hashCode()           {return list.hashCode();}
+
+public E get(int index) {return list.get(index);}
+public E set(int index, E element) {
+    throw new UnsupportedOperationException();
+}
+public void add(int index, E element) {
+    throw new UnsupportedOperationException();
+}
+public E remove(int index) {
+    throw new UnsupportedOperationException();
+}
+</code></pre></div><p>..........</p> <h2 id="threadlocal"><a href="#threadlocal" class="header-anchor">#</a> ThreadLocal</h2> <p>set(t)首先获取当前线程的 ThreadLocalMap，如果不存在，则调用 createMap() 创建一个新的 ThreadLocalMap,当前ThreadLocalMap引用作为key。
+public void set(T value) {
+Thread t = Thread.currentThread();
+ThreadLocalMap map = getMap(t);
+if (map != null) {
+map.set(this, value);
+} else {
+createMap(t, value);
+}
+}</p> <p>void createMap(Thread t, T firstValue) {
+t.threadLocals = new ThreadLocalMap(this, firstValue);
+}</p> <p>get() 当前线程为key,获取ThreadLocalMap再通过TheadLocal作为可以获取值
+public T get() {
+Thread t = Thread.currentThread();
+ThreadLocalMap map = getMap(t);
+if (map != null) {
+ThreadLocalMap.Entry e = map.getEntry(this);
+if (e != null) {
+@SuppressWarnings(&quot;unchecked&quot;)
+T result = (T)e.value;
+return result;
+}
+}
+return setInitialValue();
+}</p> <h2 id="executors"><a href="#executors" class="header-anchor">#</a> Executors</h2> <p>下面几个是默认封装好的一些线程池，比如缓存线程池、固定线程池、单线程线程池....</p> <p>//Java 8 引入的一种线程池实现，专门用于支持工作窃取算法。该线程池适用于任务数量不确定、任务执行时间不一致的场景，能够提高 CPU 的利用率并减少任务执行的延迟。
+public static ExecutorService newWorkStealingPool(int parallelism) {
+return new ForkJoinPool
+(parallelism,
+ForkJoinPool.defaultForkJoinWorkerThreadFactory,
+null, true);
+}</p> <p>//固定线程池
+public static ExecutorService newFixedThreadPool(int nThreads, ThreadFactory threadFactory) {
+return new ThreadPoolExecutor(nThreads, nThreads,
+0L, TimeUnit.MILLISECONDS,
+new LinkedBlockingQueue<Runnable>(),
+threadFactory);
+}</Runnable></p> <p>//单线程线程池
+public static ExecutorService newSingleThreadExecutor() {
+return new FinalizableDelegatedExecutorService
+(new ThreadPoolExecutor(1, 1,
+0L, TimeUnit.MILLISECONDS,
+new LinkedBlockingQueue<Runnable>()));
+}</Runnable></p> <p>//缓存线程池</p> <p>public static ExecutorService newCachedThreadPool() {
+return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+60L, TimeUnit.SECONDS,
+new SynchronousQueue<Runnable>());
+}</Runnable></p> <p>// 单线程定时线程池
+public static ScheduledExecutorService newSingleThreadScheduledExecutor() {
+return new DelegatedScheduledExecutorService
+(new ScheduledThreadPoolExecutor(1));
+}</p> <h2 id="threadpoolexecutor"><a href="#threadpoolexecutor" class="header-anchor">#</a> ThreadPoolExecutor</h2> <ol><li>构造方法核心参数
+corePoolSize: 核心线程数，始终保持的最小线程数。</li></ol> <p>maximumPoolSize: 线程池允许的最大线程数。</p> <p>keepAliveTime: 非核心线程的存活时间。</p> <p>workQueue: 用于存储待执行任务的队列。</p> <p>threadFactory: 用于创建新线程的工厂。</p> <p>handler: 当线程池无法处理新任务时的拒绝策略。</p> <p>public ThreadPoolExecutor(int corePoolSize,
+int maximumPoolSize,
+long keepAliveTime,
+TimeUnit unit,
+BlockingQueue<Runnable> workQueue,
+ThreadFactory threadFactory,
+RejectedExecutionHandler handler) {
+if (corePoolSize &lt; 0 ||
+maximumPoolSize &lt;= 0 ||
+maximumPoolSize &lt; corePoolSize ||
+keepAliveTime &lt; 0)
+throw new IllegalArgumentException();
+if (workQueue == null || threadFactory == null || handler == null)
+throw new NullPointerException();
+this.corePoolSize = corePoolSize;
+this.maximumPoolSize = maximumPoolSize;
+this.workQueue = workQueue;
+this.keepAliveTime = unit.toNanos(keepAliveTime);
+this.threadFactory = threadFactory;
+this.handler = handler;
+}
+2. 拒绝策略
+ThreadPoolExecutor 提供了多种拒绝策略,当然有接口也能自定义实拒绝策略。</Runnable></p> <p>AbortPolicy: 默认策略，抛出异常。
+CallerRunsPolicy: 调用者运行策略，任务由调用 execute 的线程执行。
+DiscardPolicy: 丢弃任务，不抛出异常。
+DiscardOldestPolicy: 丢弃队列中最旧的任务，并尝试提交新任务。
+3.了解set方法、get方法
+可利用get方法监听线程池状态，通过监听配置中心配置，调用set方法动态调整线程池核心参数。</p> <p>总结
+这些都是java开发都用过得API，对于常用的API需要了解其原理，才能抗得住面试官得拷问。希望这篇博客能帮助你加深对Java基础知识的掌握，继续学习，实践编程，你会发现Java的魅力无穷！</p></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:0;" data-v-b57cc07c data-v-7dd95ae2></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/javadoc/assets/js/app.91c6f563.js" defer></script><script src="/javadoc/assets/js/7.7a792a4f.js" defer></script><script src="/javadoc/assets/js/2.01b6400f.js" defer></script><script src="/javadoc/assets/js/1.c986f9e4.js" defer></script><script src="/javadoc/assets/js/42.27dd5d08.js" defer></script>
+  </body>
+</html>
