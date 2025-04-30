@@ -138,3 +138,43 @@ B+树是一种平衡的多叉树，每个节点可以存放多个关键字，通
 ### 并发事务
 - 并发事务问题：脏读、不可重复读、幻读
 - 隔离级别：读未提交、读已提交、可重复读、串行化
+
+# 存储过程
+``` 
+create PROCEDURE sp_test()
+BEGIN
+    SELECT * FROM table1;
+END;
+```
+## 触发器
+``` 
+CREATE TRIGGER trigger_name
+{ BEFORE | AFTER }
+{ INSERT | UPDATE | DELETE }
+ON table_name
+FOR EACH ROW
+trigger_body;
+
+
+
+create trigger before_insert_recording
+BEFORE INSERT ON recording for each row 
+BEGIN 
+    if new.student_id not in(select id from students) 
+    then set new.student_id =0;
+    end if;
+    if new.company_id not in (select id from companies) 
+    then set new.company_id =0;
+    end if;
+END;
+```
+
+
+# mysql异常报错
+
+## Subquery returns more than 1 row
+这个错误发生在你的子查询返回了多行数据，但当前上下文要求子查询只能返回单行结果。这是 MySQL 的常见错误，通常出现在以下情况：
+
+## Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'judge.t.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+这个错误是因为 MySQL 的 sql_mode 包含了 ONLY_FULL_GROUP_BY 模式，它要求 GROUP BY 查询中的非聚合列必须出现在 GROUP BY 子句中，或者这些列必须函数依赖于 GROUP BY 的列。
+select 查询中包含了非聚合列，而该列不在 GROUP BY 子句中，或者该列与 GROUP BY 子句中的列不相关。
