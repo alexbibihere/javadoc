@@ -5,6 +5,7 @@ module.exports = {
   head: [ // 注入到当前页面的 HTML <head> 中的标签
     ['link', { rel: 'icon', href: '/favicon.ico' }], // 增加网页标签图标)
   ],
+ plugins: [["vuepress-plugin-side-anchor", {}]],
   locales: {
     '/': {
       lang: 'zh-CN'
