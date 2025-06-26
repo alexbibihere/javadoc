@@ -84,6 +84,8 @@ RDB &AOF对比
 
 定期删除
 
+## setnx
+setnx是指如果key不存在，则设置key的值，如果key已经存在，则不做任何操作。
 
 ## Redis的数据淘汰策略
 

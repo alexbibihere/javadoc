@@ -70,3 +70,17 @@ public static int[] removeDuplicates(int[] nums) {
     return Arrays.stream(nums).distinct().sorted().toArray(int[]::new);
 }
 ```
+
+### 复制指定元素到另个数组
+```java
+public static int[] copyElements(int[] nums, int[] indexes) {
+    if (nums == null || nums.length == 0 || indexes == null || indexes.length == 0) {
+        return new int[0];
+    }
+    int[] result = new int[indexes.length];
+    for (int i = 0; i < indexes.length; i++) {
+        result[i] = nums[indexes[i]];
+    }
+    return result;
+}
+```

@@ -5,7 +5,7 @@ module.exports = {
   head: [ // 注入到当前页面的 HTML <head> 中的标签
     ['link', { rel: 'icon', href: '/favicon.ico' }], // 增加网页标签图标)
   ],
-   plugins: [["vuepress-plugin-side-anchor", {}]],
+ plugins: [["vuepress-plugin-side-anchor", {}]],
   locales: {
     '/': {
       lang: 'zh-CN'
@@ -91,6 +91,7 @@ module.exports = {
         children: [
           { title: "索引", path: "/book/数据库/索引" },
           { title: "mongo", path: "/book/数据库/mongo" },
+          { title: "redis", path: "/book/数据库/redis" },
           { title: "mysql", path: "/book/数据库/mysql" }
         ],
       },

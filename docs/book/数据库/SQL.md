@@ -574,3 +574,19 @@ begin
     end if;
 end;
 ```
+
+### 查询所有教师授课的学生上课平均人数超过全部课程平均人数的教师姓名
+先分组查询每个教师授课的学生人数，再计算每个教师授课的学生人数的平均值，再查询每个教师授课的学生人数的平均值是否大于全部课程的平均值，最后查询出所有教师的姓名。
+``` 
+select t.name as teacher_name
+from teachers t
+where t.id in (
+    select teacher_id
+    from courses
+    group by teacher_id
+    having avg(student_count) > (
+        select avg(student_count)
+        from courses
+    )
+)
+```
