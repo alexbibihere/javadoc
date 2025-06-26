@@ -58,6 +58,7 @@ private void grow(int minCapacity) {
 
 ArrayList的扩容机制是每次增加原数组大小的1/2，这样可以避免频繁的扩容操作，提高效率。
 
+
 ## LinkedList底层实现原理
 LinkedList是基于链表实现的，底层是链表，链表的每个节点都包含数据和指针，指针指向下一个节点。
 

@@ -47,7 +47,7 @@ db.myCollection.insertOne({
     name: "Alice",
     age: 25,
     city: "New York"
-});
+}); 
 
 
 - db.colletion.insertMany({})

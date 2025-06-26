@@ -44,6 +44,13 @@ tag:
 - 数据库连接池：`pip install mysql-connector-python-rf`
 - 数据库连接池配置：`pip install mysql-connector-python-rf`、`pip install DBUtils`、`pip install PyMySQL`
 
+## SQL优化
+- select语句务必指明字段名称（避免直接使用select*)
+- sql语句要避免造成索引失效的写法
+- 尽量用unionall代替unionunion会多一次过滤，效率低
+- 避免在where子句中对字段进行表达式操作
+- join优化能用innerjoin 就不用leftjoin rightjoin,如必须使用一定要以小表为驱动，
+- 内连接会对两个表进行优化，优先把小表放到外边，把大表放到里边。ieftjoin或rightjoin,不会重新调整质序
 ## 如何定位慢查询
 - 开启慢查询日志：`set global slow_query_log = 'ON';`
 - sql执行时间超过long_query_time秒则记录到慢查询日志：`set global long_query_time = 1;`
