@@ -34,3 +34,9 @@ tag:
 
 - 同步远端: sh deploy.sh
 - git push --set-upstream git@github.com:alexbibihere/javadoc.git master
+
+- 修改侧边栏样式 添加到config.js中
+   plugins: [
+  // ...
+  ['vuepress-plugin-side-anchor']
+ ],
