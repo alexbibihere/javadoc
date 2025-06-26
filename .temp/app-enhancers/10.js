@@ -1,0 +1,1 @@
+export { default } from "C:\\project\\vue\\node_modules\\vuepress-plugin-side-anchor\\enhanceAppFile.js"
