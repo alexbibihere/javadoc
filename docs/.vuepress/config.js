@@ -63,6 +63,7 @@ module.exports = {
         children: [
           { title: "Mybatis-plus", path: "/book/框架/Mybatis-plus" },
           { title: "Spring", path: "/book/框架/Spring" },
+          { title: "SpringBoot", path: "/book/框架/SpringBoot" },
           { title: "SpringCloud", path: "/book/框架/SpringCloud" }
         ],
       },
