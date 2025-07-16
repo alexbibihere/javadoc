@@ -63,6 +63,7 @@ module.exports = {
         children: [
           { title: "Mybatis-plus", path: "/book/框架/Mybatis-plus" },
           { title: "Spring", path: "/book/框架/Spring" },
+          { title: "SpringBoot", path: "/book/框架/SpringBoot" },
           { title: "SpringCloud", path: "/book/框架/SpringCloud" }
         ],
       },
@@ -119,6 +120,7 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "git", path: "/book/小技巧/git" },
+          {title:"code",path:"/book/小技巧/code"},
           { title: "Java8 Stream", path: "/book/小技巧/Java8 Stream" },
           { title: "markdown", path: "/book/小技巧/markdown" }
         ],
