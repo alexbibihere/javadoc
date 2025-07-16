@@ -84,3 +84,32 @@ public static int[] copyElements(int[] nums, int[] indexes) {
     return result;
 }
 ```
+
+# 组织结构转树结构
+```java
+/**
+ * 将扁平部门列表转换为树形结构
+ * @param deptList 扁平部门列表
+ * @return 树形结构列表
+ */
+public List<OrgInfoDto> getDeptTree() {
+    List<OrgInfoDto> deptTreeList = tpaasAuthOrganizationMapper.getDeptTree();
+
+    List<OrgInfoDto> orgInfolist = new ArrayList<>();
+    LinkedHashMap<Integer, OrgInfoDto> map = new LinkedHashMap<>();
+    deptTreeList.forEach(dept -> {
+        dept.setChildren(new ArrayList<>());// 初始化子列表
+        Integer parentId = dept.getParentId();
+        // 没有父节点或父节点未加载，暂时视为根节点 ，设置parentId为0
+        if(parentId == null || !map.containsKey(parentId)){
+            dept.setParentId(0);
+            orgInfolist.add(dept);
+        }else {
+            // 添加到父节点的children
+            map.get(parentId).getChildren().add(dept);
+        }
+        map.put(dept.getOrgId(), dept); //注册到map
+    });
+    return orgInfolist;
+}
+```
