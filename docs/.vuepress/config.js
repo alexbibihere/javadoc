@@ -139,6 +139,7 @@ module.exports = {
         collapsable: false, // 不折叠
         children: [
           { title: "study", path: "/book/note/study" },
+          {title:"vue",path:"/book/note/vue"},
           { title: "SecZone", path: "/book/note/SecZone" },
           { title: "blog", path: "/book/note/blog" },
           { title:"work", path: "/book/note/work"}

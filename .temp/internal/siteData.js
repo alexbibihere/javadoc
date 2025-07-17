@@ -16,13 +16,11 @@ export const siteData = {
   ],
   "pages": [
     {
-      "title": "拆箱与装箱",
       "frontmatter": {
         "icon": "pen-to-square",
-        "date": "2022-01-03T00:00:00.000Z",
+        "date": "2022-01-01T00:00:00.000Z",
         "category": [
-          "Java基础",
-          "Fruit"
+          "Java基础"
         ],
         "tag": [
           "red",
@@ -30,25 +28,82 @@ export const siteData = {
           "round"
         ]
       },
-      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/%E6%8B%86%E7%AE%B1%E4%B8%8E%E8%A3%85%E7%AE%B1.html",
-      "relativePath": "book/Java基础/拆箱与装箱.md",
-      "key": "v-1aab4efe",
-      "path": "/book/Java%E5%9F%BA%E7%A1%80/%E6%8B%86%E7%AE%B1%E4%B8%8E%E8%A3%85%E7%AE%B1.html",
+      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/String.html",
+      "relativePath": "book/Java基础/String.md",
+      "key": "v-02f7b4d6",
+      "path": "/book/Java%E5%9F%BA%E7%A1%80/String.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "字符串拼接",
+          "slug": "字符串拼接"
         },
         {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
+          "level": 2,
+          "title": "字符串比较",
+          "slug": "字符串比较"
+        },
+        {
+          "level": 2,
+          "title": "字符串截取",
+          "slug": "字符串截取"
+        },
+        {
+          "level": 2,
+          "title": "字符串替换",
+          "slug": "字符串替换"
+        },
+        {
+          "level": 2,
+          "title": "字符串大小写转换",
+          "slug": "字符串大小写转换"
+        },
+        {
+          "level": 2,
+          "title": "字符串查找",
+          "slug": "字符串查找"
+        },
+        {
+          "level": 2,
+          "title": "字符串长度",
+          "slug": "字符串长度"
+        },
+        {
+          "level": 2,
+          "title": "字符串拆分",
+          "slug": "字符串拆分"
         }
       ]
     },
     {
-      "title": "字节码",
+      "title": "首页",
+      "frontmatter": {
+        "home": true,
+        "layout": "BlogHome",
+        "icon": "home",
+        "title": "首页",
+        "heroText": "一点一滴,共筑江河",
+        "heroFullScreen": true
+      },
+      "regularPath": "/",
+      "relativePath": "README.md",
+      "key": "v-38a8ee80",
+      "path": "/",
+      "headers": [
+        {
+          "level": 2,
+          "title": "发布流程: 本地book分支更新完后推送到远端 book分支",
+          "slug": "发布流程-本地book分支更新完后推送到远端-book分支"
+        },
+        {
+          "level": 2,
+          "title": "->接着切换到master分支上 合并book分支  然后deploy 部署",
+          "slug": "接着切换到master分支上-合并book分支-然后deploy-部署"
+        }
+      ]
+    },
+    {
+      "title": "什么是字节码",
       "frontmatter": {
         "icon": "pen-to-square",
         "date": "2022-01-04T00:00:00.000Z",
@@ -64,50 +119,169 @@ export const siteData = {
       },
       "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/%E5%AD%97%E8%8A%82%E7%A0%81.html",
       "relativePath": "book/Java基础/字节码.md",
-      "key": "v-b4280ae2",
+      "key": "v-7d7225d7",
       "path": "/book/Java%E5%9F%BA%E7%A1%80/%E5%AD%97%E8%8A%82%E7%A0%81.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "什么是字节码",
+          "slug": "什么是字节码"
         },
         {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
+          "level": 2,
+          "title": "字节码的作用",
+          "slug": "字节码的作用"
         }
       ]
     },
     {
-      "title": "MQ的使用",
+      "title": "StringUtils 常用方法",
       "frontmatter": {
         "icon": "pen-to-square",
-        "date": "2024-8-19",
+        "date": "2022-01-02T00:00:00.000Z",
         "category": [
-          "集合",
-          "Fruit"
+          "Java基础"
         ],
         "tag": [
-          "yellow",
-          "curly",
-          "long"
-        ]
+          "red",
+          "big",
+          "round"
+        ],
+        "star": true
       },
-      "regularPath": "/book/MQ/MQ.html",
-      "relativePath": "book/MQ/MQ.md",
-      "key": "v-8c251266",
-      "path": "/book/MQ/MQ.html",
+      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html",
+      "relativePath": "book/Java基础/StringUtils.md",
+      "key": "v-0026576e",
+      "path": "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "StringUtils 常用方法",
+          "slug": "stringutils-常用方法"
+        }
+      ]
+    },
+    {
+      "title": "基本概念",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-03T00:00:00.000Z",
+        "category": [
+          "Java基础",
+          "Fruit"
+        ],
+        "tag": [
+          "red",
+          "big",
+          "round"
+        ]
+      },
+      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/%E6%8B%86%E7%AE%B1%E4%B8%8E%E8%A3%85%E7%AE%B1.html",
+      "relativePath": "book/Java基础/拆箱与装箱.md",
+      "key": "v-2f730646",
+      "path": "/book/Java%E5%9F%BA%E7%A1%80/%E6%8B%86%E7%AE%B1%E4%B8%8E%E8%A3%85%E7%AE%B1.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "基本概念",
+          "slug": "基本概念"
         },
         {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
+          "level": 2,
+          "title": "自动拆箱",
+          "slug": "自动拆箱"
+        },
+        {
+          "level": 2,
+          "title": "自动装箱",
+          "slug": "自动装箱"
+        },
+        {
+          "level": 2,
+          "title": "注意事项",
+          "slug": "注意事项"
+        }
+      ]
+    },
+    {
+      "title": "RocketMQ",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-09T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/MQ/RocketMQ.html",
+      "relativePath": "book/MQ/RocketMQ.md",
+      "key": "v-1ff7a8ed",
+      "path": "/book/MQ/RocketMQ.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "简介",
+          "slug": "简介"
+        },
+        {
+          "level": 2,
+          "title": "架构",
+          "slug": "架构"
+        },
+        {
+          "level": 2,
+          "title": "特性",
+          "slug": "特性"
+        },
+        {
+          "level": 2,
+          "title": "常用代码",
+          "slug": "常用代码"
+        }
+      ]
+    },
+    {
+      "title": "RabbitMQ 简介",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-09T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/MQ/RabbitMQ.html",
+      "relativePath": "book/MQ/RabbitMQ.md",
+      "key": "v-1d0c203e",
+      "path": "/book/MQ/RabbitMQ.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "常用代码",
+          "slug": "常用代码"
+        },
+        {
+          "level": 2,
+          "title": "如何保证消息不丢失",
+          "slug": "如何保证消息不丢失"
+        },
+        {
+          "level": 2,
+          "title": "RabbitMQ 消息的重复消费问题",
+          "slug": "rabbitmq-消息的重复消费问题"
+        },
+        {
+          "level": 2,
+          "title": "消息堆积问题",
+          "slug": "消息堆积问题"
         }
       ]
     },
@@ -127,7 +301,7 @@ export const siteData = {
       },
       "regularPath": "/book/linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html",
       "relativePath": "book/linux/linux常用命令.md",
-      "key": "v-e10741d4",
+      "key": "v-c3b64f44",
       "path": "/book/linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html",
       "headers": [
         {
@@ -173,40 +347,7 @@ export const siteData = {
       ]
     },
     {
-      "title": "StringUtils",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2022-01-02T00:00:00.000Z",
-        "category": [
-          "Java基础"
-        ],
-        "tag": [
-          "red",
-          "big",
-          "round"
-        ],
-        "star": true
-      },
-      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html",
-      "relativePath": "book/Java基础/StringUtils.md",
-      "key": "v-4ffa3dfe",
-      "path": "/book/Java%E5%9F%BA%E7%A1%80/StringUtils.html",
-      "headers": [
-        {
-          "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
-        },
-        {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
-        }
-      ],
-      "excerpt": "<h1 id=\"stringutils\"><a class=\"header-anchor\" href=\"#stringutils\">#</a> StringUtils</h1>\n<p>A apple article being stared.</p>\n"
-    },
-    {
-      "title": "JVM的组成",
+      "title": "JVM的组成主要分为三个部分： 类加载器、运行时数据区、执行引擎。",
       "frontmatter": {
         "icon": "pen-to-square",
         "date": "2022-01-09T00:00:00.000Z",
@@ -221,68 +362,118 @@ export const siteData = {
       },
       "regularPath": "/book/JVM/JVM%E7%9A%84%E7%BB%84%E6%88%90.html",
       "relativePath": "book/JVM/JVM的组成.md",
-      "key": "v-99a012d0",
+      "key": "v-e0749c40",
       "path": "/book/JVM/JVM%E7%9A%84%E7%BB%84%E6%88%90.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "JVM的组成主要分为三个部分： 类加载器、运行时数据区、执行引擎。",
+          "slug": "jvm的组成主要分为三个部分-类加载器、运行时数据区、执行引擎。"
+        },
+        {
+          "level": 2,
+          "title": "类加载器",
+          "slug": "类加载器"
         },
         {
           "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
-        }
-      ]
-    },
-    {
-      "title": "博客",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2024-8-23",
-        "category": [
-          "note"
-        ],
-        "tag": [
-          "red",
-          "small",
-          "round"
-        ]
-      },
-      "regularPath": "/book/note/blog.html",
-      "relativePath": "book/note/blog.md",
-      "key": "v-9b5770a6",
-      "path": "/book/note/blog.html",
-      "headers": [
+          "title": "启动类加载器（Bootstrap Class Loader）",
+          "slug": "启动类加载器-bootstrap-class-loader"
+        },
+        {
+          "level": 3,
+          "title": "扩展类加载器（Extension Class Loader）",
+          "slug": "扩展类加载器-extension-class-loader"
+        },
+        {
+          "level": 3,
+          "title": "系统类加载器（System Class Loader）",
+          "slug": "系统类加载器-system-class-loader"
+        },
         {
           "level": 2,
-          "title": "refusing to merge unrelated histories",
-          "slug": "refusing-to-merge-unrelated-histories"
+          "title": "运行时数据区",
+          "slug": "运行时数据区"
+        },
+        {
+          "level": 3,
+          "title": "方法区（Method Area）",
+          "slug": "方法区-method-area"
+        },
+        {
+          "level": 3,
+          "title": "堆（Heap）",
+          "slug": "堆-heap"
+        },
+        {
+          "level": 3,
+          "title": "虚拟机栈（VM Stack）",
+          "slug": "虚拟机栈-vm-stack"
+        },
+        {
+          "level": 3,
+          "title": "程序计数器（Program Counter Register）",
+          "slug": "程序计数器-program-counter-register"
+        },
+        {
+          "level": 2,
+          "title": "执行引擎",
+          "slug": "执行引擎"
+        },
+        {
+          "level": 3,
+          "title": "解释器（Interpreter）",
+          "slug": "解释器-interpreter"
+        },
+        {
+          "level": 3,
+          "title": "JIT 编译器（Just-In-Time Compiler）",
+          "slug": "jit-编译器-just-in-time-compiler"
+        },
+        {
+          "level": 3,
+          "title": "垃圾回收器（Garbage Collector）",
+          "slug": "垃圾回收器-garbage-collector"
+        },
+        {
+          "level": 2,
+          "title": "堆栈的区别",
+          "slug": "堆栈的区别"
+        },
+        {
+          "level": 2,
+          "title": "类加载的过程",
+          "slug": "类加载的过程"
+        },
+        {
+          "level": 2,
+          "title": "定位垃圾的算法",
+          "slug": "定位垃圾的算法"
+        },
+        {
+          "level": 2,
+          "title": "垃圾回收的算法",
+          "slug": "垃圾回收的算法"
+        },
+        {
+          "level": 2,
+          "title": "JVM调优",
+          "slug": "jvm调优"
+        },
+        {
+          "level": 2,
+          "title": "Java内存泄露的排查思路",
+          "slug": "java内存泄露的排查思路"
+        },
+        {
+          "level": 2,
+          "title": "CPU飙高排查思路",
+          "slug": "cpu飙高排查思路"
         }
       ]
     },
     {
-      "title": "todolist",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2024-8-23",
-        "category": [
-          "note"
-        ],
-        "tag": [
-          "red",
-          "small",
-          "round"
-        ]
-      },
-      "regularPath": "/book/note/study.html",
-      "relativePath": "book/note/study.md",
-      "key": "v-120ad9b3",
-      "path": "/book/note/study.html"
-    },
-    {
-      "title": "定位环境问题",
+      "title": "BugFix",
       "frontmatter": {
         "icon": "pen-to-square",
         "date": "2024-8-23",
@@ -297,42 +488,18 @@ export const siteData = {
       },
       "regularPath": "/book/note/SecZone.html",
       "relativePath": "book/note/SecZone.md",
-      "key": "v-6a9f2a33",
+      "key": "v-521d597b",
       "path": "/book/note/SecZone.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
-        },
-        {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
+          "title": "大文件上传问题",
+          "slug": "大文件上传问题"
         }
       ]
     },
     {
-      "title": "String",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2022-01-01T00:00:00.000Z",
-        "category": [
-          "Java基础"
-        ],
-        "tag": [
-          "red",
-          "big",
-          "round"
-        ]
-      },
-      "regularPath": "/book/Java%E5%9F%BA%E7%A1%80/String.html",
-      "relativePath": "book/Java基础/String.md",
-      "key": "v-caaf8f66",
-      "path": "/book/Java%E5%9F%BA%E7%A1%80/String.html"
-    },
-    {
-      "title": "linux常用命令",
+      "title": "stream",
       "frontmatter": {
         "icon": "pen-to-square",
         "date": "2022-01-09T00:00:00.000Z",
@@ -347,85 +514,40 @@ export const siteData = {
       },
       "regularPath": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html",
       "relativePath": "book/小技巧/Java8 Stream.md",
-      "key": "v-0a731cfa",
+      "key": "v-4a9b7a42",
       "path": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/Java8%20Stream.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "0.数据统计",
+          "slug": "_0-数据统计"
         },
-        {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
-        }
-      ]
-    },
-    {
-      "title": "Java开发小技巧",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2022-01-09T00:00:00.000Z",
-        "category": [
-          "Cherry"
-        ],
-        "tag": [
-          "red",
-          "small",
-          "round"
-        ]
-      },
-      "regularPath": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/javabasic.html",
-      "relativePath": "book/小技巧/javabasic.md",
-      "key": "v-0f7dac6f",
-      "path": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/javabasic.html",
-      "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "1.过滤元素 - filter()",
+          "slug": "_1-过滤元素-filter"
         },
         {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
+          "level": 2,
+          "title": "2.去重元素 - distinct()",
+          "slug": "_2-去重元素-distinct"
+        },
+        {
+          "level": 2,
+          "title": "3.排序元素 - sorted()",
+          "slug": "_3-排序元素-sorted"
+        },
+        {
+          "level": 2,
+          "title": "4.收集结果-collect()",
+          "slug": "_4-收集结果-collect"
+        },
+        {
+          "level": 2,
+          "title": "用法",
+          "slug": "用法"
         }
       ]
-    },
-    {
-      "title": "首页",
-      "frontmatter": {
-        "home": true,
-        "layout": "BlogHome",
-        "icon": "home",
-        "title": "首页",
-        "heroText": "一点一滴,共筑江河",
-        "heroFullScreen": true
-      },
-      "regularPath": "/",
-      "relativePath": "README.md",
-      "key": "v-2283e108",
-      "path": "/"
-    },
-    {
-      "title": "Git开发小技巧",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2022-01-09T00:00:00.000Z",
-        "category": [
-          "Cherry"
-        ],
-        "tag": [
-          "red",
-          "small",
-          "round"
-        ]
-      },
-      "regularPath": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/git.html",
-      "relativePath": "book/小技巧/git.md",
-      "key": "v-2b7d0523",
-      "path": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/git.html"
     },
     {
       "title": "分布式系统构建",
@@ -443,7 +565,7 @@ export const siteData = {
       },
       "regularPath": "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html",
       "relativePath": "book/分布式/distributeSystem.md",
-      "key": "v-9b2f95d4",
+      "key": "v-8e510744",
       "path": "/book/%E5%88%86%E5%B8%83%E5%BC%8F/distributeSystem.html",
       "headers": [
         {
@@ -459,7 +581,7 @@ export const siteData = {
       ]
     },
     {
-      "title": "Springcloud",
+      "title": "Git开发小技巧",
       "frontmatter": {
         "icon": "pen-to-square",
         "date": "2022-01-09T00:00:00.000Z",
@@ -472,20 +594,143 @@ export const siteData = {
           "round"
         ]
       },
-      "regularPath": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA.html",
-      "relativePath": "book/微服务/SpringCloud项目搭建.md",
-      "key": "v-11ba7331",
-      "path": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA.html",
+      "regularPath": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/git.html",
+      "relativePath": "book/小技巧/git.md",
+      "key": "v-a69a532a",
+      "path": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/git.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "1. 显示当前分支",
+          "slug": "_1-显示当前分支"
+        },
+        {
+          "level": 2,
+          "title": "2. 切换分支",
+          "slug": "_2-切换分支"
+        },
+        {
+          "level": 2,
+          "title": "3. 创建新分支",
+          "slug": "_3-创建新分支"
+        },
+        {
+          "level": 2,
+          "title": "4. 删除分支",
+          "slug": "_4-删除分支"
+        },
+        {
+          "level": 2,
+          "title": "5. 合并分支",
+          "slug": "_5-合并分支"
+        },
+        {
+          "level": 2,
+          "title": "1. 设置用户名",
+          "slug": "_1-设置用户名"
+        },
+        {
+          "level": 2,
+          "title": "2. 设置邮箱",
+          "slug": "_2-设置邮箱"
+        }
+      ]
+    },
+    {
+      "title": "kafka 简介",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2024-8-19",
+        "category": [
+          "集合",
+          "Fruit"
+        ],
+        "tag": [
+          "yellow",
+          "curly",
+          "long"
+        ]
+      },
+      "regularPath": "/book/MQ/kafka.html",
+      "relativePath": "book/MQ/kafka.md",
+      "key": "v-646b1b5b",
+      "path": "/book/MQ/kafka.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "kafka是如何保证消息不丢失",
+          "slug": "kafka是如何保证消息不丢失"
         },
         {
           "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
+          "title": "生产者发送消息到broker丢失",
+          "slug": "生产者发送消息到broker丢失"
+        },
+        {
+          "level": 3,
+          "title": "消息在broker中存储丢失",
+          "slug": "消息在broker中存储丢失"
+        },
+        {
+          "level": 3,
+          "title": "消费者从broker接收消息丢失",
+          "slug": "消费者从broker接收消息丢失"
+        },
+        {
+          "level": 2,
+          "title": "kafka中消息的重复消费问题如何解决的",
+          "slug": "kafka中消息的重复消费问题如何解决的"
+        },
+        {
+          "level": 2,
+          "title": "如何保证消息的顺序性",
+          "slug": "如何保证消息的顺序性"
+        },
+        {
+          "level": 2,
+          "title": "Kafka 中实现高性能的设计",
+          "slug": "kafka-中实现高性能的设计"
+        }
+      ]
+    },
+    {
+      "title": "Optional 用法",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-09T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/code.html",
+      "relativePath": "book/小技巧/code.md",
+      "key": "v-4d027dc5",
+      "path": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/code.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1.用set去重  然后array.sort()排序",
+          "slug": "_1-用set去重-然后array-sort-排序"
+        },
+        {
+          "level": 2,
+          "title": "2.list去重  然后array.sort()排序",
+          "slug": "_2-list去重-然后array-sort-排序"
+        },
+        {
+          "level": 2,
+          "title": "3.stream去重排序",
+          "slug": "_3-stream去重排序"
+        },
+        {
+          "level": 3,
+          "title": "复制指定元素到另个数组",
+          "slug": "复制指定元素到另个数组"
         }
       ]
     },
@@ -505,23 +750,249 @@ export const siteData = {
       },
       "regularPath": "/book/%E5%B9%B6%E5%8F%91/countdownlatch.html",
       "relativePath": "book/并发/countdownlatch.md",
-      "key": "v-31141ea2",
+      "key": "v-4e5415f7",
       "path": "/book/%E5%B9%B6%E5%8F%91/countdownlatch.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
-        },
-        {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
+          "title": "代码",
+          "slug": "代码"
         }
       ]
     },
     {
-      "title": "Springcloud",
+      "title": "1、快捷键：",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-09T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/markdown.html",
+      "relativePath": "book/小技巧/markdown.md",
+      "key": "v-3afa0585",
+      "path": "/book/%E5%B0%8F%E6%8A%80%E5%B7%A7/markdown.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "二级标题",
+          "slug": "二级标题"
+        },
+        {
+          "level": 3,
+          "title": "三级标题",
+          "slug": "三级标题"
+        }
+      ]
+    },
+    {
+      "title": "什么是 Docker？",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-09T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Docker.html",
+      "relativePath": "book/微服务/Docker.md",
+      "key": "v-1689bf66",
+      "path": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Docker.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "什么是 Docker？",
+          "slug": "什么是-docker"
+        },
+        {
+          "level": 2,
+          "title": "Docker 架构",
+          "slug": "docker-架构"
+        },
+        {
+          "level": 2,
+          "title": "Docker 镜像",
+          "slug": "docker-镜像"
+        },
+        {
+          "level": 2,
+          "title": "Docker 容器",
+          "slug": "docker-容器"
+        },
+        {
+          "level": 2,
+          "title": "Docker 仓库",
+          "slug": "docker-仓库"
+        },
+        {
+          "level": 2,
+          "title": "Docker 常用命令",
+          "slug": "docker-常用命令"
+        }
+      ]
+    },
+    {
+      "title": "todolist",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2024-8-23",
+        "category": [
+          "note"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/note/study.html",
+      "relativePath": "book/note/study.md",
+      "key": "v-3653ecfb",
+      "path": "/book/note/study.html"
+    },
+    {
+      "title": "并发线程",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2025-04-03T00:00:00.000Z",
+        "category": [
+          "thread"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E5%B9%B6%E5%8F%91/thread.html",
+      "relativePath": "book/并发/thread.md",
+      "key": "v-161d366e",
+      "path": "/book/%E5%B9%B6%E5%8F%91/thread.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "线程的概念",
+          "slug": "线程的概念"
+        },
+        {
+          "level": 2,
+          "title": "线程的特点",
+          "slug": "线程的特点"
+        },
+        {
+          "level": 2,
+          "title": "线程的状态",
+          "slug": "线程的状态"
+        },
+        {
+          "level": 2,
+          "title": "线程的创建",
+          "slug": "线程的创建"
+        },
+        {
+          "level": 2,
+          "title": "线程的同步",
+          "slug": "线程的同步"
+        },
+        {
+          "level": 2,
+          "title": "线程的死锁",
+          "slug": "线程的死锁"
+        },
+        {
+          "level": 2,
+          "title": "线程的优先级",
+          "slug": "线程的优先级"
+        },
+        {
+          "level": 2,
+          "title": "线程的安全",
+          "slug": "线程的安全"
+        },
+        {
+          "level": 3,
+          "title": "Synchronized关键字的底层原理",
+          "slug": "synchronized关键字的底层原理"
+        },
+        {
+          "level": 3,
+          "title": "synchronized 的锁",
+          "slug": "synchronized-的锁"
+        },
+        {
+          "level": 3,
+          "title": "CAS（Compare And Swap）算法",
+          "slug": "cas-compare-and-swap-算法"
+        },
+        {
+          "level": 3,
+          "title": "volatile关键字的作用",
+          "slug": "volatile关键字的作用"
+        },
+        {
+          "level": 3,
+          "title": "AQS",
+          "slug": "aqs"
+        },
+        {
+          "level": 3,
+          "title": "ConcurrentHashMap",
+          "slug": "concurrenthashmap"
+        },
+        {
+          "level": 2,
+          "title": "线程池",
+          "slug": "线程池"
+        },
+        {
+          "level": 3,
+          "title": "线程池的核心参数",
+          "slug": "线程池的核心参数"
+        },
+        {
+          "level": 3,
+          "title": "你们项目哪里用到了多线程",
+          "slug": "你们项目哪里用到了多线程"
+        },
+        {
+          "level": 3,
+          "title": "谈谈你对threadlocal的理解",
+          "slug": "谈谈你对threadlocal的理解"
+        }
+      ]
+    },
+    {
+      "title": "Springcloud项目搭建",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-09T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA.html",
+      "relativePath": "book/微服务/SpringCloud项目搭建.md",
+      "key": "v-4628670e",
+      "path": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA.html"
+    },
+    {
+      "title": "SpringCloud常用组件",
       "frontmatter": {
         "icon": "pen-to-square",
         "date": "2022-01-09T00:00:00.000Z",
@@ -536,23 +1007,639 @@ export const siteData = {
       },
       "regularPath": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud.html",
       "relativePath": "book/微服务/SpringCloud.md",
-      "key": "v-15fdf937",
+      "key": "v-298f8b02",
       "path": "/book/%E5%BE%AE%E6%9C%8D%E5%8A%A1/SpringCloud.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "Nacos和Eureka的区别",
+          "slug": "nacos和eureka的区别"
         },
         {
           "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
+          "title": "共同点",
+          "slug": "共同点"
+        },
+        {
+          "level": 3,
+          "title": "nacos与eureka的区别（注册中心）",
+          "slug": "nacos与eureka的区别-注册中心"
+        },
+        {
+          "level": 2,
+          "title": "Ribbon",
+          "slug": "ribbon"
+        },
+        {
+          "level": 3,
+          "title": "Ribbon的负载均衡策略有哪些",
+          "slug": "ribbon的负载均衡策略有哪些"
+        },
+        {
+          "level": 2,
+          "title": "Hystrix",
+          "slug": "hystrix"
+        },
+        {
+          "level": 3,
+          "title": "什么是服务雪崩，怎么解决这个问题？",
+          "slug": "什么是服务雪崩-怎么解决这个问题"
+        },
+        {
+          "level": 2,
+          "title": "限流",
+          "slug": "限流"
+        },
+        {
+          "level": 2,
+          "title": "简历上写的微服务，只要是发生了多个服务之间的写操作，都需要进行分布式事务控制",
+          "slug": "简历上写的微服务-只要是发生了多个服务之间的写操作-都需要进行分布式事务控制"
+        },
+        {
+          "level": 2,
+          "title": "分布式服务的接口幂等性",
+          "slug": "分布式服务的接口幂等性"
+        },
+        {
+          "level": 3,
+          "title": "解决方案：",
+          "slug": "解决方案"
+        },
+        {
+          "level": 3,
+          "title": "token+redis",
+          "slug": "token-redis"
         }
       ]
     },
     {
-      "title": "Mysql",
+      "title": "Redis",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2024-10-29T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/redis.html",
+      "relativePath": "book/数据库/redis.md",
+      "key": "v-75c76bd4",
+      "path": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/redis.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "基本数据类型",
+          "slug": "基本数据类型"
+        },
+        {
+          "level": 2,
+          "title": "缓存穿透",
+          "slug": "缓存穿透"
+        },
+        {
+          "level": 3,
+          "title": "解决办法",
+          "slug": "解决办法"
+        },
+        {
+          "level": 2,
+          "title": "缓存击穿",
+          "slug": "缓存击穿"
+        },
+        {
+          "level": 3,
+          "title": "解决办法",
+          "slug": "解决办法-2"
+        },
+        {
+          "level": 2,
+          "title": "缓存雪崩",
+          "slug": "缓存雪崩"
+        },
+        {
+          "level": 3,
+          "title": "解决办法",
+          "slug": "解决办法-3"
+        },
+        {
+          "level": 2,
+          "title": "双写一致性 (redis和mysql数据如何进行同步)",
+          "slug": "双写一致性-redis和mysql数据如何进行同步"
+        },
+        {
+          "level": 3,
+          "title": "延迟一致",
+          "slug": "延迟一致"
+        },
+        {
+          "level": 3,
+          "title": "强一致性",
+          "slug": "强一致性"
+        },
+        {
+          "level": 3,
+          "title": "异步通知保证数据的最终一致性",
+          "slug": "异步通知保证数据的最终一致性"
+        },
+        {
+          "level": 2,
+          "title": "redis数据持久化",
+          "slug": "redis数据持久化"
+        },
+        {
+          "level": 3,
+          "title": "RDB",
+          "slug": "rdb"
+        },
+        {
+          "level": 3,
+          "title": "AOF",
+          "slug": "aof"
+        },
+        {
+          "level": 2,
+          "title": "Redis的过期策略",
+          "slug": "redis的过期策略"
+        },
+        {
+          "level": 2,
+          "title": "setnx",
+          "slug": "setnx"
+        },
+        {
+          "level": 2,
+          "title": "Redis的数据淘汰策略",
+          "slug": "redis的数据淘汰策略"
+        },
+        {
+          "level": 2,
+          "title": "redisson 实现的分布式锁-执行流程",
+          "slug": "redisson-实现的分布式锁-执行流程"
+        },
+        {
+          "level": 2,
+          "title": "redisson 实现分布式锁的代码",
+          "slug": "redisson-实现分布式锁的代码"
+        }
+      ]
+    },
+    {
+      "title": "Vue",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2025-07-17T00:00:00.000Z",
+        "category": [
+          "Banana"
+        ],
+        "tag": [
+          "yellow",
+          "curly",
+          "long"
+        ]
+      },
+      "regularPath": "/book/note/vue.html",
+      "relativePath": "book/note/vue.md",
+      "key": "v-76800a5b",
+      "path": "/book/note/vue.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "遇到的问题",
+          "slug": "遇到的问题"
+        },
+        {
+          "level": 3,
+          "title": "npm run dev",
+          "slug": "npm-run-dev"
+        }
+      ]
+    },
+    {
+      "title": "博客",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2024-8-23",
+        "category": [
+          "note"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/note/blog.html",
+      "relativePath": "book/note/blog.md",
+      "key": "v-3a4ce616",
+      "path": "/book/note/blog.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "refusing to merge unrelated histories",
+          "slug": "refusing-to-merge-unrelated-histories"
+        }
+      ]
+    },
+    {
+      "title": "工作常用方法",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2024-11-07T00:00:00.000Z",
+        "category": [
+          "Banana"
+        ],
+        "tag": [
+          "yellow",
+          "curly",
+          "long"
+        ]
+      },
+      "regularPath": "/book/note/work.html",
+      "relativePath": "book/note/work.md",
+      "key": "v-1f69be97",
+      "path": "/book/note/work.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "Java8 stream流",
+          "slug": "java8-stream流"
+        },
+        {
+          "level": 3,
+          "title": "分组",
+          "slug": "分组"
+        },
+        {
+          "level": 3,
+          "title": "统计",
+          "slug": "统计"
+        },
+        {
+          "level": 3,
+          "title": "排序",
+          "slug": "排序"
+        },
+        {
+          "level": 3,
+          "title": "求和",
+          "slug": "求和"
+        },
+        {
+          "level": 3,
+          "title": "过滤",
+          "slug": "过滤"
+        },
+        {
+          "level": 3,
+          "title": "去重",
+          "slug": "去重"
+        },
+        {
+          "level": 2,
+          "title": "文件io",
+          "slug": "文件io"
+        },
+        {
+          "level": 2,
+          "title": "上传文件",
+          "slug": "上传文件"
+        },
+        {
+          "level": 2,
+          "title": "导入导出Excel",
+          "slug": "导入导出excel"
+        },
+        {
+          "level": 2,
+          "title": "正则表达式",
+          "slug": "正则表达式"
+        }
+      ]
+    },
+    {
+      "title": "SQL写法",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2025-04-20T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL.html",
+      "relativePath": "book/数据库/SQL.md",
+      "key": "v-304f0af0",
+      "path": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "日期函数",
+          "slug": "日期函数"
+        },
+        {
+          "level": 3,
+          "title": "查询2020年8月之前创建的课程：",
+          "slug": "查询2020年8月之前创建的课程"
+        },
+        {
+          "level": 3,
+          "title": "统计2020年1月到5月的课程",
+          "slug": "统计2020年1月到5月的课程"
+        },
+        {
+          "level": 3,
+          "title": "查询所有课程表的课程名和创建时间的秒数",
+          "slug": "查询所有课程表的课程名和创建时间的秒数"
+        },
+        {
+          "level": 3,
+          "title": "查询每个部门的平均薪水",
+          "slug": "查询每个部门的平均薪水"
+        },
+        {
+          "level": 3,
+          "title": "统计不同教师id的数量",
+          "slug": "统计不同教师id的数量"
+        },
+        {
+          "level": 3,
+          "title": "查询来自中国的教师名称以及所教课程名称",
+          "slug": "查询来自中国的教师名称以及所教课程名称"
+        },
+        {
+          "level": 3,
+          "title": "查询教师id不为1或3的课程",
+          "slug": "查询教师id不为1或3的课程"
+        },
+        {
+          "level": 3,
+          "title": "查询为腾讯邮箱且国籍为中国的老师",
+          "slug": "查询为腾讯邮箱且国籍为中国的老师"
+        },
+        {
+          "level": 3,
+          "title": "插入xiexun的信息",
+          "slug": "插入xiexun的信息"
+        },
+        {
+          "level": 3,
+          "title": "查询制定教师授课的课程信息",
+          "slug": "查询制定教师授课的课程信息"
+        },
+        {
+          "level": 3,
+          "title": "找到挂科最多的同学 student_id",
+          "slug": "找到挂科最多的同学-student-id"
+        },
+        {
+          "level": 3,
+          "title": "分别查询出课程表的课程创建时间中的日期与时间",
+          "slug": "分别查询出课程表的课程创建时间中的日期与时间"
+        },
+        {
+          "level": 3,
+          "title": "查询课程创建日期按 ‘年-月-日 时:分:秒’ 显示",
+          "slug": "查询课程创建日期按-年-月-日-时-分-秒-显示"
+        },
+        {
+          "level": 3,
+          "title": "判断教师是否拥有邮箱",
+          "slug": "判断教师是否拥有邮箱"
+        },
+        {
+          "level": 3,
+          "title": "查询20岁以上教师的平均年龄 保留四位小数",
+          "slug": "查询20岁以上教师的平均年龄-保留四位小数"
+        },
+        {
+          "level": 3,
+          "title": "修改教师Eastern Heretic创建的课程信息",
+          "slug": "修改教师eastern-heretic创建的课程信息"
+        },
+        {
+          "level": 3,
+          "title": "被同一个人至少使用过三次的共享单车",
+          "slug": "被同一个人至少使用过三次的共享单车"
+        },
+        {
+          "level": 3,
+          "title": "硬币翻面",
+          "slug": "硬币翻面"
+        },
+        {
+          "level": 3,
+          "title": "超过3名球员所得的分数",
+          "slug": "超过3名球员所得的分数"
+        },
+        {
+          "level": 3,
+          "title": "查询不同年龄教师的人数",
+          "slug": "查询不同年龄教师的人数"
+        },
+        {
+          "level": 3,
+          "title": "增长的疫情感染人数",
+          "slug": "增长的疫情感染人数"
+        },
+        {
+          "level": 3,
+          "title": "找出从不充值的玩家",
+          "slug": "找出从不充值的玩家"
+        },
+        {
+          "level": 3,
+          "title": "网课上课情况分析",
+          "slug": "网课上课情况分析"
+        },
+        {
+          "level": 3,
+          "title": "查询教师表 teachers 中除了年龄 age 在 20 岁以上 (不包括 20 岁) 的中国 (CN) 教师以外所有教师信息",
+          "slug": "查询教师表-teachers-中除了年龄-age-在-20-岁以上-不包括-20-岁-的中国-cn-教师以外所有教师信息"
+        },
+        {
+          "level": 3,
+          "title": "查询不同国家教师的人数",
+          "slug": "查询不同国家教师的人数"
+        },
+        {
+          "level": 3,
+          "title": "查询字母D 到 O 开的头的课程",
+          "slug": "查询字母d-到-o-开的头的课程"
+        },
+        {
+          "level": 3,
+          "title": "所有学生都选修的课程",
+          "slug": "所有学生都选修的课程"
+        },
+        {
+          "level": 3,
+          "title": "存储过程",
+          "slug": "存储过程"
+        },
+        {
+          "level": 3,
+          "title": "统计每个老师教授课程的数量",
+          "slug": "统计每个老师教授课程的数量"
+        },
+        {
+          "level": 3,
+          "title": "查询年龄不大于20岁的教师所教的课程名字",
+          "slug": "查询年龄不大于20岁的教师所教的课程名字"
+        },
+        {
+          "level": 3,
+          "title": "查询 'U' 字开头且学生总数在 2000 到 5000 之间的教师国籍和该国籍教师的学生总数",
+          "slug": "查询-u-字开头且学生总数在-2000-到-5000-之间的教师国籍和该国籍教师的学生总数"
+        },
+        {
+          "level": 3,
+          "title": "查询每位同学第一次登录平台听课的设备ID",
+          "slug": "查询每位同学第一次登录平台听课的设备id"
+        },
+        {
+          "level": 3,
+          "title": "连续的空箱子",
+          "slug": "连续的空箱子"
+        },
+        {
+          "level": 3,
+          "title": "查询没有给阿里巴巴投简历的学生",
+          "slug": "查询没有给阿里巴巴投简历的学生"
+        },
+        {
+          "level": 3,
+          "title": "找只出现过一次最高的身高",
+          "slug": "找只出现过一次最高的身高"
+        },
+        {
+          "level": 3,
+          "title": "将教师表中所有的数据复制到另一张表中",
+          "slug": "将教师表中所有的数据复制到另一张表中"
+        },
+        {
+          "level": 3,
+          "title": "修改教师Western Venom创建的课程名称",
+          "slug": "修改教师western-venom创建的课程名称"
+        },
+        {
+          "level": 3,
+          "title": "查询上课学生人数均超过 Western Venom 老师所教课程的课程信息预",
+          "slug": "查询上课学生人数均超过-western-venom-老师所教课程的课程信息预"
+        },
+        {
+          "level": 3,
+          "title": "查询学生上课人数超过 'Eastern Heretic' 的任意一门授课人数的课程信息",
+          "slug": "查询学生上课人数超过-eastern-heretic-的任意一门授课人数的课程信息"
+        },
+        {
+          "level": 3,
+          "title": "查询不同国家最大年龄教师",
+          "slug": "查询不同国家最大年龄教师"
+        },
+        {
+          "level": 3,
+          "title": "2066 · 查询课程学生数超过最年长教师所有课程学生数的课程信息预发布",
+          "slug": "_2066-·-查询课程学生数超过最年长教师所有课程学生数的课程信息预发布"
+        },
+        {
+          "level": 3,
+          "title": "查询每个教师授课学生人数最高的课程名称和上课人数",
+          "slug": "查询每个教师授课学生人数最高的课程名称和上课人数"
+        },
+        {
+          "level": 3,
+          "title": "根据国家平均年龄查询教师信息",
+          "slug": "根据国家平均年龄查询教师信息"
+        },
+        {
+          "level": 3,
+          "title": "统计每个老师教授课程的学生总数",
+          "slug": "统计每个老师教授课程的学生总数"
+        },
+        {
+          "level": 3,
+          "title": "查询课程创建时间晚于指定教师任意一门课程创建时间的课程名称",
+          "slug": "查询课程创建时间晚于指定教师任意一门课程创建时间的课程名称"
+        },
+        {
+          "level": 3,
+          "title": "存储过程参数",
+          "slug": "存储过程参数"
+        },
+        {
+          "level": 3,
+          "title": "数据新增备份触发器",
+          "slug": "数据新增备份触发器"
+        },
+        {
+          "level": 3,
+          "title": "招聘信息统计表的更新数据处理",
+          "slug": "招聘信息统计表的更新数据处理"
+        },
+        {
+          "level": 3,
+          "title": "查询所有教师授课的学生上课平均人数超过全部课程平均人数的教师姓名",
+          "slug": "查询所有教师授课的学生上课平均人数超过全部课程平均人数的教师姓名"
+        }
+      ]
+    },
+    {
+      "title": "基于分布式文件存储的数据库",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2024-10-29T00:00:00.000Z",
+        "category": [
+          "Cherry"
+        ],
+        "tag": [
+          "red",
+          "small",
+          "round"
+        ]
+      },
+      "regularPath": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mongo.html",
+      "relativePath": "book/数据库/mongo.md",
+      "key": "v-9dc78cb8",
+      "path": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mongo.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "基于分布式文件存储的数据库",
+          "slug": "基于分布式文件存储的数据库"
+        },
+        {
+          "level": 2,
+          "title": "应用场景",
+          "slug": "应用场景"
+        },
+        {
+          "level": 2,
+          "title": "查询语句",
+          "slug": "查询语句"
+        },
+        {
+          "level": 2,
+          "title": "插入语句",
+          "slug": "插入语句"
+        },
+        {
+          "level": 2,
+          "title": "删除语句",
+          "slug": "删除语句"
+        }
+      ]
+    },
+    {
+      "title": "Mysql_索引",
       "frontmatter": {
         "icon": "pen-to-square",
         "date": "2022-01-09T00:00:00.000Z",
@@ -567,54 +1654,53 @@ export const siteData = {
       },
       "regularPath": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html",
       "relativePath": "book/数据库/索引.md",
-      "key": "v-0c976d0a",
+      "key": "v-219e3cc3",
       "path": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%B4%A2%E5%BC%95.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "索引的作用",
+          "slug": "索引的作用"
         },
-        {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
-        }
-      ]
-    },
-    {
-      "title": "Mybatis-plus的使用",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2022-01-11T00:00:00.000Z",
-        "category": [
-          "Fruit",
-          "Strawberry"
-        ],
-        "tag": [
-          "red",
-          "small"
-        ]
-      },
-      "regularPath": "/book/%E6%A1%86%E6%9E%B6/Mybatis-plus.html",
-      "relativePath": "book/框架/Mybatis-plus.md",
-      "key": "v-9ed74a22",
-      "path": "/book/%E6%A1%86%E6%9E%B6/Mybatis-plus.html",
-      "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "索引的分类",
+          "slug": "索引的分类"
+        },
+        {
+          "level": 2,
+          "title": "索引的优点",
+          "slug": "索引的优点"
+        },
+        {
+          "level": 2,
+          "title": "索引的缺点",
+          "slug": "索引的缺点"
+        },
+        {
+          "level": 2,
+          "title": "索引的创建",
+          "slug": "索引的创建"
         },
         {
           "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
+          "title": "创建索引的原则",
+          "slug": "创建索引的原则"
+        },
+        {
+          "level": 3,
+          "title": "创建索引的步骤",
+          "slug": "创建索引的步骤"
+        },
+        {
+          "level": 2,
+          "title": "索引的使用",
+          "slug": "索引的使用"
         }
       ]
     },
     {
-      "title": "Spring",
+      "title": "Mysql 学习笔记",
       "frontmatter": {
         "icon": "pen-to-square",
         "date": "2022-01-09T00:00:00.000Z",
@@ -627,16 +1713,152 @@ export const siteData = {
           "round"
         ]
       },
-      "regularPath": "/book/%E6%A1%86%E6%9E%B6/Spring.html",
-      "relativePath": "book/框架/Spring.md",
-      "key": "v-23c1cbbd",
-      "path": "/book/%E6%A1%86%E6%9E%B6/Spring.html",
+      "regularPath": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql.html",
+      "relativePath": "book/数据库/mysql.md",
+      "key": "v-38cdbd48",
+      "path": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "常用命令",
+          "slug": "常用命令"
         },
+        {
+          "level": 2,
+          "title": "SQL优化",
+          "slug": "sql优化"
+        },
+        {
+          "level": 2,
+          "title": "如何定位慢查询",
+          "slug": "如何定位慢查询"
+        },
+        {
+          "level": 2,
+          "title": "SQL慢如何分析",
+          "slug": "sql慢如何分析"
+        },
+        {
+          "level": 2,
+          "title": "锁",
+          "slug": "锁"
+        },
+        {
+          "level": 3,
+          "title": "按照锁的粒度，mysql分为表级锁和行级锁：",
+          "slug": "按照锁的粒度-mysql分为表级锁和行级锁"
+        },
+        {
+          "level": 3,
+          "title": "按照使用方式，mysql分为共享锁和排他锁：",
+          "slug": "按照使用方式-mysql分为共享锁和排他锁"
+        },
+        {
+          "level": 3,
+          "title": "按照思想，mysql分为乐观锁和悲观锁：",
+          "slug": "按照思想-mysql分为乐观锁和悲观锁"
+        },
+        {
+          "level": 2,
+          "title": "索引",
+          "slug": "索引"
+        },
+        {
+          "level": 3,
+          "title": "聚簇索引",
+          "slug": "聚簇索引"
+        },
+        {
+          "level": 3,
+          "title": "非聚簇索引",
+          "slug": "非聚簇索引"
+        },
+        {
+          "level": 3,
+          "title": "覆盖索引",
+          "slug": "覆盖索引"
+        },
+        {
+          "level": 3,
+          "title": "回表查询",
+          "slug": "回表查询"
+        },
+        {
+          "level": 3,
+          "title": "底层数据结构",
+          "slug": "底层数据结构"
+        },
+        {
+          "level": 3,
+          "title": "Mysql超大分页处理",
+          "slug": "mysql超大分页处理"
+        },
+        {
+          "level": 3,
+          "title": "索引的创建原则",
+          "slug": "索引的创建原则"
+        },
+        {
+          "level": 3,
+          "title": "索引失效",
+          "slug": "索引失效"
+        },
+        {
+          "level": 2,
+          "title": "SQL执行顺序",
+          "slug": "sql执行顺序"
+        },
+        {
+          "level": 2,
+          "title": "优化SQL",
+          "slug": "优化sql"
+        },
+        {
+          "level": 2,
+          "title": "事务 (ACID)",
+          "slug": "事务-acid"
+        },
+        {
+          "level": 3,
+          "title": "并发事务",
+          "slug": "并发事务"
+        },
+        {
+          "level": 2,
+          "title": "触发器",
+          "slug": "触发器"
+        },
+        {
+          "level": 2,
+          "title": "Subquery returns more than 1 row",
+          "slug": "subquery-returns-more-than-1-row"
+        },
+        {
+          "level": 2,
+          "title": "Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'judge.t.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sqlmode=onlyfullgroupby",
+          "slug": "expression-1-of-select-list-is-not-in-group-by-clause-and-contains-nonaggregated-column-judge-t-name-which-is-not-functionally-dependent-on-columns-in-group-by-clause-this-is-incompatible-with-sql-mode-only-full-group-by"
+        }
+      ]
+    },
+    {
+      "title": "Springboot",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2025-07-13T00:00:00.000Z",
+        "category": [
+          "Dragon Fruit",
+          "Fruit"
+        ],
+        "tag": [
+          "red",
+          "big"
+        ]
+      },
+      "regularPath": "/book/%E6%A1%86%E6%9E%B6/SpringBoot.html",
+      "relativePath": "book/框架/SpringBoot.md",
+      "key": "v-6b35b7e1",
+      "path": "/book/%E6%A1%86%E6%9E%B6/SpringBoot.html",
+      "headers": [
         {
           "level": 3,
           "title": "Heading 3",
@@ -660,7 +1882,7 @@ export const siteData = {
       },
       "regularPath": "/book/%E6%A1%86%E6%9E%B6/SpringCloud.html",
       "relativePath": "book/框架/SpringCloud.md",
-      "key": "v-0aa615e9",
+      "key": "v-31885d9e",
       "path": "/book/%E6%A1%86%E6%9E%B6/SpringCloud.html",
       "headers": [
         {
@@ -676,7 +1898,174 @@ export const siteData = {
       ]
     },
     {
-      "title": "Mysql",
+      "title": "介绍",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-07T00:00:00.000Z",
+        "category": [
+          "Banana"
+        ],
+        "tag": [
+          "yellow",
+          "curly",
+          "long"
+        ]
+      },
+      "regularPath": "/book/%E9%9B%86%E5%90%88/Map.html",
+      "relativePath": "book/集合/Map.md",
+      "key": "v-391e2c4d",
+      "path": "/book/%E9%9B%86%E5%90%88/Map.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "介绍",
+          "slug": "介绍"
+        },
+        {
+          "level": 2,
+          "title": "特点",
+          "slug": "特点"
+        },
+        {
+          "level": 2,
+          "title": "常用方法",
+          "slug": "常用方法"
+        },
+        {
+          "level": 2,
+          "title": "HashMap",
+          "slug": "hashmap"
+        },
+        {
+          "level": 2,
+          "title": "HashMap的底层原理",
+          "slug": "hashmap的底层原理"
+        },
+        {
+          "level": 3,
+          "title": "HashMap的核心组成：",
+          "slug": "hashmap的核心组成"
+        },
+        {
+          "level": 3,
+          "title": "JDK 1.8引入红黑树的原因：",
+          "slug": "jdk-1-8引入红黑树的原因"
+        },
+        {
+          "level": 2,
+          "title": "HashMap的实现原理",
+          "slug": "hashmap的实现原理"
+        },
+        {
+          "level": 3,
+          "title": "hashmap的数据结构：底层使用hash表数据结构，即数组和链表或红黑树",
+          "slug": "hashmap的数据结构-底层使用hash表数据结构-即数组和链表或红黑树"
+        },
+        {
+          "level": 2,
+          "title": "HashMap的扩容机制",
+          "slug": "hashmap的扩容机制"
+        },
+        {
+          "level": 2,
+          "title": "LinkedHashMap",
+          "slug": "linkedhashmap"
+        },
+        {
+          "level": 2,
+          "title": "TreeMap",
+          "slug": "treemap"
+        },
+        {
+          "level": 2,
+          "title": "ConcurrentHashMap",
+          "slug": "concurrenthashmap"
+        },
+        {
+          "level": 2,
+          "title": "适用场景总结 🎯",
+          "slug": "适用场景总结-🎯"
+        }
+      ]
+    },
+    {
+      "title": "Mybatis-plus的使用",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2022-01-11T00:00:00.000Z",
+        "category": [
+          "Fruit",
+          "Strawberry"
+        ],
+        "tag": [
+          "red",
+          "small"
+        ]
+      },
+      "regularPath": "/book/%E6%A1%86%E6%9E%B6/Mybatis-plus.html",
+      "relativePath": "book/框架/Mybatis-plus.md",
+      "key": "v-82af3792",
+      "path": "/book/%E6%A1%86%E6%9E%B6/Mybatis-plus.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "介绍",
+          "slug": "介绍"
+        },
+        {
+          "level": 2,
+          "title": "安装",
+          "slug": "安装"
+        },
+        {
+          "level": 2,
+          "title": "常用代码",
+          "slug": "常用代码"
+        },
+        {
+          "level": 3,
+          "title": "实体类",
+          "slug": "实体类"
+        },
+        {
+          "level": 3,
+          "title": "Mapper",
+          "slug": "mapper"
+        },
+        {
+          "level": 3,
+          "title": "配置",
+          "slug": "配置"
+        },
+        {
+          "level": 2,
+          "title": "CRUD 操作",
+          "slug": "crud-操作"
+        },
+        {
+          "level": 3,
+          "title": "插入",
+          "slug": "插入"
+        },
+        {
+          "level": 3,
+          "title": "删除",
+          "slug": "删除"
+        },
+        {
+          "level": 3,
+          "title": "更新",
+          "slug": "更新"
+        },
+        {
+          "level": 3,
+          "title": "查询",
+          "slug": "查询"
+        }
+      ]
+    },
+    {
+      "title": "Spring",
       "frontmatter": {
         "icon": "pen-to-square",
         "date": "2022-01-09T00:00:00.000Z",
@@ -689,15 +2078,71 @@ export const siteData = {
           "round"
         ]
       },
-      "regularPath": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql.html",
-      "relativePath": "book/数据库/mysql.md",
-      "key": "v-561c6000",
-      "path": "/book/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql.html",
+      "regularPath": "/book/%E6%A1%86%E6%9E%B6/Spring.html",
+      "relativePath": "book/框架/Spring.md",
+      "key": "v-22e38105",
+      "path": "/book/%E6%A1%86%E6%9E%B6/Spring.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "AOP",
+          "slug": "aop"
+        },
+        {
+          "level": 2,
+          "title": "事务失效",
+          "slug": "事务失效"
+        },
+        {
+          "level": 2,
+          "title": "Bean 的生命周期",
+          "slug": "bean-的生命周期"
+        },
+        {
+          "level": 2,
+          "title": "循环引用",
+          "slug": "循环引用"
+        },
+        {
+          "level": 2,
+          "title": "SpringMVC的执行流程",
+          "slug": "springmvc的执行流程"
+        },
+        {
+          "level": 2,
+          "title": "SpringBoot 自动配置原理",
+          "slug": "springboot-自动配置原理"
+        },
+        {
+          "level": 2,
+          "title": "Mybatis执行流程",
+          "slug": "mybatis执行流程"
+        }
+      ]
+    },
+    {
+      "title": "读取json转  model  list map",
+      "frontmatter": {
+        "icon": "pen-to-square",
+        "date": "2024-11-07T00:00:00.000Z",
+        "category": [
+          "Banana"
+        ],
+        "tag": [
+          "yellow",
+          "curly",
+          "long"
+        ]
+      },
+      "regularPath": "/book/%E9%9B%86%E5%90%88/ObjectMapper.html",
+      "relativePath": "book/集合/ObjectMapper.md",
+      "key": "v-53fecc32",
+      "path": "/book/%E9%9B%86%E5%90%88/ObjectMapper.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "读取json转  model  list map",
+          "slug": "读取json转-model-list-map"
         },
         {
           "level": 3,
@@ -722,49 +2167,38 @@ export const siteData = {
       },
       "regularPath": "/book/%E9%9B%86%E5%90%88/List.html",
       "relativePath": "book/集合/List.md",
-      "key": "v-31a4b8a3",
+      "key": "v-284451eb",
       "path": "/book/%E9%9B%86%E5%90%88/List.html",
       "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "1. 存储位置",
+          "slug": "_1-存储位置"
         },
-        {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
-        }
-      ]
-    },
-    {
-      "title": "Map",
-      "frontmatter": {
-        "icon": "pen-to-square",
-        "date": "2022-01-07T00:00:00.000Z",
-        "category": [
-          "Banana"
-        ],
-        "tag": [
-          "yellow",
-          "curly",
-          "long"
-        ]
-      },
-      "regularPath": "/book/%E9%9B%86%E5%90%88/Map.html",
-      "relativePath": "book/集合/Map.md",
-      "key": "v-b34e3df6",
-      "path": "/book/%E9%9B%86%E5%90%88/Map.html",
-      "headers": [
         {
           "level": 2,
-          "title": "Heading 2",
-          "slug": "heading-2"
+          "title": "2. 线程安全性",
+          "slug": "_2-线程安全性"
         },
         {
-          "level": 3,
-          "title": "Heading 3",
-          "slug": "heading-3"
+          "level": 2,
+          "title": "3. 内存占用",
+          "slug": "_3-内存占用"
+        },
+        {
+          "level": 2,
+          "title": "4. 选择",
+          "slug": "_4-选择"
+        },
+        {
+          "level": 2,
+          "title": "ArrayList底层实现原理",
+          "slug": "arraylist底层实现原理"
+        },
+        {
+          "level": 2,
+          "title": "LinkedList底层实现原理",
+          "slug": "linkedlist底层实现原理"
         }
       ]
     },
@@ -820,6 +2254,10 @@ export const siteData = {
           },
           {
             "text": "数据库",
+            "link": "/"
+          },
+          {
+            "text": "小技巧",
             "link": "/"
           },
           {
@@ -887,6 +2325,10 @@ export const siteData = {
           {
             "title": "Map",
             "path": "/book/集合/Map"
+          },
+          {
+            "title": "ObjectMapper",
+            "path": "/book/集合/ObjectMapper"
           }
         ]
       },
@@ -903,6 +2345,10 @@ export const siteData = {
             "path": "/book/框架/Spring"
           },
           {
+            "title": "SpringBoot",
+            "path": "/book/框架/SpringBoot"
+          },
+          {
             "title": "SpringCloud",
             "path": "/book/框架/SpringCloud"
           }
@@ -910,11 +2356,16 @@ export const siteData = {
       },
       {
         "title": "并发",
+        "path": "/book/并发/",
         "collapsable": false,
         "children": [
           {
             "title": "countdownlatch",
             "path": "/book/并发/countdownlatch"
+          },
+          {
+            "title": "thread",
+            "path": "/book/并发/thread"
           }
         ]
       },
@@ -937,6 +2388,14 @@ export const siteData = {
             "path": "/book/数据库/索引"
           },
           {
+            "title": "mongo",
+            "path": "/book/数据库/mongo"
+          },
+          {
+            "title": "redis",
+            "path": "/book/数据库/redis"
+          },
+          {
             "title": "mysql",
             "path": "/book/数据库/mysql"
           }
@@ -957,12 +2416,38 @@ export const siteData = {
         "collapsable": false,
         "children": [
           {
+            "title": "Docker",
+            "path": "/book/微服务/Docker"
+          },
+          {
             "title": "SpringCloud",
             "path": "/book/微服务/SpringCloud"
           },
           {
             "title": "SpringCloud项目搭建",
             "path": "/book/微服务/SpringCloud项目搭建"
+          }
+        ]
+      },
+      {
+        "title": "小技巧",
+        "collapsable": false,
+        "children": [
+          {
+            "title": "git",
+            "path": "/book/小技巧/git"
+          },
+          {
+            "title": "code",
+            "path": "/book/小技巧/code"
+          },
+          {
+            "title": "Java8 Stream",
+            "path": "/book/小技巧/Java8 Stream"
+          },
+          {
+            "title": "markdown",
+            "path": "/book/小技巧/markdown"
           }
         ]
       },
@@ -985,12 +2470,20 @@ export const siteData = {
             "path": "/book/note/study"
           },
           {
+            "title": "vue",
+            "path": "/book/note/vue"
+          },
+          {
             "title": "SecZone",
             "path": "/book/note/SecZone"
           },
           {
             "title": "blog",
             "path": "/book/note/blog"
+          },
+          {
+            "title": "work",
+            "path": "/book/note/work"
           }
         ]
       },
@@ -999,8 +2492,16 @@ export const siteData = {
         "collapsable": false,
         "children": [
           {
-            "title": "MQ",
-            "path": "/book/MQ/MQ"
+            "title": "kafka",
+            "path": "/book/MQ/kafka"
+          },
+          {
+            "title": "RabbitMQ",
+            "path": "/book/MQ/RabbitMQ"
+          },
+          {
+            "title": "RocketMQ",
+            "path": "/book/MQ/RocketMQ"
           }
         ]
       }
