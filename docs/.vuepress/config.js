@@ -134,6 +134,13 @@ module.exports = {
         ],
       },
       {
+        title: "工作流",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "flowable", path: "/book/工作流/flowable" }
+        ],
+      },
+      {
         title: "note",
         // path: '/book/MQ',
         collapsable: false, // 不折叠
