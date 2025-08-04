@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2024-11-07
-category:
-  - Banana
-tag:
-  - yellow
-  - curly
-  - long
+title: 工作常用方法
 ---
 
 # 工作常用方法

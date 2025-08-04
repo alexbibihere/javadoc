@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2024-8-23
-category:
-  - note
-tag:
-  - red
-  - small
-  - round
+title: 学习计划
 ---
 
 # todolist

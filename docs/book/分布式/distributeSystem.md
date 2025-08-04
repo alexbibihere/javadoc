@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2022-01-09
-category:
-  - Cherry
-tag:
-  - red
-  - small
-  - round
+title: 分布式系统构建
 ---
 
 # 分布式系统构建

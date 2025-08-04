@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2025-07-17
-category:
-  - Banana
-tag:
-  - yellow
-  - curly
-  - long
+title: Vue
 ---
 
 # Vue

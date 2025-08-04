@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2022-01-09
-category:
-  - Cherry
-tag:
-  - red
-  - small
-  - round
+title: JVM的组成
 ---
 
 ## JVM的组成主要分为三个部分： 类加载器、运行时数据区、执行引擎。

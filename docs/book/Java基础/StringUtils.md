@@ -1,13 +1,7 @@
 ---
 icon: pen-to-square
 date: 2022-01-02
-category:
-  - Java基础
-tag:
-  - red
-  - big
-  - round
-star: true
+title: StringUtils 常用方法
 ---
 
 ## StringUtils 常用方法

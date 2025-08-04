@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2025-7-23
-category:
-  - note
-tag:
-  - red
-  - small
-  - round
+title: 开发项目必备知识
 ---
 # 开发项目必备知识
 

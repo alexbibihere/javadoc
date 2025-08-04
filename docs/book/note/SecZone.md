@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2024-8-23
-category:
-  - note
-tag:
-  - red
-  - small
-  - round
+title: SecZone
 ---
 # BugFix
 # 定位环境问题
