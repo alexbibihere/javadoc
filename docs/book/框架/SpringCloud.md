@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2022-01-10
-category:
-  - Dragon Fruit
-  - Fruit
-tag:
-  - red
-  - big
+title: SpringCloud微服务项目构建
 ---
 
 # SpringCloud微服务项目构建

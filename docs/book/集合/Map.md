@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2022-01-07
-category:
-  - Banana
-tag:
-  - yellow
-  - curly
-  - long
+title: Map
 ---
 
 ## 介绍

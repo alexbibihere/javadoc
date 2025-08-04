@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2025-07-13
-category:
-  - Dragon Fruit
-  - Fruit
-tag:
-  - red
-  - big
+title: Springboot
 ---
 
 # Springboot
