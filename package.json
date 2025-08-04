@@ -20,6 +20,7 @@
   "homepage": "https://github.com/alexbibihere/vuepress#readme",
   "devDependencies": {
     "vuepress": "^1.9.10",
+    "vuepress-plugin-side-anchor": "^1.0.6",
     "vuepress-theme-reco": "^1.6.17"
   }
 }
