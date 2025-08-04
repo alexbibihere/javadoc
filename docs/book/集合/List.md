@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2022-01-09
-category:
-  - Cherry
-tag:
-  - red
-  - small
-  - round
+title: List中ArrayList和LinkedList的区别
 ---
 
 # List中ArrayList和LinkedList的区别

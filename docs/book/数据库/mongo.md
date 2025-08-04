@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2024-10-29
-category:
-  - Cherry
-tag:
-  - red
-  - small
-  - round
+title: MongoDB
 ---
 
 ## 基于分布式文件存储的数据库

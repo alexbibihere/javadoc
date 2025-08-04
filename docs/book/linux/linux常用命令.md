@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2022-01-09
-category:
-  - Cherry
-tag:
-  - red
-  - small
-  - round
+title: linux常用命令
 ---
 
 ## 列出几个常用的linux命令

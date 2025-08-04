@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2025-04-20
-category:
-  - Cherry
-tag:
-  - red
-  - small
-  - round
+title: SQL写法
 ---
 # SQL写法
 

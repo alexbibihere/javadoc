@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2024-10-29
-category:
-  - Cherry
-tag:
-  - red
-  - small
-  - round
+title: Redis
 ---
 # Redis
 ## 基本数据类型

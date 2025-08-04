@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2025-04-03
-category:
-  - thread
-tag:
-  - red
-  - small
-  - round
+title: 线程
 ---
 # 并发线程
 ## 线程的概念

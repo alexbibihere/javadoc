@@ -1,12 +1,7 @@
 ---
 icon: pen-to-square
 date: 2022-01-11
-category:
-  - Fruit
-  - Strawberry
-tag:
-  - red
-  - small
+title: Mybatis-plus
 ---
 
 # Mybatis-plus的使用
