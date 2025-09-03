@@ -153,6 +153,13 @@ module.exports = {
         ],
       },
       {
+         title: "设计模式",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "策略模式", path: "/book/设计模式/策略模式" }
+        ],
+      },
+      {
         title: "MQ",
         // path: '/book/MQ',
         collapsable: false, // 不折叠
