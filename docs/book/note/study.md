@@ -14,12 +14,14 @@ title: 学习计划
 - [x] 学习Mybatis-plus
 - [x] 学习list stream用法
 - [x] 学习Map高级用法
-- [ ] 学习Optional
+- [x] 学习Optional
 - [ ] 学习RabbitMQ
 - [ ] 学习XXL-JOB
 - [x] 学习MongoDB
 - [ ] 学习linux
 - [ ] 学习jenkis
 - [x] 学习nacos
-
-
+- [x] 学习k8s
+- [ ] 学习docker
+- [ ] 学习spring cloud
+- [ ] 学习微服务架构

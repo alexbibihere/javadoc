@@ -168,6 +168,14 @@ module.exports = {
           {title:"RabbitMQ",path:"/book/MQ/RabbitMQ"},
           {title:"RocketMQ",path:"/book/MQ/RocketMQ"}
         ],
+      },
+      {
+        title: "LeetCode",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "sql", path: "/book/LeetCode/sql" },
+          {title:"algorithm",path:"/book/LeetCode/algorithm"}
+        ],
       }
     ]
   }
