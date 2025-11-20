@@ -153,6 +153,13 @@ module.exports = {
         ],
       },
       {
+         title: "设计模式",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "策略模式", path: "/book/设计模式/策略模式" }
+        ],
+      },
+      {
         title: "MQ",
         // path: '/book/MQ',
         collapsable: false, // 不折叠
@@ -160,6 +167,14 @@ module.exports = {
           { title: "kafka", path: "/book/MQ/kafka" },
           {title:"RabbitMQ",path:"/book/MQ/RabbitMQ"},
           {title:"RocketMQ",path:"/book/MQ/RocketMQ"}
+        ],
+      },
+      {
+        title: "LeetCode",
+        collapsable: false, // 不折叠
+        children: [
+          { title: "sql", path: "/book/LeetCode/sql" },
+          {title:"algorithm",path:"/book/LeetCode/algorithm"}
         ],
       }
     ]

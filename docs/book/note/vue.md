@@ -12,3 +12,11 @@ title: Vue
 
 - 解决方法：在项目根目录重新安装 npm install
 这会安装 package.json 中列出的所有依赖，包括 VuePress。
+
+
+
+
+
+## 启动方式
+
+- pnpm  run dev
