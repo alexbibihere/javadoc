@@ -1,0 +1,8 @@
+node_modules/
+video_cache.json
+favorites_cache.json
+*.log
+.DS_Store
+.claude/settings.local.json
+*.bat
+*.ps1

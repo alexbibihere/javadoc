@@ -1,0 +1,2852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地视频浏览器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .refresh-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .refresh-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .video-player {
+            margin-bottom: 30px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            background-color: #000;
+        }
+        
+        .video-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .video-item {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-thumbnail {
+            height: 150px;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .video-details {
+            padding: 15px;
+        }
+        
+        .video-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .video-meta {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 20px;
+            color: #dc3545;
+        }
+        
+        /* 盘符列表样式 */
+        .drive-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .drive-item {
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .drive-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 目录区域样式 */
+        .directory-section {
+            margin-top: 30px;
+        }
+        
+        .video-section {
+            margin-top: 30px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-header h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+        
+        /* 目录网格样式 */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        /* 目录项样式 */
+        .directory-item {
+            padding: 30px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .directory-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 视频文件样式 */
+        .video-file-item {
+            padding: 30px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .video-file-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-bar {
+                max-width: none;
+                margin-bottom: 10px;
+            }
+            
+            .refresh-btn {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <h1>本地视频浏览器</h1>
+        
+        <div class="controls">
+            <div style="display: flex; margin-right: 20px;">
+                <button class="refresh-btn" onclick="loadVideos()" style="margin-right: 10px; background-color: #667eea; color: white;">全部视频</button>
+                <button class="refresh-btn" onclick="loadRandomVideo()" style="margin-right: 10px; background-color: #ffc107; color: white;">随机播放</button>
+                <button class="refresh-btn" onclick="loadRotationPage()" style="margin-right: 10px; background-color: #6f42c1; color: white;">视频轮换</button>
+                <button class="refresh-btn" onclick="loadFavoriteVideos()" style="margin-right: 10px; background-color: #e74c3c; color: white;">最爱视频</button>
+                <button class="refresh-btn" onclick="loadFavoritesPage()" style="margin-right: 10px; background-color: #17a2b8; color: white;">收藏页面</button>
+                <button class="refresh-btn" onclick="loadHistoryPage()" style="margin-right: 10px; background-color: #9c27b0; color: white;">播放历史</button>
+                <button class="refresh-btn" onclick="loadDuplicateVideosPage()" style="margin-right: 10px; background-color: #fd7e14; color: white;">相同文件名</button>
+                <button class="refresh-btn" onclick="loadFileDirectory()" style="background-color: #28a745; color: white;">文件目录</button>
+            </div>
+            <input type="text" class="search-bar" placeholder="搜索视频..." id="searchInputTop">
+            <button class="refresh-btn" onclick="loadVideos(true)">刷新视频列表</button>
+        </div>
+        
+        <div class="video-player">
+            <video id="videoPlayer" controls>
+                <source src="" type="video/mp4">
+                您的浏览器不支持HTML5视频播放。
+            </video>
+            <div class="video-info" id="videoInfo">请选择一个视频进行播放</div>
+        </div>
+        
+        <!-- 盘符列表展示 -->
+        <div class="loading" id="loading">正在加载盘符列表...</div>
+        <div class="error" id="error" style="display: none;"></div>
+        <div class="drive-list" id="driveList"></div>
+        
+        <!-- 目录结构展示区域 -->
+        <div class="directory-section" id="directorySection" style="display: none;">
+            <div class="section-header">
+                <h2 id="currentDirectoryTitle">目录结构</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="refresh-btn" onclick="goBackDirectory()">返回上一级</button>
+                    <button class="refresh-btn" onclick="showDriveList()">返回盘符列表</button>
+                </div>
+            </div>
+            <div class="directory-grid" id="directoryGrid"></div>
+        </div>
+        
+        <!-- 视频列表区域 -->
+        <div class="video-section" id="videoSection" style="display: none;">
+            <div class="section-header">
+                <h2 id="currentDriveTitle">视频文件</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="refresh-btn" onclick="goBackDirectory()">返回目录</button>
+                    <button class="refresh-btn" onclick="showDriveList()">返回盘符列表</button>
+                </div>
+            </div>
+            <div class="controls" style="margin-top: 10px; padding: 10px;">
+                <input type="text" class="search-bar" placeholder="搜索视频..." id="searchInputVideo">
+            </div>
+            <div class="video-grid" id="videoGrid"></div>
+        </div>
+        
+        <!-- 播放历史区域 -->
+        <div class="video-section" id="historySection" style="display: none;">
+            <div class="section-header">
+                <h2 id="historyTitle">播放历史</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="refresh-btn" onclick="clearHistory()" style="background-color: #dc3545; color: white;">清空历史</button>
+                    <button class="refresh-btn" onclick="loadVideos()">返回视频列表</button>
+                </div>
+            </div>
+            <div class="controls" style="margin-top: 10px; padding: 10px;">
+                <input type="text" class="search-bar" placeholder="搜索历史记录..." id="searchInputHistory">
+            </div>
+            <div class="video-grid" id="historyGrid"></div>
+        </div>
+        
+        <!-- 相同文件名视频区域 -->
+        <div class="video-section" id="duplicateSection" style="display: none;">
+            <div class="section-header">
+                <h2 id="duplicateTitle">相同文件名的视频</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button class="refresh-btn" onclick="loadVideos()">返回视频列表</button>
+                </div>
+            </div>
+            <div class="video-grid" id="duplicateGrid"></div>
+        </div>
+    </div>
+    
+    <script>
+        let videos = [];
+        let drives = [];
+        let currentDrive = '';
+        let currentPath = '';
+        let currentSearch = '';
+        let directoryHistory = []; // 目录历史栈，用于导航
+        let playbackHistory = []; // 播放历史数组
+        
+        // 初始化播放历史
+        function initPlaybackHistory() {
+            const savedHistory = localStorage.getItem('video_playback_history');
+            if (savedHistory) {
+                try {
+                    playbackHistory = JSON.parse(savedHistory);
+                    console.log('从localStorage加载播放历史:', playbackHistory.length, '条记录');
+                } catch (e) {
+                    console.error('解析播放历史失败:', e.message);
+                    playbackHistory = [];
+                }
+            }
+        }
+        
+        // 获取播放历史
+        function getPlaybackHistory() {
+            return playbackHistory;
+        }
+        
+        // 添加播放历史记录
+        function addToPlaybackHistory(video) {
+            if (!video || !video.path) {
+                console.error('无效的视频对象:', video);
+                return;
+            }
+            
+            console.log('添加到播放历史:', video.name);
+            
+            // 先移除已存在的相同视频记录
+            playbackHistory = playbackHistory.filter(item => item.path !== video.path);
+            
+            // 添加到历史记录开头
+            const historyItem = {
+                ...video,
+                watchedAt: new Date().toISOString(),
+                lastWatched: Date.now()
+            };
+            
+            playbackHistory.unshift(historyItem);
+            
+            // 限制历史记录数量（最多100条）
+            if (playbackHistory.length > 100) {
+                playbackHistory = playbackHistory.slice(0, 100);
+            }
+            
+            // 保存到localStorage
+            savePlaybackHistory();
+            console.log('播放历史已保存，当前记录数:', playbackHistory.length);
+        }
+        
+        // 保存播放历史到localStorage
+        function savePlaybackHistory() {
+            try {
+                localStorage.setItem('video_playback_history', JSON.stringify(playbackHistory));
+            } catch (e) {
+                console.error('保存播放历史失败:', e.message);
+            }
+        }
+        
+        // 清空播放历史
+        function clearPlaybackHistory() {
+            playbackHistory = [];
+            localStorage.removeItem('video_playback_history');
+            console.log('播放历史已清空');
+        }
+        
+        // 页面加载时初始化
+        window.onload = async function() {
+            console.log('页面加载完成，开始初始化...');
+
+            // 初始化播放历史
+            initPlaybackHistory();
+
+            await loadVideoList();
+            console.log('视频列表加载完成，drives数组:', drives);
+
+            // 默认显示视频封面网格
+            loadVideos();
+            console.log('视频封面网格展示完成');
+        };
+        
+        // 加载视频列表（从缓存或API）
+        async function loadVideoList(refresh = false) {
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+
+            loading.style.display = 'block';
+            error.style.display = 'none';
+
+            try {
+                const url = refresh ? '/api/videos?refresh=true' : '/api/videos';
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('加载视频列表失败');
+                }
+
+                videos = await response.json();
+
+                // 获取所有唯一的磁盘
+                drives = [...new Set(videos.map(video => video.drive))];
+
+            } catch (err) {
+                error.textContent = '加载视频列表失败: ' + err.message;
+                error.style.display = 'block';
+                console.error('加载视频列表失败:', err);
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+        
+        // 展示盘符列表
+        function showDriveList() {
+            const driveList = document.getElementById('driveList');
+            const directorySection = document.getElementById('directorySection');
+            const videoSection = document.getElementById('videoSection');
+            
+            console.log('driveList元素:', driveList);
+            console.log('directorySection元素:', directorySection);
+            console.log('videoSection元素:', videoSection);
+            console.log('drives数组:', drives);
+            
+            driveList.innerHTML = '';
+            driveList.style.display = 'grid'; // 使用grid布局，确保正确显示
+            directorySection.style.display = 'none';
+            videoSection.style.display = 'none';
+            
+            // 清空目录历史
+            directoryHistory = [];
+            currentPath = '';
+            currentDrive = '';
+            
+            // 显示盘符列表
+            if (!drives || drives.length === 0) {
+                driveList.innerHTML = '<div class="loading">未找到可用盘符</div>';
+                console.log('drives数组为空，显示未找到可用盘符');
+                return;
+            }
+            
+            console.log('开始创建盘符元素，共', drives.length, '个盘符');
+            drives.forEach(drive => {
+                const driveItem = document.createElement('div');
+                driveItem.className = 'drive-item';
+                driveItem.textContent = drive;
+                driveItem.onclick = () => showDirectoryStructure(drive);
+                driveList.appendChild(driveItem);
+                console.log('创建了盘符元素:', drive);
+            });
+            
+            console.log('盘符列表创建完成，driveList.innerHTML:', driveList.innerHTML);
+        }
+        
+        // 展示指定盘符的视频文件
+        function showVideosByDrive(drive) {
+            currentDrive = drive;
+            currentSearch = '';
+            
+            // 清空搜索框
+            document.getElementById('searchInputTop').value = '';
+            document.getElementById('searchInputVideo').value = '';
+            
+            // 更新标题
+            document.getElementById('currentDriveTitle').textContent = `${drive} 视频文件`;
+            
+            // 隐藏盘符列表，显示视频区域
+            const driveList = document.getElementById('driveList');
+            const videoSection = document.getElementById('videoSection');
+            
+            driveList.style.display = 'none';
+            videoSection.style.display = 'block';
+            
+            // 渲染视频列表
+            renderVideosByDrive(drive);
+        }
+        
+        // 展示目录结构
+        async function showDirectoryStructure(path) {
+            currentPath = path;
+            currentDrive = path.split(':')[0] + ':';
+            currentSearch = '';
+            
+            // 清空搜索框
+            document.getElementById('searchInputTop').value = '';
+            document.getElementById('searchInputVideo').value = '';
+            
+            // 更新标题
+            document.getElementById('currentDirectoryTitle').textContent = `${path} 目录结构`;
+            
+            // 隐藏盘符列表，显示目录区域
+            const driveList = document.getElementById('driveList');
+            const directorySection = document.getElementById('directorySection');
+            const videoSection = document.getElementById('videoSection');
+            
+            driveList.style.display = 'none';
+            directorySection.style.display = 'block';
+            videoSection.style.display = 'none';
+            
+            // 添加到目录历史
+            directoryHistory.push(path);
+            
+            // 渲染目录结构
+            await renderDirectoryStructure(path);
+        }
+        
+        // 获取并渲染目录结构
+        async function renderDirectoryStructure(path) {
+            const directoryGrid = document.getElementById('directoryGrid');
+            
+            directoryGrid.innerHTML = '<div class="loading">正在加载目录结构...</div>';
+            
+            try {
+                // 构建请求URL，添加搜索关键词
+                const encodedPath = encodeURIComponent(path);
+                let url = `/api/directory/${encodedPath}`;
+                if (currentSearch) {
+                    url += `?search=${encodeURIComponent(currentSearch)}`;
+                }
+                
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    throw new Error('获取目录结构失败');
+                }
+                
+                const directoryItems = await response.json();
+                directoryGrid.innerHTML = '';
+                
+                if (!Array.isArray(directoryItems) || directoryItems.length === 0) {
+                    directoryGrid.innerHTML = '<div class="loading">该目录下未找到视频文件</div>';
+                    return;
+                }
+                
+                directoryItems.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    
+                    if (item.type === 'directory') {
+                        // 目录项
+                        itemElement.className = 'directory-item';
+                        itemElement.innerHTML = `
+                            <div style="margin-bottom: 5px;">📁</div>
+                            <div>${item.name}</div>
+                        `;
+                        itemElement.onclick = () => showDirectoryStructure(item.path);
+                    } else {
+                        // 视频文件项
+                        itemElement.className = 'video-file-item';
+                        const size = formatFileSize(item.size);
+                        itemElement.innerHTML = `
+                            <div style="margin-bottom: 5px;">🎬</div>
+                            <div style="font-size: 14px;">${item.name}</div>
+                            <div style="font-size: 12px; margin-top: 5px;">${size}</div>
+                        `;
+                        itemElement.onclick = () => playVideo(item);
+                    }
+                    
+                    directoryGrid.appendChild(itemElement);
+                });
+            } catch (error) {
+                console.error('渲染目录结构失败:', error);
+                directoryGrid.innerHTML = '<div class="error">渲染目录结构失败: ' + error.message + '</div>';
+            }
+        }
+        
+        // 返回上一级目录
+        function goBackDirectory() {
+            // 如果有历史记录，返回上一级
+            if (directoryHistory.length > 1) {
+                // 移除当前目录
+                directoryHistory.pop();
+                // 获取上一级目录
+                const previousPath = directoryHistory[directoryHistory.length - 1];
+                // 显示上一级目录
+                showDirectoryStructure(previousPath);
+            } else {
+                // 否则返回盘符列表
+                showDriveList();
+            }
+        }
+        
+        // 根据盘符渲染视频列表
+        function renderVideosByDrive(drive) {
+            const videoGrid = document.getElementById('videoGrid');
+            
+            try {
+                // 过滤出指定盘符的视频
+                let filteredVideos = videos.filter(video => video.drive === drive);
+                
+                // 按搜索关键词筛选
+                if (currentSearch) {
+                    const searchTerm = currentSearch.toLowerCase();
+                    filteredVideos = filteredVideos.filter(video => 
+                        video.name.toLowerCase().includes(searchTerm)
+                    );
+                }
+                
+                videoGrid.innerHTML = '';
+                
+                if (!Array.isArray(filteredVideos) || filteredVideos.length === 0) {
+                    videoGrid.innerHTML = '<div class="loading">未找到视频文件</div>';
+                    return;
+                }
+                
+                filteredVideos.forEach(video => {
+                    const videoItem = document.createElement('div');
+                    videoItem.className = 'video-item';
+                    
+                    // 格式化文件大小
+                    const size = formatFileSize(video.size);
+                    // 格式化修改时间
+                    const mtime = new Date(video.mtime).toLocaleString();
+                    
+                    videoItem.innerHTML = `
+                        <div class="video-thumbnail">
+                            <div>${video.ext.toUpperCase()} 视频</div>
+                        </div>
+                        <div class="video-details">
+                            <div class="video-name">${video.name}</div>
+                            <div class="video-meta">
+                                <div>大小: ${size}</div>
+                                <div>修改: ${mtime}</div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // 在设置innerHTML之后添加onclick事件
+                    videoItem.onclick = () => playVideo(video);
+                    
+                    videoGrid.appendChild(videoItem);
+                });
+            } catch (error) {
+                console.error('渲染视频列表失败:', error);
+                videoGrid.innerHTML = '<div class="error">渲染视频列表失败: ' + error.message + '</div>';
+            }
+        }
+        
+        // 播放视频
+        function playVideo(video) {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const videoInfo = document.getElementById('videoInfo');
+            
+            // 记录播放历史
+            addToPlaybackHistory(video);
+            
+            // 编码视频路径
+            const encodedPath = encodeURIComponent(video.path);
+            const videoUrl = `/api/video/${encodedPath}`;
+            
+            // 生成唯一的视频ID，使用视频的完整路径作为标识，确保唯一性
+            // 使用encodeURIComponent处理路径，支持中文等特殊字符
+            const videoId = encodeURIComponent(video.path);
+            
+            console.log(`开始播放视频: ${video.name}`);
+            console.log(`视频唯一标识: ${videoId}`);
+            
+            // 清除之前的事件监听器
+            videoPlayer.onloadeddata = null;
+            videoPlayer.ontimeupdate = null;
+            videoPlayer.onpause = null;
+            videoPlayer.onplay = null;
+            videoPlayer.onended = null;
+            
+            // 先暂停当前播放
+            videoPlayer.pause();
+            
+            // 重置视频源
+            videoPlayer.src = '';
+            
+            // 等待一小段时间，确保视频元素重置
+            setTimeout(() => {
+                videoPlayer.src = videoUrl;
+            }, 100);
+            
+            // 处理可能缺少drive字段的情况
+            const driveInfo = video.drive ? ` - ${video.drive}` : '';
+            videoInfo.textContent = `正在播放: ${video.name} (${formatFileSize(video.size)})${driveInfo}`;
+            
+            // 添加一个按钮来显示/隐藏调试信息
+            let debugBtn = document.getElementById('debugBtn');
+            if (!debugBtn) {
+                debugBtn = document.createElement('button');
+                debugBtn.id = 'debugBtn';
+                debugBtn.textContent = '显示调试信息';
+                debugBtn.style.cssText = 'position: fixed; top: 10px; right: 10px; z-index: 1000; padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;';
+                debugBtn.onclick = function() {
+                    const debugInfo = document.getElementById('debugInfo');
+                    if (debugInfo.style.display === 'none') {
+                        debugInfo.style.display = 'block';
+                        debugBtn.textContent = '隐藏调试信息';
+                    } else {
+                        debugInfo.style.display = 'none';
+                        debugBtn.textContent = '显示调试信息';
+                    }
+                };
+                document.body.appendChild(debugBtn);
+            }
+            
+            // 添加调试信息面板
+            let debugInfo = document.getElementById('debugInfo');
+            if (!debugInfo) {
+                debugInfo = document.createElement('div');
+                debugInfo.id = 'debugInfo';
+                debugInfo.style.cssText = 'position: fixed; top: 40px; right: 10px; z-index: 1000; width: 300px; height: 200px; background-color: rgba(0, 0, 0, 0.8); color: white; padding: 10px; border-radius: 4px; font-size: 12px; overflow-y: auto; display: none;';
+                document.body.appendChild(debugInfo);
+            }
+            
+            // 实时更新调试信息
+            function updateDebugInfo() {
+                const savedTime = localStorage.getItem(`video_time_${videoId}`);
+                debugInfo.innerHTML = `
+                    <h3>调试信息</h3>
+                    <div>视频名称: ${video.name}</div>
+                    <div>视频路径: ${video.path}</div>
+                    <div>视频ID: ${videoId}</div>
+                    <div>当前时间: ${videoPlayer.currentTime.toFixed(2)}秒</div>
+                    <div>视频时长: ${videoPlayer.duration.toFixed(2)}秒</div>
+                    <div>保存的时间: ${savedTime || '无'}</div>
+                    <div>视频状态: ${videoPlayer.paused ? '暂停' : '播放中'}</div>
+                    <h4>所有保存的播放位置:</h4>
+                    <div>${getAllSavedPositions()}</div>
+                `;
+            }
+            
+            // 获取所有保存的播放位置
+            function getAllSavedPositions() {
+                let result = '';
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key.startsWith('video_time_')) {
+                        try {
+                            const encodedPath = key.replace('video_time_', '');
+                            const path = decodeURIComponent(encodedPath);
+                            const name = path.split('\\').pop();
+                            const time = localStorage.getItem(key);
+                            result += `${name}: ${parseFloat(time).toFixed(2)}秒<br>`;
+                        } catch (e) {
+                            result += `无效记录: ${key}<br>`;
+                        }
+                    }
+                }
+                return result || '无';
+            }
+            
+            // 保存播放位置的通用函数
+            function savePlayPosition() {
+                const currentTime = videoPlayer.currentTime;
+                // 只保存大于5秒的播放位置，避免保存初始位置
+                if (currentTime > 5) {
+                    localStorage.setItem(`video_time_${videoId}`, currentTime.toString());
+                    console.log(`保存播放位置: ${currentTime.toFixed(2)}秒`);
+                    updateDebugInfo();
+                }
+            }
+            
+            // 视频加载完成后，恢复上次播放位置
+            videoPlayer.onloadeddata = function() {
+                console.log(`视频加载完成，时长: ${videoPlayer.duration}秒`);
+                
+                // 从本地存储中获取上次播放位置
+                const savedTime = localStorage.getItem(`video_time_${videoId}`);
+                console.log(`从本地存储获取的播放位置: ${savedTime}`);
+                
+                // 先暂停视频，让用户选择是否回到上次位置
+                videoPlayer.pause();
+                
+                if (savedTime) {
+                    try {
+                        const time = parseFloat(savedTime);
+                        console.log(`解析后的播放位置: ${time}秒`);
+                        
+                        // 确保时间有效
+                        if (!isNaN(time) && time > 0) {
+                            // 检查时间是否在有效范围内
+                            // 允许视频时长的1%误差，避免因视频时长计算差异导致恢复失败
+                            const maxTime = videoPlayer.duration * 1.01;
+                            
+                            if (time <= maxTime) {
+                                // 计算上次播放时间的分秒格式
+                                const minutes = Math.floor(time / 60);
+                                const seconds = Math.floor(time % 60);
+                                const savedPosition = `${minutes}分${seconds}秒`;
+                                
+                                // 在视频播放器上显示"回到上次播放位置"按钮
+                                let resumeBtn = document.getElementById('resumeBtn');
+                                if (!resumeBtn) {
+                                    resumeBtn = document.createElement('button');
+                                    resumeBtn.id = 'resumeBtn';
+                                    resumeBtn.textContent = `回到上次播放的位置: ${savedPosition}`;
+                                    resumeBtn.style.cssText = `
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        background-color: rgba(0, 0, 0, 0.8);
+                                        color: white;
+                                        padding: 15px 30px;
+                                        border: 2px solid white;
+                                        border-radius: 30px;
+                                        font-size: 18px;
+                                        font-weight: bold;
+                                        cursor: pointer;
+                                        z-index: 10;
+                                        transition: all 0.3s ease;
+                                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                                    `;
+                                    
+                                    // 添加悬停效果
+                                    resumeBtn.onmouseenter = function() {
+                                        this.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+                                        this.style.transform = 'translate(-50%, -50%) scale(1.05)';
+                                    };
+                                    
+                                    resumeBtn.onmouseleave = function() {
+                                        this.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                                        this.style.transform = 'translate(-50%, -50%) scale(1)';
+                                    };
+                                    
+                                    // 点击回到上次播放位置
+                                    resumeBtn.onclick = function() {
+                                        videoPlayer.currentTime = time;
+                                        videoPlayer.play();
+                                        resumeBtn.remove();
+                                        console.log(`手动恢复播放位置: ${time}秒`);
+                                    };
+                                    
+                                    // 添加到视频播放器的父容器中
+                                    const videoPlayerContainer = videoPlayer.parentElement;
+                                    videoPlayerContainer.style.position = 'relative';
+                                    videoPlayerContainer.appendChild(resumeBtn);
+                                    
+                                    // 30秒后自动隐藏按钮
+                                    setTimeout(() => {
+                                        if (resumeBtn.parentNode) {
+                                            resumeBtn.remove();
+                                        }
+                                    }, 30000);
+                                }
+                                
+                                // 自动播放选项：5秒后如果用户没有操作，自动恢复播放
+                                setTimeout(() => {
+                                    if (resumeBtn.parentNode && videoPlayer.paused) {
+                                        videoPlayer.currentTime = time;
+                                        videoPlayer.play();
+                                        resumeBtn.remove();
+                                        console.log(`自动恢复播放位置: ${time}秒`);
+                                    }
+                                }, 5000);
+                            } else {
+                                console.log(`恢复的时间超出视频时长范围 (${time} > ${maxTime})，忽略`);
+                                // 超出范围，直接播放
+                                videoPlayer.play();
+                            }
+                        } else {
+                            // 时间无效，直接播放
+                            videoPlayer.play();
+                        }
+                    } catch (e) {
+                        console.error(`恢复播放位置失败: ${e.message}`);
+                        // 出错时直接播放
+                        videoPlayer.play();
+                    }
+                } else {
+                    // 没有保存的播放位置，直接播放
+                    videoPlayer.play();
+                }
+                
+                // 更新调试信息
+                updateDebugInfo();
+            };
+            
+            // 实时保存播放位置（每2秒）
+            let lastSaveTime = 0;
+            videoPlayer.ontimeupdate = function() {
+                const currentTime = videoPlayer.currentTime;
+                const now = Date.now();
+                
+                // 每2秒保存一次播放位置，更频繁的保存确保位置准确
+                if (now - lastSaveTime > 2000) {
+                    savePlayPosition();
+                    lastSaveTime = now;
+                }
+            };
+            
+            // 播放时保存位置
+            videoPlayer.onplay = function() {
+                console.log(`视频开始播放，当前时间: ${videoPlayer.currentTime}秒`);
+                // 播放时也保存一次位置，确保恢复后继续播放的位置被保存
+                savePlayPosition();
+                updateDebugInfo();
+            };
+            
+            // 暂停时立即保存播放位置
+            videoPlayer.onpause = function() {
+                console.log(`暂停时保存播放位置: ${videoPlayer.currentTime.toFixed(2)}秒`);
+                savePlayPosition();
+            };
+            
+            // 视频结束时，清除播放位置记录
+            videoPlayer.onended = function() {
+                localStorage.removeItem(`video_time_${videoId}`);
+                console.log(`视频结束，清除播放位置记录`);
+                updateDebugInfo();
+            };
+            
+            // 窗口关闭或刷新时保存播放位置
+            window.addEventListener('beforeunload', savePlayPosition);
+            
+            // 视频播放到特定时间点时保存
+            videoPlayer.addEventListener('timeupdate', function() {
+                // 每播放30秒额外保存一次，确保关键时间点被保存
+                if (Math.floor(videoPlayer.currentTime) % 30 === 0 && videoPlayer.currentTime > 0) {
+                    savePlayPosition();
+                }
+            });
+            
+            // 确保在视频元数据加载完成后立即检查播放位置
+            // 这个事件会在视频元数据加载完成后触发
+            videoPlayer.onloadedmetadata = function() {
+                console.log(`视频元数据加载完成，时长: ${videoPlayer.duration}秒`);
+                
+                // 从本地存储中获取上次播放位置
+                const savedTime = localStorage.getItem(`video_time_${videoId}`);
+                if (savedTime) {
+                    console.log(`元数据加载完成时发现保存的位置: ${savedTime}`);
+                }
+            };
+            
+            // 滚动到视频播放器位置
+            videoPlayer.scrollIntoView({ 
+                behavior: 'smooth', // 平滑滚动
+                block: 'start',     // 对齐到视图顶部
+                inline: 'nearest'   // 水平方向居中
+            });
+        }
+        
+        // 格式化文件大小
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        // 搜索功能
+        function handleSearchInput(e) {
+            const searchValue = e.target.value.trim();
+            currentSearch = searchValue;
+            
+            // 同步两个搜索框的内容
+            const searchInputTop = document.getElementById('searchInputTop');
+            const searchInputVideo = document.getElementById('searchInputVideo');
+            
+            if (e.target === searchInputTop) {
+                searchInputVideo.value = searchValue;
+            } else {
+                searchInputTop.value = searchValue;
+            }
+            
+            // 根据当前显示的视图执行不同的搜索逻辑
+            const driveList = document.getElementById('driveList');
+            const directorySection = document.getElementById('directorySection');
+            const videoSection = document.getElementById('videoSection');
+            
+            if (directorySection.style.display === 'block') {
+                // 在目录结构视图中搜索
+                if (currentPath) {
+                    renderDirectoryStructure(currentPath);
+                }
+            } else if (videoSection.style.display === 'block') {
+                // 在视频列表视图中搜索
+                if (currentDrive) {
+                    renderVideosByDrive(currentDrive);
+                } else {
+                    // 在全部视频、最爱视频或文件目录视图中搜索
+                    // 重新调用相应的函数，它们会处理搜索逻辑
+                    const currentTitle = document.getElementById('currentDriveTitle').textContent;
+                    console.log('当前标题:', currentTitle);
+                    
+                    if (currentTitle.includes('全部视频') || currentTitle.includes('全部视频文件')) {
+                        console.log('调用loadVideos()');
+                        loadVideos();
+                    } else if (currentTitle.includes('最爱视频') || currentTitle.includes('最爱视频文件')) {
+                        console.log('调用loadFavoriteVideos()');
+                        loadFavoriteVideos();
+                    } else if (currentTitle.includes('文件目录')) {
+                        console.log('调用loadFileDirectory()');
+                        loadFileDirectory();
+                    } else {
+                        console.log('未知视图，调用loadVideos()');
+                        loadVideos();
+                    }
+                }
+            }
+        }
+        
+        // 绑定搜索事件到两个搜索框
+        const searchInputTop = document.getElementById('searchInputTop');
+        const searchInputVideo = document.getElementById('searchInputVideo');
+        
+        // 添加默认搜索提示
+        searchInputTop.placeholder = '输入关键词搜索视频或目录...';
+        searchInputVideo.placeholder = '输入关键词搜索视频...';
+        
+        // 绑定input事件
+        searchInputTop.addEventListener('input', handleSearchInput);
+        searchInputVideo.addEventListener('input', handleSearchInput);
+        
+        // 添加键盘事件，支持按Esc键清空搜索
+        function handleKeyDown(e) {
+            if (e.key === 'Escape') {
+                // 清空两个搜索框
+                searchInputTop.value = '';
+                searchInputVideo.value = '';
+                currentSearch = '';
+                
+                // 触发input事件，重新渲染
+                searchInputTop.dispatchEvent(new Event('input'));
+            }
+        }
+        
+        // 绑定键盘事件
+        searchInputTop.addEventListener('keydown', handleKeyDown);
+        searchInputVideo.addEventListener('keydown', handleKeyDown);
+        
+        // 添加点击页面空白处清空搜索的功能（可选）
+        document.addEventListener('click', (e) => {
+            // 如果点击的不是搜索框和搜索按钮，清空搜索
+            if (e.target !== searchInputTop && e.target !== searchInputVideo && !e.target.closest('.controls')) {
+                // 这里可以选择是否自动清空，为了更好的用户体验，我们不自动清空
+                // searchInputTop.value = '';
+                // searchInputVideo.value = '';
+                // currentSearch = '';
+                // searchInputTop.dispatchEvent(new Event('input'));
+            }
+        });
+        
+
+        
+        // 显示全部视频（对应"全部视频"按钮）
+        function loadVideos() {
+            // 如果是通过点击刷新按钮调用，保留当前搜索状态
+            // 否则清空搜索
+            if (arguments.length === 0) {
+                // 正常调用，保留当前搜索状态
+            }
+            
+            // 隐藏盘符列表，显示视频区域
+            const driveList = document.getElementById('driveList');
+            const videoSection = document.getElementById('videoSection');
+            
+            driveList.style.display = 'none';
+            videoSection.style.display = 'block';
+            
+            // 渲染所有视频
+            const videoGrid = document.getElementById('videoGrid');
+            videoGrid.innerHTML = '<div class="loading">正在加载全部视频...</div>';
+            
+            try {
+                // 使用所有视频数据
+                let allVideos = videos;
+                
+                // 按搜索关键词筛选
+                if (currentSearch) {
+                    const searchTerm = currentSearch.toLowerCase();
+                    allVideos = allVideos.filter(video => 
+                        video.name.toLowerCase().includes(searchTerm)
+                    );
+                }
+                
+                // 更新标题，显示视频数量
+                document.getElementById('currentDriveTitle').textContent = `全部视频文件 (${allVideos.length} 个)`;
+                
+                videoGrid.innerHTML = '';
+                
+                if (!Array.isArray(allVideos) || allVideos.length === 0) {
+                    videoGrid.innerHTML = '<div class="loading">未找到视频文件</div>';
+                    return;
+                }
+                
+                allVideos.forEach(video => {
+                    const videoItem = document.createElement('div');
+                    videoItem.className = 'video-item';
+                    
+                    // 格式化文件大小
+                    const size = formatFileSize(video.size);
+                    // 格式化修改时间
+                    const mtime = new Date(video.mtime).toLocaleString();
+                    
+                    videoItem.innerHTML = `
+                        <div class="video-thumbnail">
+                            <div>${video.ext.toUpperCase()} 视频</div>
+                        </div>
+                        <div class="video-details">
+                            <div class="video-name">${video.name}</div>
+                            <div class="video-meta">
+                                <div>大小: ${size}</div>
+                                <div>修改: ${mtime}</div>
+                                <div>磁盘: ${video.drive}</div>
+                            </div>
+                            <div style="margin-top: 10px; display: flex; gap: 10px;">
+                                <button class="delete-btn" data-video-path="${video.path}" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">删除视频</button>
+                                <button class="open-folder-btn" data-video-path="${video.path}" style="background-color: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">打开文件夹</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // 在设置innerHTML之后添加onclick事件
+                    videoItem.onclick = () => playVideo(video);
+                    
+                    videoGrid.appendChild(videoItem);
+                });
+                
+                // 添加删除视频事件监听
+                document.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.onclick = async function(e) {
+                        e.stopPropagation(); // 阻止冒泡，避免触发视频播放
+                        const videoPath = this.dataset.videoPath;
+                        
+                        // 查找对应的视频对象
+                        const video = allVideos.find(v => v.path === videoPath);
+                        if (video) {
+                            deleteVideo(video, loadVideos);
+                        }
+                    };
+                });
+                
+                // 添加打开文件夹事件监听
+                document.querySelectorAll('.open-folder-btn').forEach(btn => {
+                    btn.onclick = async function(e) {
+                        e.stopPropagation(); // 阻止冒泡，避免触发视频播放
+                        const videoPath = this.dataset.videoPath;
+                        
+                        // 查找对应的视频对象
+                        const video = allVideos.find(v => v.path === videoPath);
+                        if (video) {
+                            handleOpenFolderClick(video);
+                        }
+                    };
+                });
+            } catch (error) {
+                console.error('渲染全部视频失败:', error);
+                videoGrid.innerHTML = '<div class="error">渲染全部视频失败: ' + error.message + '</div>';
+            }
+        }
+        
+        // 加载最爱视频（名称包含△的视频）
+        function loadFavoriteVideos() {
+            // 隐藏盘符列表，显示视频区域
+            const driveList = document.getElementById('driveList');
+            const videoSection = document.getElementById('videoSection');
+            
+            driveList.style.display = 'none';
+            videoSection.style.display = 'block';
+            
+            // 渲染视频列表
+            const videoGrid = document.getElementById('videoGrid');
+            videoGrid.innerHTML = '<div class="loading">正在加载最爱视频...</div>';
+            
+            try {
+                // 过滤出名称包含△的视频
+                let favoriteVideos = videos.filter(video => 
+                    video.name.includes('△')
+                );
+                
+                // 按搜索关键词筛选
+                if (currentSearch) {
+                    const searchTerm = currentSearch.toLowerCase();
+                    favoriteVideos = favoriteVideos.filter(video => 
+                        video.name.toLowerCase().includes(searchTerm)
+                    );
+                }
+                
+                // 更新标题，显示视频数量
+                document.getElementById('currentDriveTitle').textContent = `最爱视频文件 (${favoriteVideos.length} 个)`;
+                
+                // 按照视频名称中△的数量倒序排列
+                favoriteVideos.sort((a, b) => {
+                    const countA = (a.name.match(/△/g) || []).length;
+                    const countB = (b.name.match(/△/g) || []).length;
+                    return countB - countA;
+                });
+                
+                videoGrid.innerHTML = '';
+                
+                if (favoriteVideos.length === 0) {
+                    videoGrid.innerHTML = '<div class="loading">未找到最爱视频文件</div>';
+                    return;
+                }
+                
+                favoriteVideos.forEach(video => {
+                    const videoItem = document.createElement('div');
+                    videoItem.className = 'video-item';
+                    
+                    // 格式化文件大小
+                    const size = formatFileSize(video.size);
+                    // 格式化修改时间
+                    const mtime = new Date(video.mtime).toLocaleString();
+                    
+                    videoItem.innerHTML = `
+                        <div class="video-thumbnail">
+                            <div>${video.ext.toUpperCase()} 视频</div>
+                        </div>
+                        <div class="video-details">
+                            <div class="video-name">${video.name}</div>
+                            <div class="video-meta">
+                                <div>大小: ${size}</div>
+                                <div>修改: ${mtime}</div>
+                                <div>磁盘: ${video.drive}</div>
+                            </div>
+                            <div style="margin-top: 10px; display: flex; gap: 10px;">
+                                <button class="delete-btn" data-video-path="${video.path}" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">删除视频</button>
+                                <button class="open-folder-btn" data-video-path="${video.path}" style="background-color: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">打开文件夹</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // 在设置innerHTML之后添加onclick事件
+                    videoItem.onclick = () => playVideo(video);
+                    
+                    videoGrid.appendChild(videoItem);
+                });
+                
+                // 添加删除视频事件监听
+                document.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.onclick = function(e) {
+                        e.stopPropagation(); // 阻止冒泡，避免触发视频播放
+                        const videoPath = this.dataset.videoPath;
+                        
+                        // 查找对应的视频对象
+                        const video = favoriteVideos.find(v => v.path === videoPath);
+                        if (video) {
+                            deleteVideo(video, loadFavoriteVideos);
+                        }
+                    };
+                });
+                
+                // 添加打开文件夹事件监听
+                document.querySelectorAll('.open-folder-btn').forEach(btn => {
+                    btn.onclick = function(e) {
+                        e.stopPropagation(); // 阻止冒泡，避免触发视频播放
+                        const videoPath = this.dataset.videoPath;
+                        
+                        // 查找对应的视频对象
+                        const video = favoriteVideos.find(v => v.path === videoPath);
+                        if (video) {
+                            handleOpenFolderClick(video);
+                        }
+                    };
+                });
+            } catch (error) {
+                console.error('加载最爱视频失败:', error);
+                videoGrid.innerHTML = '<div class="error">加载最爱视频失败: ' + error.message + '</div>';
+            }
+        }
+        
+        // 加载文件目录，按盘符分区展示视频
+        function loadFileDirectory() {
+            // 隐藏盘符列表，显示视频区域
+            const driveList = document.getElementById('driveList');
+            const directorySection = document.getElementById('directorySection');
+            const videoSection = document.getElementById('videoSection');
+            
+            driveList.style.display = 'none';
+            directorySection.style.display = 'none';
+            videoSection.style.display = 'block';
+            
+            // 渲染视频列表
+            const videoGrid = document.getElementById('videoGrid');
+            videoGrid.innerHTML = '<div class="loading">正在加载文件目录...</div>';
+            
+            try {
+                // 按盘符分组视频
+                const videosByDrive = {};
+                
+                // 初始化每个盘符的视频列表
+                drives.forEach(drive => {
+                    videosByDrive[drive] = [];
+                });
+                
+                // 遍历所有视频，按盘符分组
+                videos.forEach(video => {
+                    if (videosByDrive[video.drive]) {
+                        videosByDrive[video.drive].push(video);
+                    }
+                });
+                
+                // 应用搜索过滤
+                for (const drive in videosByDrive) {
+                    if (currentSearch) {
+                        const searchTerm = currentSearch.toLowerCase();
+                        videosByDrive[drive] = videosByDrive[drive].filter(video => 
+                            video.name.toLowerCase().includes(searchTerm)
+                        );
+                    }
+                }
+                
+                // 计算所有视频的总数
+                let totalVideos = 0;
+                for (const drive in videosByDrive) {
+                    totalVideos += videosByDrive[drive].length;
+                }
+                
+                // 更新标题，显示视频数量
+                document.getElementById('currentDriveTitle').textContent = `文件目录（按盘符分区） (共 ${totalVideos} 个视频)`;
+                
+                videoGrid.innerHTML = '';
+                
+                // 按盘符渲染视频列表
+                let hasVideos = false;
+                
+                // 遍历每个盘符
+                for (const drive in videosByDrive) {
+                    const driveVideos = videosByDrive[drive];
+                    
+                    if (driveVideos.length > 0) {
+                        hasVideos = true;
+                        
+                        // 创建盘符标题
+                        const driveHeader = document.createElement('div');
+                        driveHeader.style.cssText = `
+                            margin: 30px 0 15px 0;
+                            padding-bottom: 10px;
+                            border-bottom: 2px solid #e9ecef;
+                            font-size: 20px;
+                            font-weight: bold;
+                            color: #2c3e50;
+                        `;
+                        driveHeader.textContent = `${drive} 视频文件 (${driveVideos.length} 个)`;
+                        videoGrid.appendChild(driveHeader);
+                        
+                        // 创建视频网格
+                        const driveVideoGrid = document.createElement('div');
+                        driveVideoGrid.className = 'video-grid';
+                        
+                        // 渲染当前盘符的视频
+                        driveVideos.forEach(video => {
+                            const videoItem = document.createElement('div');
+                            videoItem.className = 'video-item';
+                            
+                            // 格式化文件大小
+                            const size = formatFileSize(video.size);
+                            // 格式化修改时间
+                            const mtime = new Date(video.mtime).toLocaleString();
+                            
+                            videoItem.innerHTML = `
+                                <div class="video-thumbnail">
+                                    <div>${video.ext.toUpperCase()} 视频</div>
+                                </div>
+                                <div class="video-details">
+                                    <div class="video-name">${video.name}</div>
+                                    <div class="video-meta">
+                                        <div>大小: ${size}</div>
+                                        <div>修改: ${mtime}</div>
+                                    </div>
+                                </div>
+                            `;
+                            
+                            // 在设置innerHTML之后添加onclick事件
+                            videoItem.onclick = () => playVideo(video);
+                            
+                            driveVideoGrid.appendChild(videoItem);
+                        });
+                        
+                        videoGrid.appendChild(driveVideoGrid);
+                    }
+                }
+                
+                if (!hasVideos) {
+                    videoGrid.innerHTML = '<div class="loading">未找到视频文件</div>';
+                    return;
+                }
+                
+            } catch (error) {
+                console.error('加载文件目录失败:', error);
+                videoGrid.innerHTML = '<div class="error">加载文件目录失败: ' + error.message + '</div>';
+            }
+ }
+
+        // 随机播放功能
+        function loadRandomVideo() {
+            // 隐藏盘符列表，显示视频区域
+            const driveList = document.getElementById('driveList');
+            const videoSection = document.getElementById('videoSection');
+            
+            driveList.style.display = 'none';
+            videoSection.style.display = 'block';
+            
+            // 更新标题
+            document.getElementById('currentDriveTitle').textContent = '随机播放视频';
+            
+            // 渲染视频列表
+            const videoGrid = document.getElementById('videoGrid');
+            videoGrid.innerHTML = '<div class="loading">正在加载随机视频...</div>';
+            
+            try {
+                // 如果有搜索关键词，先过滤视频
+                let filteredVideos = videos;
+                if (currentSearch) {
+                    const searchTerm = currentSearch.toLowerCase();
+                    filteredVideos = filteredVideos.filter(video => 
+                        video.name.toLowerCase().includes(searchTerm)
+                    );
+                }
+                
+                if (filteredVideos.length === 0) {
+                    videoGrid.innerHTML = '<div class="loading">未找到匹配的视频文件</div>';
+                    return;
+                }
+                
+                // 随机选择一个视频
+                const randomIndex = Math.floor(Math.random() * filteredVideos.length);
+                const randomVideo = filteredVideos[randomIndex];
+                
+                videoGrid.innerHTML = '';
+                
+                // 创建随机视频展示区域
+                const randomVideoContainer = document.createElement('div');
+                randomVideoContainer.style.cssText = `
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                    border-radius: 12px;
+                    margin: 20px auto;
+                    max-width: 800px;
+                `;
+                
+                // 视频标题
+                const videoTitle = document.createElement('h2');
+                videoTitle.textContent = `随机视频: ${randomVideo.name}`;
+                videoTitle.style.cssText = `
+                    margin-bottom: 20px;
+                    color: #2c3e50;
+                    text-align: center;
+                `;
+                randomVideoContainer.appendChild(videoTitle);
+                
+                // 视频信息
+                const videoInfo = document.createElement('div');
+                const size = formatFileSize(randomVideo.size);
+                const mtime = new Date(randomVideo.mtime).toLocaleString();
+                videoInfo.innerHTML = `
+                    <div style="margin-bottom: 10px; font-size: 16px;">
+                        <strong>文件大小:</strong> ${size}<br>
+                        <strong>修改时间:</strong> ${mtime}<br>
+                        <strong>所在磁盘:</strong> ${randomVideo.drive}
+                    </div>
+                `;
+                randomVideoContainer.appendChild(videoInfo);
+                
+                // 操作按钮区域
+                const actionButtons = document.createElement('div');
+                actionButtons.style.cssText = `
+                    display: flex;
+                    gap: 15px;
+                    margin: 20px 0;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                `;
+                
+                // 播放按钮
+                const playBtn = document.createElement('button');
+                playBtn.textContent = '播放视频';
+                playBtn.style.cssText = `
+                    padding: 12px 24px;
+                    font-size: 18px;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                `;
+                playBtn.onclick = () => playVideo(randomVideo);
+                actionButtons.appendChild(playBtn);
+                
+                // 收藏按钮
+                const favoriteBtn = document.createElement('button');
+                favoriteBtn.textContent = '收藏视频';
+                favoriteBtn.style.cssText = `
+                    padding: 12px 24px;
+                    font-size: 18px;
+                    background-color: #e74c3c;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                `;
+                favoriteBtn.onclick = async () => {
+                    // 保存到收藏列表
+                    try {
+                        // 检查是否已经收藏
+                        const checkResponse = await fetch(`/api/favorites/${encodeURIComponent(randomVideo.path)}`);
+                        const checkResult = await checkResponse.json();
+                        
+                        if (checkResult.isFavorited) {
+                            alert('该视频已经在收藏列表中！');
+                            return;
+                        }
+                        
+                        // 使用默认标签
+                        const tags = [];
+                        
+                        // 创建带有标签的收藏对象
+                        const favoritedVideo = {
+                            ...randomVideo,
+                            tags: tags,
+                            favoritedAt: new Date().toISOString()
+                        };
+                        
+                        // 调用API添加收藏
+                        const addResponse = await fetch('/api/favorites', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(favoritedVideo)
+                        });
+                        
+                        if (!addResponse.ok) {
+                            throw new Error('添加收藏失败');
+                        }
+                        
+                        const result = await addResponse.json();
+                        if (result.success) {
+                            favoriteBtn.textContent = '已收藏';
+                            favoriteBtn.style.backgroundColor = '#28a745';
+                            alert('视频已添加到收藏列表！');
+                        } else {
+                            alert(result.message);
+                        }
+                    } catch (error) {
+                        console.error('收藏失败:', error);
+                        alert(`收藏失败: ${error.message}`);
+                    }
+                };
+                actionButtons.appendChild(favoriteBtn);
+                
+                // 打开文件夹按钮
+                const openFolderBtn = document.createElement('button');
+                openFolderBtn.textContent = '打开文件夹';
+                openFolderBtn.style.cssText = `
+                    padding: 12px 24px;
+                    font-size: 18px;
+                    background-color: #17a2b8;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                `;
+                openFolderBtn.onclick = () => {
+                    handleOpenFolderClick(randomVideo);
+                };
+                actionButtons.appendChild(openFolderBtn);
+                
+                // 删除按钮
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = '删除视频';
+                deleteBtn.style.cssText = `
+                    padding: 12px 24px;
+                    font-size: 18px;
+                    background-color: #dc3545;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                `;
+                deleteBtn.onclick = async () => {
+                    // 直接执行删除操作，无需确认
+                    try {
+                            // 调试日志
+                            console.log('原始视频路径:', randomVideo.path);
+                            
+                            // 构建请求体
+                            const requestBody = {
+                                path: randomVideo.path
+                            };
+                            console.log('请求体:', requestBody);
+                            
+                            // 调用后端API删除文件（使用POST请求，推荐方式）
+                            const response = await fetch('/api/delete-video', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(requestBody)
+                            });
+                            
+                            console.log('响应状态:', response.status, response.statusText);
+                            
+                            // 处理不同状态码的响应
+                            let result;
+                            if (response.ok) {
+                                result = await response.json();
+                            } else {
+                                try {
+                                    result = await response.json();
+                                } catch (parseError) {
+                                    // 如果无法解析JSON，创建一个默认的错误对象
+                                    result = {
+                                        success: false,
+                                        message: `删除失败: HTTP ${response.status} - ${response.statusText}`
+                                    };
+                                }
+                            }
+                            
+                            if (result.success) {
+                                alert(result.message);
+                                // 删除成功后，更新收藏列表（如果视频在收藏列表中）
+                                // 删除视频后自动从收藏中移除
+                                try {
+                                    const deleteResponse = await fetch(`/api/favorites/${encodeURIComponent(randomVideo.path)}`, {
+                                        method: 'DELETE'
+                                    });
+                                    if (!deleteResponse.ok) {
+                                        console.error('从收藏列表中移除失败');
+                                    }
+                                } catch (error) {
+                                    console.error('删除收藏失败:', error);
+                                }
+                                // 重新加载一个随机视频
+                                loadRandomVideo();
+                            } else {
+                                // 显示更友好的错误信息
+                                alert(result.message);
+                                // 在控制台显示详细错误信息，方便调试
+                                console.error('删除视频失败详情:', result);
+                            }
+                        } catch (error) {
+                            console.error('删除视频失败:', error);
+                            // 显示网络错误信息
+                            alert(`删除失败: 网络错误 - ${error.message}`);
+                        }
+                };
+                actionButtons.appendChild(deleteBtn);
+                
+                // 换一个按钮
+                const anotherBtn = document.createElement('button');
+                anotherBtn.textContent = '换一个视频';
+                anotherBtn.style.cssText = `
+                    padding: 12px 24px;
+                    font-size: 18px;
+                    background-color: #6c757d;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                `;
+                anotherBtn.onclick = loadRandomVideo;
+                actionButtons.appendChild(anotherBtn);
+                
+                randomVideoContainer.appendChild(actionButtons);
+                
+                // 移除推荐视频，只显示单个随机视频
+                videoGrid.appendChild(randomVideoContainer);
+                
+            } catch (error) {
+                console.error('加载随机视频失败:', error);
+                videoGrid.innerHTML = '<div class="error">加载随机视频失败: ' + error.message + '</div>';
+            }
+        }
+        
+        // 视频轮换功能（每个视频只播放一次）
+        function loadRotationPage() {
+            // 隐藏盘符列表，显示视频区域
+            const driveList = document.getElementById('driveList');
+            const videoSection = document.getElementById('videoSection');
+            
+            driveList.style.display = 'none';
+            videoSection.style.display = 'block';
+            
+            // 更新标题
+            document.getElementById('currentDriveTitle').textContent = '视频轮换';
+            
+            // 渲染视频列表
+            const videoGrid = document.getElementById('videoGrid');
+            videoGrid.innerHTML = '<div class="loading">正在加载轮换视频...</div>';
+            
+            try {
+                // 如果有搜索关键词，先过滤视频
+                let filteredVideos = videos;
+                if (currentSearch) {
+                    const searchTerm = currentSearch.toLowerCase();
+                    filteredVideos = filteredVideos.filter(video => 
+                        video.name.toLowerCase().includes(searchTerm)
+                    );
+                }
+                
+                if (filteredVideos.length === 0) {
+                    videoGrid.innerHTML = '<div class="loading">未找到匹配的视频文件</div>';
+                    return;
+                }
+                
+                // 获取已播放的视频列表
+                let playedVideos = JSON.parse(localStorage.getItem('video_rotation_played') || '[]');
+                
+                // 过滤出未播放的视频
+                const unplayedVideos = filteredVideos.filter(video => 
+                    !playedVideos.includes(video.path)
+                );
+                
+                // 如果所有视频都已播放，重置轮换状态
+                if (unplayedVideos.length === 0) {
+                    if (playedVideos.length > 0) {
+                        // 显示轮换完成的提示
+                        setTimeout(() => {
+                            alert(`所有视频已轮换完成！共播放了 ${playedVideos.length} 个视频。即将重新开始轮换。`);
+                            localStorage.removeItem('video_rotation_played');
+                            playedVideos = [];
+                        }, 500);
+                    }
+                    playedVideos = [];
+                }
+                
+                // 从未播放的视频中随机选择一个
+                const rotationVideo = unplayedVideos[Math.floor(Math.random() * unplayedVideos.length)];
+                
+                // 将当前视频添加到已播放列表
+                playedVideos.push(rotationVideo.path);
+                localStorage.setItem('video_rotation_played', JSON.stringify(playedVideos));
+                
+                videoGrid.innerHTML = '';
+                
+                // 创建轮换视频展示区域
+                const rotationVideoContainer = document.createElement('div');
+                rotationVideoContainer.style.cssText = `
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 20px;
+                    background-color: #f8f9fa;
+                    border-radius: 12px;
+                    margin: 20px auto;
+                    max-width: 800px;
+                `;
+                
+                // 轮换进度信息
+                const progressInfo = document.createElement('div');
+                progressInfo.style.cssText = `
+                    background-color: #6f42c1;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 25px;
+                    margin-bottom: 20px;
+                    font-weight: bold;
+                    text-align: center;
+                `;
+                progressInfo.innerHTML = `
+                    轮换进度: ${playedVideos.length}/${filteredVideos.length} 
+                    <br>剩余视频: ${filteredVideos.length - playedVideos.length} 个
+                `;
+                rotationVideoContainer.appendChild(progressInfo);
+                
+                // 视频标题
+                const videoTitle = document.createElement('h2');
+                videoTitle.textContent = `轮换视频: ${rotationVideo.name}`;
+                videoTitle.style.cssText = `
+                    margin-bottom: 20px;
+                    color: #2c3e50;
+                    text-align: center;
+                `;
+                rotationVideoContainer.appendChild(videoTitle);
+                
+                // 视频信息
+                const videoInfo = document.createElement('div');
+                const size = formatFileSize(rotationVideo.size);
+                const mtime = new Date(rotationVideo.mtime).toLocaleString();
+                videoInfo.innerHTML = `
+                    <div style="margin-bottom: 10px; font-size: 16px;">
+                        <strong>文件大小:</strong> ${size}<br>
+                        <strong>修改时间:</strong> ${mtime}<br>
+                        <strong>所在磁盘:</strong> ${rotationVideo.drive}
+                    </div>
+                `;
+                rotationVideoContainer.appendChild(videoInfo);
+                
+                // 操作按钮区域
+                const actionButtons = document.createElement('div');
+                actionButtons.style.cssText = `
+                    display: flex;
+                    gap: 15px;
+                    margin: 20px 0;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                `;
+                
+                // 播放按钮
+                const playBtn = document.createElement('button');
+                playBtn.textContent = '播放视频';
+                playBtn.style.cssText = `
+                    padding: 12px 24px;
+                    font-size: 18px;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                `;
+                playBtn.onclick = () => playVideo(rotationVideo);
+                actionButtons.appendChild(playBtn);
+                
+                // 收藏按钮
+                const favoriteBtn = document.createElement('button');
+                favoriteBtn.textContent = '收藏视频';
+                favoriteBtn.style.cssText = `
+                    padding: 12px 24px;
+                    font-size: 18px;
+                    background-color: #e74c3c;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                `;
+                favoriteBtn.onclick = async () => {
+                    // 保存到收藏列表
+                    try {
+                        // 检查是否已经收藏
+                        const checkResponse = await fetch(`/api/favorites/${encodeURIComponent(rotationVideo.path)}`);
+                        const checkResult = await checkResponse.json();
+                        
+                        if (checkResult.isFavorited) {
+                            alert('该视频已经在收藏列表中！');
+                            return;
+                        }
+                        
+                        // 使用默认标签
+                        const tags = [];
+                        
+                        // 创建带有标签的收藏对象
+                        const favoritedVideo = {
+                            ...rotationVideo,
+                            tags: tags,
+                            favoritedAt: new Date().toISOString()
+                        };
+                        
+                        // 调用API添加收藏
+                        const addResponse = await fetch('/api/favorites', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(favoritedVideo)
+                        });
+                        
+                        if (!addResponse.ok) {
+                            throw new Error('添加收藏失败');
+                        }
+                        
+                        const result = await addResponse.json();
+                        if (result.success) {
+                            favoriteBtn.textContent = '已收藏';
+                            favoriteBtn.style.backgroundColor = '#28a745';
+                            alert('视频已添加到收藏列表！');
+                        } else {
+                            alert(result.message);
+                        }
+                    } catch (error) {
+                        console.error('收藏失败:', error);
+                        alert(`收藏失败: ${error.message}`);
+                    }
+                };
+                actionButtons.appendChild(favoriteBtn);
+                
+                // 打开文件夹按钮
+                const openFolderBtn = document.createElement('button');
+                openFolderBtn.textContent = '打开文件夹';
+                openFolderBtn.style.cssText = `
+                    padding: 12px 24px;
+                    font-size: 18px;
+                    background-color: #17a2b8;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                `;
+                openFolderBtn.onclick = () => {
+                    handleOpenFolderClick(rotationVideo);
+                };
+                actionButtons.appendChild(openFolderBtn);
+                
+                // 删除按钮
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = '删除视频';
+                deleteBtn.style.cssText = `
+                    padding: 12px 24px;
+                    font-size: 18px;
+                    background-color: #dc3545;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                `;
+                deleteBtn.onclick = async () => {
+                    // 直接执行删除操作，无需确认
+                    try {
+                        console.log('原始视频路径:', rotationVideo.path);
+                        
+                        const requestBody = {
+                            path: rotationVideo.path
+                        };
+                        console.log('请求体:', requestBody);
+                        
+                        const response = await fetch('/api/delete-video', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(requestBody)
+                        });
+                        
+                        console.log('响应状态:', response.status, response.statusText);
+                        
+                        let result;
+                        if (response.ok) {
+                            result = await response.json();
+                        } else {
+                            try {
+                                result = await response.json();
+                            } catch (parseError) {
+                                result = {
+                                    success: false,
+                                    message: `删除失败: HTTP ${response.status} - ${response.statusText}`
+                                };
+                            }
+                        }
+                        
+                        if (result.success) {
+                            alert(result.message);
+                            // 删除成功后，更新收藏列表（如果视频在收藏列表中）
+                            // 删除视频后自动从收藏中移除
+                                try {
+                                    const deleteResponse = await fetch(`/api/favorites/${encodeURIComponent(rotationVideo.path)}`, {
+                                        method: 'DELETE'
+                                    });
+                                    if (!deleteResponse.ok) {
+                                        console.error('从收藏列表中移除失败');
+                                    }
+                                } catch (error) {
+                                    console.error('删除收藏失败:', error);
+                                }
+                                
+                                // 同时从轮换已播放列表中移除
+                                let playedVideos = JSON.parse(localStorage.getItem('video_rotation_played') || '[]');
+                                playedVideos = playedVideos.filter(path => path !== rotationVideo.path);
+                                localStorage.setItem('video_rotation_played', JSON.stringify(playedVideos));
+                            
+                            // 重新加载一个轮换视频
+                            loadRotationPage();
+                        } else {
+                            alert(result.message);
+                            console.error('删除视频失败详情:', result);
+                        }
+                    } catch (error) {
+                        console.error('删除视频失败:', error);
+                        alert(`删除失败: 网络错误 - ${error.message}`);
+                    }
+                };
+                actionButtons.appendChild(deleteBtn);
+                
+                // 下一个按钮
+                const nextBtn = document.createElement('button');
+                nextBtn.textContent = '下一个视频';
+                nextBtn.style.cssText = `
+                    padding: 12px 24px;
+                    font-size: 18px;
+                    background-color: #6f42c1;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                `;
+                nextBtn.onclick = loadRotationPage;
+                actionButtons.appendChild(nextBtn);
+                
+                // 重置轮换按钮
+                const resetBtn = document.createElement('button');
+                resetBtn.textContent = '重置轮换';
+                resetBtn.style.cssText = `
+                    padding: 12px 24px;
+                    font-size: 18px;
+                    background-color: #fd7e14;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    transition: all 0.3s ease;
+                `;
+                resetBtn.onclick = () => {
+                    if (confirm('确定要重置轮换进度吗？这将清除所有已播放记录。')) {
+                        localStorage.removeItem('video_rotation_played');
+                        alert('轮换进度已重置！');
+                        loadRotationPage();
+                    }
+                };
+                actionButtons.appendChild(resetBtn);
+                
+                rotationVideoContainer.appendChild(actionButtons);
+                videoGrid.appendChild(rotationVideoContainer);
+                
+            } catch (error) {
+                console.error('加载轮换视频失败:', error);
+                videoGrid.innerHTML = '<div class="error">加载轮换视频失败: ' + error.message + '</div>';
+            }
+        }
+        
+        // 获取所有唯一标签
+        async function getAllUniqueTags() {
+            try {
+                const response = await fetch('/api/favorites');
+                if (!response.ok) {
+                    throw new Error('获取收藏列表失败');
+                }
+                const favorites = await response.json();
+                const tagsMap = new Map();
+                
+                favorites.forEach(video => {
+                    if (video.tags && Array.isArray(video.tags)) {
+                        video.tags.forEach(tag => {
+                            tagsMap.set(tag, (tagsMap.get(tag) || 0) + 1);
+                        });
+                    }
+                });
+                
+                // 转换为数组并按使用次数降序排序
+                return Array.from(tagsMap.entries())
+                    .sort((a, b) => b[1] - a[1])
+                    .map(([tag, count]) => ({ tag, count }));
+            } catch (error) {
+                console.error('获取标签失败:', error);
+                return [];
+            }
+        }
+        
+        // 收藏页面功能
+        async function loadFavoritesPage() {
+            // 隐藏盘符列表，显示视频区域
+            const driveList = document.getElementById('driveList');
+            const videoSection = document.getElementById('videoSection');
+            
+            driveList.style.display = 'none';
+            videoSection.style.display = 'block';
+            
+            // 更新标题
+            document.getElementById('currentDriveTitle').textContent = '我的收藏视频';
+            
+            // 渲染视频列表
+            const videoGrid = document.getElementById('videoGrid');
+            videoGrid.innerHTML = '<div class="loading">正在加载收藏视频...</div>';
+            
+            try {
+                // 从API获取收藏列表
+                const response = await fetch('/api/favorites');
+                if (!response.ok) {
+                    throw new Error('获取收藏列表失败');
+                }
+                const favorites = await response.json();
+                
+                // 如果有搜索关键词，先过滤视频
+                let filteredFavorites = favorites;
+                if (currentSearch) {
+                    const searchTerm = currentSearch.toLowerCase();
+                    filteredFavorites = filteredFavorites.filter(video => 
+                        video.name.toLowerCase().includes(searchTerm)
+                    );
+                }
+                
+                videoGrid.innerHTML = '';
+                
+                if (filteredFavorites.length === 0) {
+                    videoGrid.innerHTML = '<div class="loading">收藏列表为空，快去收藏一些视频吧！</div>';
+                    return;
+                }
+                
+                // 渲染标签云
+                const allTags = await getAllUniqueTags();
+                if (allTags.length > 0) {
+                    const tagsContainer = document.createElement('div');
+                    tagsContainer.style.cssText = `
+                        margin: 20px 0;
+                        padding: 15px;
+                        background-color: #f8f9fa;
+                        border-radius: 8px;
+                        border: 1px solid #e9ecef;
+                    `;
+                    
+                    const tagsTitle = document.createElement('div');
+                    tagsTitle.style.cssText = `
+                        margin-bottom: 10px;
+                        font-size: 16px;
+                        font-weight: bold;
+                        color: #2c3e50;
+                    `;
+                    tagsTitle.textContent = '标签筛选：';
+                    tagsContainer.appendChild(tagsTitle);
+                    
+                    const tagsCloud = document.createElement('div');
+                    tagsCloud.style.cssText = `
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 10px;
+                    `;
+                    
+                    // 全部标签按钮
+                    const allTagsBtn = document.createElement('button');
+                    allTagsBtn.textContent = '全部视频';
+                    allTagsBtn.style.cssText = `
+                        padding: 8px 16px;
+                        background-color: #667eea;
+                        color: white;
+                        border: none;
+                        border-radius: 20px;
+                        cursor: pointer;
+                        font-size: 14px;
+                        transition: all 0.3s ease;
+                    `;
+                    allTagsBtn.onclick = () => {
+                        // 重新加载全部收藏视频
+                        currentSearch = '';
+                        document.getElementById('searchInputTop').value = '';
+                        document.getElementById('searchInputVideo').value = '';
+                        loadFavoritesPage();
+                    };
+                    tagsCloud.appendChild(allTagsBtn);
+                    
+                    // 渲染每个标签按钮
+                    allTags.forEach(({ tag, count }) => {
+                        const tagBtn = document.createElement('button');
+                        tagBtn.textContent = `${tag} (${count})`;
+                        tagBtn.style.cssText = `
+                            padding: 8px 16px;
+                            background-color: #17a2b8;
+                            color: white;
+                            border: none;
+                            border-radius: 20px;
+                            cursor: pointer;
+                            font-size: 14px;
+                            transition: all 0.3s ease;
+                        `;
+                        
+                        // 添加悬停效果
+                        tagBtn.onmouseenter = function() {
+                            this.style.backgroundColor = '#138496';
+                            this.style.transform = 'scale(1.05)';
+                        };
+                        tagBtn.onmouseleave = function() {
+                            this.style.backgroundColor = '#17a2b8';
+                            this.style.transform = 'scale(1)';
+                        };
+                        
+                        // 点击标签筛选视频
+                        tagBtn.onclick = () => {
+                            // 使用搜索功能筛选该标签的视频
+                            currentSearch = tag;
+                            document.getElementById('searchInputTop').value = tag;
+                            document.getElementById('searchInputVideo').value = tag;
+                            loadFavoritesPage();
+                        };
+                        
+                        tagsCloud.appendChild(tagBtn);
+                    });
+                    
+                    tagsContainer.appendChild(tagsCloud);
+                    videoGrid.appendChild(tagsContainer);
+                }
+                
+                // 创建收藏视频网格
+                const favoritesGrid = document.createElement('div');
+                favoritesGrid.className = 'video-grid';
+                
+                filteredFavorites.forEach(video => {
+                    const videoItem = document.createElement('div');
+                    videoItem.className = 'video-item';
+                    
+                    // 格式化文件大小
+                    const size = formatFileSize(video.size);
+                    // 格式化修改时间
+                    const mtime = new Date(video.mtime).toLocaleString();
+                    
+                    // 渲染标签
+                    const tags = video.tags && Array.isArray(video.tags) ? video.tags : [];
+                    const tagsHtml = tags.length > 0 ? 
+                        `<div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 5px;">
+                            ${tags.map(tag => 
+                                `<span style="background-color: #e3f2fd; color: #1976d2; padding: 2px 8px; border-radius: 12px; font-size: 12px;">${tag}</span>`
+                            ).join('')}
+                        </div>` : '';
+                    
+                    videoItem.innerHTML = `
+                        <div class="video-thumbnail">
+                            <div style="position: relative;">
+                                <div>${video.ext.toUpperCase()} 视频</div>
+                                <div style="position: absolute; top: 5px; right: 5px; background-color: #e74c3c; color: white; padding: 2px 6px; border-radius: 10px; font-size: 12px;">❤️</div>
+                            </div>
+                        </div>
+                        <div class="video-details">
+                            <div class="video-name">${video.name}</div>
+                            <div class="video-meta">
+                                <div>大小: ${size}</div>
+                                <div>修改: ${mtime}</div>
+                                <div>磁盘: ${video.drive}</div>
+                            </div>
+                            ${tagsHtml}
+                            <div style="margin-top: 10px; display: flex; gap: 10px;">
+                                <button class="unfavorite-btn" data-video-path="${video.path}" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">取消收藏</button>
+                                <button class="delete-btn" data-video-path="${video.path}" style="background-color: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">删除视频</button>
+                                <button class="open-folder-btn" data-video-path="${video.path}" style="background-color: #17a2b8; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">打开文件夹</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // 在设置innerHTML之后添加onclick事件
+                    videoItem.onclick = () => playVideo(video);
+                    
+                    favoritesGrid.appendChild(videoItem);
+                });
+                
+                videoGrid.appendChild(favoritesGrid);
+                
+                // 添加取消收藏事件监听
+                document.querySelectorAll('.unfavorite-btn').forEach(btn => {
+                    btn.onclick = async function(e) {
+                        e.stopPropagation(); // 阻止冒泡，避免触发视频播放
+                        const videoPath = this.dataset.videoPath;
+                        
+                        // 从收藏列表中移除
+                        try {
+                            const response = await fetch(`/api/favorites/${encodeURIComponent(videoPath)}`, {
+                                method: 'DELETE'
+                            });
+                            if (!response.ok) {
+                                throw new Error('取消收藏失败');
+                            }
+                            // 重新加载收藏页面
+                            loadFavoritesPage();
+                        } catch (error) {
+                            console.error('取消收藏失败:', error);
+                            alert(`取消收藏失败: ${error.message}`);
+                        }
+                    };
+                });
+                
+                // 添加删除视频事件监听
+                document.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.onclick = function(e) {
+                        e.stopPropagation(); // 阻止冒泡，避免触发视频播放
+                        const videoPath = this.dataset.videoPath;
+                        
+                        // 直接使用路径创建视频对象
+                        const video = {
+                            path: videoPath
+                        };
+                        
+                        deleteVideo(video, loadFavoritesPage);
+                    };
+                });
+                
+                // 添加打开文件夹事件监听
+                document.querySelectorAll('.open-folder-btn').forEach(btn => {
+                    btn.onclick = function(e) {
+                        e.stopPropagation(); // 阻止冒泡，避免触发视频播放
+                        const videoPath = this.dataset.videoPath;
+                        
+                        // 直接使用路径创建视频对象
+                        const video = {
+                            path: videoPath
+                        };
+                        
+                        handleOpenFolderClick(video);
+                    };
+                });
+                
+            } catch (error) {
+                console.error('加载收藏视频失败:', error);
+                videoGrid.innerHTML = '<div class="error">加载收藏视频失败: ' + error.message + '</div>';
+            }
+        }
+        
+        // 显示播放历史页面
+        function loadHistoryPage() {
+            console.log('加载播放历史页面');
+            
+            // 隐藏其他区域，显示历史区域
+            const driveList = document.getElementById('driveList');
+            const directorySection = document.getElementById('directorySection');
+            const videoSection = document.getElementById('videoSection');
+            const historySection = document.getElementById('historySection');
+            
+            driveList.style.display = 'none';
+            directorySection.style.display = 'none';
+            videoSection.style.display = 'none';
+            historySection.style.display = 'block';
+            
+            // 更新标题
+            document.getElementById('historyTitle').textContent = `播放历史 (${playbackHistory.length} 条记录)`;
+            
+            // 渲染播放历史列表
+            renderPlaybackHistory();
+            
+            // 绑定搜索事件
+            const searchInputHistory = document.getElementById('searchInputHistory');
+            searchInputHistory.oninput = handleHistorySearch;
+            
+            // 清空搜索框
+            searchInputHistory.value = '';
+        }
+        
+        // 渲染播放历史列表
+        function renderPlaybackHistory(historyToRender = null) {
+            const historyGrid = document.getElementById('historyGrid');
+            historyGrid.innerHTML = '<div class="loading">正在加载播放历史...</div>';
+            
+            try {
+                // 使用传入的历史数据或当前播放历史
+                const history = historyToRender || playbackHistory;
+                
+                if (!Array.isArray(history) || history.length === 0) {
+                    historyGrid.innerHTML = '<div class="loading">暂无播放历史记录</div>';
+                    return;
+                }
+                
+                historyGrid.innerHTML = '';
+                
+                history.forEach(video => {
+                    if (!video || !video.name) {
+                        return;
+                    }
+                    
+                    const videoItem = document.createElement('div');
+                    videoItem.className = 'video-item';
+                    
+                    // 格式化文件大小
+                    const size = formatFileSize(video.size);
+                    // 格式化播放时间
+                    const watchedAt = new Date(video.watchedAt).toLocaleString();
+                    
+                    videoItem.innerHTML = `
+                        <div class="video-thumbnail">
+                            <div>${video.ext.toUpperCase()} 视频</div>
+                        </div>
+                        <div class="video-details">
+                            <div class="video-name">${video.name}</div>
+                            <div class="video-meta">
+                                <div>大小: ${size}</div>
+                                <div>最后播放: ${watchedAt}</div>
+                                <div>磁盘: ${video.drive || '未知'}</div>
+                            </div>
+                            <div style="margin-top: 10px; display: flex; gap: 10px;">
+                                <button class="delete-btn" data-video-path="${video.path}" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">删除视频</button>
+                                <button class="open-folder-btn" data-video-path="${video.path}" style="background-color: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">打开文件夹</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // 添加点击播放事件
+                    videoItem.onclick = () => playVideo(video);
+                    
+                    historyGrid.appendChild(videoItem);
+                });
+                
+                // 添加删除视频事件监听
+                document.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.onclick = function(e) {
+                        e.stopPropagation(); // 阻止冒泡，避免触发视频播放
+                        const videoPath = this.dataset.videoPath;
+                        
+                        // 查找对应的视频对象
+                        const video = history.find(v => v.path === videoPath);
+                        if (video) {
+                            deleteVideo(video, () => {
+                                // 重新渲染播放历史
+                                renderPlaybackHistory(historyToRender);
+                                // 更新标题
+                                document.getElementById('historyTitle').textContent = `播放历史 (${playbackHistory.length} 条记录)`;
+                            });
+                        }
+                    };
+                });
+                
+                // 添加打开文件夹事件监听
+                document.querySelectorAll('.open-folder-btn').forEach(btn => {
+                    btn.onclick = function(e) {
+                        e.stopPropagation(); // 阻止冒泡，避免触发视频播放
+                        const videoPath = this.dataset.videoPath;
+                        
+                        // 查找对应的视频对象
+                        const video = history.find(v => v.path === videoPath);
+                        if (video) {
+                            handleOpenFolderClick(video);
+                        }
+                    };
+                });
+            } catch (error) {
+                console.error('渲染播放历史失败:', error);
+                historyGrid.innerHTML = '<div class="error">渲染播放历史失败: ' + error.message + '</div>';
+            }
+        }
+        
+        // 处理历史搜索
+        function handleHistorySearch(e) {
+            const searchValue = e.target.value.trim().toLowerCase();
+            
+            if (!searchValue) {
+                // 搜索框为空，显示全部历史
+                renderPlaybackHistory();
+                return;
+            }
+            
+            // 根据搜索关键词过滤历史记录
+            const filteredHistory = playbackHistory.filter(video => {
+                return video.name.toLowerCase().includes(searchValue);
+            });
+            
+            // 更新标题
+            document.getElementById('historyTitle').textContent = `播放历史 (${filteredHistory.length} 条记录，搜索: "${searchValue}")`;
+            
+            // 渲染过滤后的历史
+            renderPlaybackHistory(filteredHistory);
+        }
+        
+        // 打开视频所在文件夹
+        async function openVideoFolder(videoPath) {
+            console.log('=== 开始执行打开文件夹操作 ===');
+            console.log('视频路径:', videoPath);
+            
+            try {
+                // 构建请求体
+                const requestBody = {
+                    path: videoPath
+                };
+                console.log('打开文件夹请求体:', requestBody);
+                console.log('准备调用 /api/open-folder API');
+                
+                // 调用后端API打开文件夹
+                const response = await fetch('/api/open-folder', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+                
+                console.log('打开文件夹响应状态:', response.status, response.statusText);
+                
+                // 读取响应文本
+                const responseText = await response.text();
+                console.log('打开文件夹响应文本:', responseText);
+                
+                // 处理不同状态码的响应
+                let result;
+                if (response.ok) {
+                    try {
+                        result = JSON.parse(responseText);
+                        console.log('成功解析响应JSON:', result);
+                    } catch (parseError) {
+                        console.error('解析响应JSON失败:', parseError);
+                        result = {
+                            success: false,
+                            message: `打开文件夹失败: 无法解析响应JSON - ${parseError.message}`
+                        };
+                    }
+                } else {
+                    result = {
+                        success: false,
+                        message: `打开文件夹失败: HTTP ${response.status} - ${response.statusText}`
+                    };
+                }
+                
+                if (result.success) {
+                    console.log('成功打开文件夹:', result.folderPath);
+                } else {
+                    console.error('打开文件夹失败详情:', result);
+                    // 显示错误信息，方便调试
+                    alert('打开文件夹失败: ' + result.message);
+                }
+            } catch (error) {
+                console.error('打开文件夹失败:', error);
+                // 显示错误信息，方便调试
+                alert('打开文件夹失败: ' + error.message);
+            } finally {
+                console.log('=== 打开文件夹操作结束 ===');
+            }
+        }
+        
+        // 通用删除视频函数
+        async function deleteVideo(video, callback) {
+            if (!video || !video.path) {
+                console.error('无效的视频对象:', video);
+                return;
+            }
+            
+            try {
+                // 构建请求体
+                const requestBody = {
+                    path: video.path
+                };
+                console.log('删除请求体:', requestBody);
+                
+                // 调用后端API删除文件（使用POST请求，推荐方式）
+                const response = await fetch('/api/delete-video', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+                
+                console.log('删除响应状态:', response.status, response.statusText);
+                
+                // 处理不同状态码的响应
+                let result;
+                if (response.ok) {
+                    result = await response.json();
+                } else {
+                    try {
+                        result = await response.json();
+                    } catch (parseError) {
+                        // 如果无法解析JSON，创建一个默认的错误对象
+                        result = {
+                            success: false,
+                            message: `删除失败: HTTP ${response.status} - ${response.statusText}`
+                        };
+                    }
+                }
+                
+                if (result.success) {
+                    alert(result.message);
+                    
+                    // 更新播放历史（如果视频在播放历史中）
+                    playbackHistory = playbackHistory.filter(item => item.path !== video.path);
+                    savePlaybackHistory();
+                    
+                    // 更新前端内存中的视频列表，移除已删除的视频
+                    videos = videos.filter(item => item.path !== video.path);
+                    console.log('已从前端内存中移除视频');
+                } else {
+                    // 显示更友好的错误信息
+                    alert(result.message);
+                    // 在控制台显示详细错误信息，方便调试
+                    console.error('删除视频失败详情:', result);
+                }
+                
+                // 无论删除是否成功，都从收藏列表中移除该视频
+                try {
+                    const deleteResponse = await fetch(`/api/favorites/${encodeURIComponent(video.path)}`, {
+                        method: 'DELETE'
+                    });
+                    if (deleteResponse.ok) {
+                        console.log('已从收藏列表中移除视频');
+                    }
+                } catch (error) {
+                    console.error('从收藏列表中移除视频失败:', error);
+                }
+                
+                // 调用回调函数，刷新页面
+                if (typeof callback === 'function') {
+                    callback();
+                }
+            } catch (error) {
+                console.error('删除视频失败:', error);
+                // 显示网络错误信息
+                alert(`删除失败: 网络错误 - ${error.message}`);
+            }
+        }
+        
+        // 打开文件夹按钮点击事件处理函数
+        function handleOpenFolderClick(video) {
+            if (!video || !video.path) {
+                console.error('无效的视频对象:', video);
+                return;
+            }
+            
+            console.log('打开文件夹按钮被点击，视频路径:', video.path);
+            openVideoFolder(video.path);
+        }
+        
+        // 清空播放历史
+        function clearHistory() {
+            // 直接执行清空操作，无需确认和提示
+            clearPlaybackHistory();
+            
+            // 更新历史页面
+            loadHistoryPage();
+        }
+        
+        // 显示相同文件名的视频页面
+        function loadDuplicateVideosPage() {
+            console.log('加载相同文件名的视频页面');
+            
+            // 隐藏其他区域，显示相同文件名视频区域
+            const driveList = document.getElementById('driveList');
+            const directorySection = document.getElementById('directorySection');
+            const videoSection = document.getElementById('videoSection');
+            const historySection = document.getElementById('historySection');
+            const duplicateSection = document.getElementById('duplicateSection');
+            
+            driveList.style.display = 'none';
+            directorySection.style.display = 'none';
+            videoSection.style.display = 'none';
+            historySection.style.display = 'none';
+            duplicateSection.style.display = 'block';
+            
+            // 渲染相同文件名的视频
+            renderDuplicateVideos();
+        }
+        
+        // 筛选相同文件名的视频
+        function findDuplicateVideos() {
+            console.log('开始筛选相同文件名的视频...');
+            
+            if (!Array.isArray(videos) || videos.length === 0) {
+                console.log('视频列表为空');
+                return [];
+            }
+            
+            // 按文件名分组视频
+            const videosByName = {};
+            
+            videos.forEach(video => {
+                if (!video || !video.name) {
+                    return;
+                }
+                
+                // 使用文件名作为键
+                const fileName = video.name;
+                if (!videosByName[fileName]) {
+                    videosByName[fileName] = [];
+                }
+                videosByName[fileName].push(video);
+            });
+            
+            console.log('按文件名分组完成，共', Object.keys(videosByName).length, '个不同的文件名');
+            
+            // 筛选出有重复的文件名（包含2个或更多视频）
+            const duplicateGroups = [];
+            for (const fileName in videosByName) {
+                const group = videosByName[fileName];
+                if (group.length >= 2) {
+                    duplicateGroups.push({
+                        fileName: fileName,
+                        videos: group,
+                        count: group.length
+                    });
+                }
+            }
+            
+            // 按重复数量降序排序
+            duplicateGroups.sort((a, b) => b.count - a.count);
+            
+            console.log('筛选完成，共找到', duplicateGroups.length, '组重复文件名的视频');
+            return duplicateGroups;
+        }
+        
+        // 渲染相同文件名的视频
+        function renderDuplicateVideos() {
+            const duplicateGrid = document.getElementById('duplicateGrid');
+            duplicateGrid.innerHTML = '<div class="loading">正在查找相同文件名的视频...</div>';
+            
+            try {
+                const duplicateGroups = findDuplicateVideos();
+                
+                if (!Array.isArray(duplicateGroups) || duplicateGroups.length === 0) {
+                    duplicateGrid.innerHTML = '<div class="loading">未找到相同文件名的视频</div>';
+                    return;
+                }
+                
+                duplicateGrid.innerHTML = '';
+                
+                // 更新标题，显示重复组数量
+                document.getElementById('duplicateTitle').textContent = `相同文件名的视频 (共 ${duplicateGroups.length} 组)`;
+                
+                duplicateGroups.forEach(group => {
+                    // 创建分组标题
+                    const groupHeader = document.createElement('div');
+                    groupHeader.style.cssText = `
+                        margin: 30px 0 15px 0;
+                        padding-bottom: 10px;
+                        border-bottom: 2px solid #e9ecef;
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: #2c3e50;
+                    `;
+                    groupHeader.innerHTML = `
+                        <div>📋 ${group.fileName}</div>
+                        <div style="font-size: 14px; color: #666; margin-top: 5px;">
+                            共 ${group.count} 个相同文件名的视频
+                        </div>
+                    `;
+                    duplicateGrid.appendChild(groupHeader);
+                    
+                    // 创建视频列表容器
+                    const videoContainer = document.createElement('div');
+                    videoContainer.style.cssText = `
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                        gap: 20px;
+                        margin-bottom: 20px;
+                        padding: 15px;
+                        background-color: #f8f9fa;
+                        border-radius: 8px;
+                        border: 1px solid #e9ecef;
+                    `;
+                    
+                    // 渲染组内的视频
+                    group.videos.forEach(video => {
+                        if (!video || !video.name) {
+                            return;
+                        }
+                        
+                        const videoItem = document.createElement('div');
+                        videoItem.className = 'video-item';
+                        
+                        // 格式化文件大小
+                        const size = formatFileSize(video.size);
+                        // 格式化修改时间
+                        const mtime = new Date(video.mtime).toLocaleString();
+                        
+                        videoItem.innerHTML = `
+                            <div class="video-thumbnail">
+                                <div>${video.ext.toUpperCase()} 视频</div>
+                            </div>
+                            <div class="video-details">
+                                <div class="video-name">${video.name}</div>
+                                <div class="video-meta">
+                                    <div>大小: ${size}</div>
+                                    <div>修改: ${mtime}</div>
+                                    <div>磁盘: ${video.drive}</div>
+                                    <div>路径: ${video.path}</div>
+                                </div>
+                                <div style="margin-top: 10px; display: flex; gap: 10px;">
+                                    <button class="delete-btn" data-video-path="${video.path}" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">删除视频</button>
+                                </div>
+                            </div>
+                        `;
+                        
+                        // 添加点击播放事件
+                        videoItem.onclick = () => playVideo(video);
+                        
+                        videoContainer.appendChild(videoItem);
+                    });
+                    
+                    duplicateGrid.appendChild(videoContainer);
+                });
+                
+                // 添加删除视频事件监听
+                document.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.onclick = function(e) {
+                        e.stopPropagation(); // 阻止冒泡，避免触发视频播放
+                        const videoPath = this.dataset.videoPath;
+                        
+                        // 重新渲染相同文件名页面
+                        const handleDeleteCallback = () => {
+                            renderDuplicateVideos();
+                        };
+                        
+                        // 查找对应的视频对象
+                        let targetVideo = null;
+                        for (const group of duplicateGroups) {
+                            targetVideo = group.videos.find(v => v.path === videoPath);
+                            if (targetVideo) break;
+                        }
+                        
+                        if (targetVideo) {
+                            deleteVideo(targetVideo, handleDeleteCallback);
+                        }
+                    };
+                });
+                
+            } catch (error) {
+                console.error('渲染相同文件名视频失败:', error);
+                duplicateGrid.innerHTML = '<div class="error">查找相同文件名视频失败: ' + error.message + '</div>';
+            }
+        }
+    </script>
+</body>
+</html>
