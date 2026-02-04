@@ -42,7 +42,8 @@
 
         .search-bar {
             flex: 1;
-            max-width: 400px;
+            max-width: none;
+            width: calc(100% - 240px);
             padding: 10px;
             font-size: 16px;
             border: 1px solid #ddd;
@@ -479,6 +480,18 @@
             driveList.style.display = 'grid'; // 使用grid布局，确保正确显示
             directorySection.style.display = 'none';
             videoSection.style.display = 'none';
+
+            // 恢复原有的视频播放器显示
+            const originalVideoSection = document.querySelector('.video-player');
+            if (originalVideoSection) {
+                originalVideoSection.style.display = 'block';
+            }
+
+            // 恢复videoGrid的原始样式
+            const videoGrid = document.getElementById('videoGrid');
+            if (videoGrid) {
+                videoGrid.style.display = '';
+            }
             
             // 清空目录历史
             directoryHistory = [];
@@ -690,21 +703,41 @@
         
         // 播放视频
         function playVideo(video) {
+            console.log('===== playVideo 函数开始 =====');
+            console.log('视频对象:', video);
+
             const videoPlayer = document.getElementById('videoPlayer');
             const videoInfo = document.getElementById('videoInfo');
-            
+
+            console.log('videoPlayer 元素:', videoPlayer);
+            console.log('videoInfo 元素:', videoInfo);
+
+            if (!videoPlayer) {
+                console.error('❌ 找不到 videoPlayer 元素!');
+                alert('找不到视频播放器');
+                return;
+            }
+
+            if (!videoInfo) {
+                console.error('❌ 找不到 videoInfo 元素!');
+                alert('找不到视频信息显示区域');
+                return;
+            }
+
             // 记录播放历史
             addToPlaybackHistory(video);
             
             // 编码视频路径
             const encodedPath = encodeURIComponent(video.path);
             const videoUrl = `/api/video/${encodedPath}`;
-            
+
             // 生成唯一的视频ID，使用视频的完整路径作为标识，确保唯一性
             // 使用encodeURIComponent处理路径，支持中文等特殊字符
             const videoId = encodeURIComponent(video.path);
-            
+
             console.log(`开始播放视频: ${video.name}`);
+            console.log(`视频路径: ${video.path}`);
+            console.log(`视频URL: ${videoUrl}`);
             console.log(`视频唯一标识: ${videoId}`);
             
             // 清除之前的事件监听器
@@ -719,10 +752,32 @@
             
             // 重置视频源
             videoPlayer.src = '';
-            
+
             // 等待一小段时间，确保视频元素重置
             setTimeout(() => {
+                console.log('正在设置视频源:', videoUrl);
                 videoPlayer.src = videoUrl;
+                console.log('视频源已设置，当前src:', videoPlayer.src);
+
+                // 显示加载信息
+                videoInfo.textContent = `正在加载: ${video.name}...`;
+
+                // 监听视频加载事件
+                videoPlayer.onloadstart = function() {
+                    console.log('✅ 视频开始加载');
+                };
+
+                videoPlayer.oncanplay = function() {
+                    console.log('✅ 视频可以播放了');
+                    videoInfo.textContent = `准备播放: ${video.name}`;
+                };
+
+                videoPlayer.onerror = function(e) {
+                    console.error('❌ 视频加载错误:', e);
+                    console.error('错误详情:', videoPlayer.error);
+                    videoInfo.textContent = `加载失败: ${video.name}`;
+                    alert(`视频加载失败: ${videoPlayer.error ? videoPlayer.error.message : '未知错误'}`);
+                };
             }, 100);
             
             // 处理可能缺少drive字段的情况
@@ -915,7 +970,11 @@
                     }
                 } else {
                     // 没有保存的播放位置，直接播放
-                    videoPlayer.play();
+                    console.log('没有保存的播放位置，开始自动播放');
+                    videoPlayer.play().catch(e => {
+                        console.error('自动播放失败:', e);
+                        videoInfo.textContent += ' (点击播放器开始播放)';
+                    });
                 }
                 
                 // 更新调试信息
@@ -1467,18 +1526,75 @@
                 const randomVideo = filteredVideos[randomIndex];
                 
                 videoGrid.innerHTML = '';
-                
-                // 创建随机视频展示区域
+
+                // 移除原有的videoPlayer元素，避免ID冲突
+                const oldVideoPlayer = document.getElementById('videoPlayer');
+                if (oldVideoPlayer) {
+                    oldVideoPlayer.remove();
+                }
+
+                // 移除原有的videoInfo元素
+                const oldVideoInfo = document.getElementById('videoInfo');
+                if (oldVideoInfo) {
+                    oldVideoInfo.remove();
+                }
+
+                // 隐藏原有的视频播放器容器
+                const originalVideoSection = document.querySelector('.video-player');
+                if (originalVideoSection) {
+                    originalVideoSection.style.display = 'none';
+                }
+
+                // 临时修改videoGrid的样式，从grid改为block以支持flex布局
+                videoGrid.style.display = 'block';
+                videoGrid.style.position = 'relative';
+
+                // 创建视频播放器容器（独立，占据全部空间）
+                const playerContainer = document.createElement('div');
+                playerContainer.className = 'video-player';
+                playerContainer.style.cssText = `
+                    width: 100%;
+                `;
+
+                // 创建新的video元素
+                const videoElement = document.createElement('video');
+                videoElement.id = 'videoPlayer';
+                videoElement.controls = true;
+                videoElement.style.cssText = `
+                    width: 100%;
+                    height: auto;
+                    background: #000;
+                `;
+                playerContainer.appendChild(videoElement);
+
+                // 创建videoInfo元素，用于显示播放信息
+                const videoInfoElement = document.createElement('div');
+                videoInfoElement.id = 'videoInfo';
+                videoInfoElement.style.cssText = `
+                    margin-top: 10px;
+                    padding: 10px;
+                    background-color: #f0f0f0;
+                    border-radius: 4px;
+                    font-size: 14px;
+                `;
+                videoInfoElement.textContent = '准备播放...';
+                playerContainer.appendChild(videoInfoElement);
+
+                // 右侧：随机视频展示区域（固定在最右侧）
                 const randomVideoContainer = document.createElement('div');
                 randomVideoContainer.style.cssText = `
+                    position: fixed;
+                    right: 10px;
+                    top: 100px;
+                    width: 200px;
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-                    padding: 20px;
+                    padding: 15px;
                     background-color: #f8f9fa;
                     border-radius: 12px;
-                    margin: 20px auto;
-                    max-width: 800px;
+                    max-height: calc(100vh - 120px);
+                    overflow-y: auto;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
                 `;
                 
                 // 视频标题
@@ -1713,12 +1829,15 @@
                 `;
                 anotherBtn.onclick = loadRandomVideo;
                 actionButtons.appendChild(anotherBtn);
-                
+
                 randomVideoContainer.appendChild(actionButtons);
-                
-                // 移除推荐视频，只显示单个随机视频
-                videoGrid.appendChild(randomVideoContainer);
-                
+
+                // 将播放器容器添加到videoGrid
+                videoGrid.appendChild(playerContainer);
+
+                // 将信息面板固定在页面右侧（添加到body而不是videoGrid）
+                document.body.appendChild(randomVideoContainer);
+
             } catch (error) {
                 console.error('加载随机视频失败:', error);
                 videoGrid.innerHTML = '<div class="error">加载随机视频失败: ' + error.message + '</div>';
@@ -1785,18 +1904,75 @@
                 localStorage.setItem('video_rotation_played', JSON.stringify(playedVideos));
                 
                 videoGrid.innerHTML = '';
-                
-                // 创建轮换视频展示区域
+
+                // 移除原有的videoPlayer元素，避免ID冲突
+                const oldVideoPlayer = document.getElementById('videoPlayer');
+                if (oldVideoPlayer) {
+                    oldVideoPlayer.remove();
+                }
+
+                // 移除原有的videoInfo元素
+                const oldVideoInfo = document.getElementById('videoInfo');
+                if (oldVideoInfo) {
+                    oldVideoInfo.remove();
+                }
+
+                // 隐藏原有的视频播放器容器
+                const originalVideoSection = document.querySelector('.video-player');
+                if (originalVideoSection) {
+                    originalVideoSection.style.display = 'none';
+                }
+
+                // 临时修改videoGrid的样式，从grid改为block以支持flex布局
+                videoGrid.style.display = 'block';
+                videoGrid.style.position = 'relative';
+
+                // 创建视频播放器容器（独立，占据全部空间）
+                const playerContainer = document.createElement('div');
+                playerContainer.className = 'video-player';
+                playerContainer.style.cssText = `
+                    width: 100%;
+                `;
+
+                // 创建新的video元素
+                const videoElement = document.createElement('video');
+                videoElement.id = 'videoPlayer';
+                videoElement.controls = true;
+                videoElement.style.cssText = `
+                    width: 100%;
+                    height: auto;
+                    background: #000;
+                `;
+                playerContainer.appendChild(videoElement);
+
+                // 创建videoInfo元素，用于显示播放信息
+                const videoInfoElement = document.createElement('div');
+                videoInfoElement.id = 'videoInfo';
+                videoInfoElement.style.cssText = `
+                    margin-top: 10px;
+                    padding: 10px;
+                    background-color: #f0f0f0;
+                    border-radius: 4px;
+                    font-size: 14px;
+                `;
+                videoInfoElement.textContent = '准备播放...';
+                playerContainer.appendChild(videoInfoElement);
+
+                // 右侧：轮换视频展示区域（固定在最右侧）
                 const rotationVideoContainer = document.createElement('div');
                 rotationVideoContainer.style.cssText = `
+                    position: fixed;
+                    right: 10px;
+                    top: 100px;
+                    width: 200px;
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-                    padding: 20px;
+                    padding: 15px;
                     background-color: #f8f9fa;
                     border-radius: 12px;
-                    margin: 20px auto;
-                    max-width: 800px;
+                    max-height: calc(100vh - 120px);
+                    overflow-y: auto;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
                 `;
                 
                 // 轮换进度信息
@@ -2069,10 +2245,15 @@
                     }
                 };
                 actionButtons.appendChild(resetBtn);
-                
+
                 rotationVideoContainer.appendChild(actionButtons);
-                videoGrid.appendChild(rotationVideoContainer);
-                
+
+                // 将播放器容器添加到videoGrid
+                videoGrid.appendChild(playerContainer);
+
+                // 将信息面板固定在页面右侧（添加到body而不是videoGrid）
+                document.body.appendChild(rotationVideoContainer);
+
             } catch (error) {
                 console.error('加载轮换视频失败:', error);
                 videoGrid.innerHTML = '<div class="error">加载轮换视频失败: ' + error.message + '</div>';
